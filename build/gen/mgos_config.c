@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/build/gen/ /data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/build/gen/mos_conf_schema.yml
+ * Command: /data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/build/gen/ /data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -10,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[234] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 233},
+const struct mgos_conf_entry mgos_config_schema_[236] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 235},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "mbedtls_level", .offset = offsetof(struct mgos_config, debug.mbedtls_level)},
@@ -245,6 +245,8 @@ const struct mgos_conf_entry mgos_config_schema_[234] = {
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.neopixel.state)},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.neopixel.pin)},
   {.type = CONF_TYPE_INT, .key = "pixels", .offset = offsetof(struct mgos_config, board.neopixel.pixels)},
+  {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
+  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -458,6 +460,7 @@ const struct mgos_config mgos_config_defaults = {
   .board.neopixel.state = 1,
   .board.neopixel.pin = 13,
   .board.neopixel.pixels = 3,
+  .Update.timeout = 60000,
 };
 
 /* debug */
@@ -2701,6 +2704,23 @@ int mgos_config_get_board_neopixel_pixels(struct mgos_config *cfg) {
 }
 void mgos_config_set_board_neopixel_pixels(struct mgos_config *cfg, int v) {
   cfg->board.neopixel.pixels = v;
+}
+
+/* Update */
+#define MGOS_CONFIG_HAVE_UPDATE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE
+const struct mgos_config_Update * mgos_config_get_Update(struct mgos_config *cfg) {
+  return &cfg->Update;
+}
+
+/* Update.timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
+int mgos_config_get_Update_timeout(struct mgos_config *cfg) {
+  return cfg->Update.timeout;
+}
+void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v) {
+  cfg->Update.timeout = v;
 }
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value) {
   return mgos_config_get(key, value, &mgos_sys_config, mgos_config_schema());

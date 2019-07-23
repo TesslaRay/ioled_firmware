@@ -24,7 +24,6 @@ let connectMqtt = function() {
 let commandsMqtt = function() {
   print('Connecting to Mqtt topic: ', commandsTopic);
   MQTT.sub(commandsTopic, function(conn, topic, msg) {
-    print('Topic:', topic, 'message:', msg);
     let eventObj = JSON.parse(msg);
     print(JSON.stringify(eventObj));
 
@@ -37,7 +36,7 @@ let commandsMqtt = function() {
       print('Actualizando ...');
       Timer.del(timerId);
       setAllPixels(red);
-      RPC.call(RPC.LOCAL, 'OTA.Update', '{url: https://drive.google.com/file/d/18SZyCPBZp4r-WLHKSfI-ORh14BpLnm4k/view?usp=sharing}', function(resp, ud) {
+      RPC.call(RPC.LOCAL, 'OTA.update', '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}', function(resp, ud) {
       }, null);
       /* esto funciona
       RPC.call(RPC.LOCAL, 'Sys.reboot', '1', function(resp, ud) {

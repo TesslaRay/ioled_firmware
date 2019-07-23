@@ -704,3 +704,10 @@
   - s
   - ""
   - title: Access Point Password
+- - Update
+  - o
+  - title: Firmware updater
+- - Update.timeout
+  - i
+  - 60000
+  - title: Update will be aborted if it does not finish within this time

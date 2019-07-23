@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/build/gen/ /data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.14.0/apps/ioled-esp8266-firmware/esp8266/build_contexts/build_ctx_330617925/build/gen/mos_conf_schema.yml
+ * Command: /data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/build/gen/ /data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.14.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_272112506/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -262,6 +262,10 @@ struct mgos_config_board {
   struct mgos_config_board_neopixel neopixel;
 };
 
+struct mgos_config_Update {
+  int timeout;
+};
+
 struct mgos_config {
   struct mgos_config_debug debug;
   struct mgos_config_i2c i2c;
@@ -278,6 +282,7 @@ struct mgos_config {
   struct mgos_config_update update;
   struct mgos_config_wifi wifi;
   struct mgos_config_board board;
+  struct mgos_config_Update Update;
 };
 
 
@@ -2091,6 +2096,20 @@ int mgos_config_get_board_neopixel_pixels(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_board_neopixel_pixels(void) { return mgos_config_get_board_neopixel_pixels(&mgos_sys_config); }
 void mgos_config_set_board_neopixel_pixels(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_neopixel_pixels(int v) { mgos_config_set_board_neopixel_pixels(&mgos_sys_config, v); }
+
+/* Update */
+#define MGOS_CONFIG_HAVE_UPDATE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE
+const struct mgos_config_Update * mgos_config_get_Update(struct mgos_config *cfg);
+static inline const struct mgos_config_Update * mgos_sys_config_get_Update(void) { return mgos_config_get_Update(&mgos_sys_config); }
+
+/* Update.timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
+int mgos_config_get_Update_timeout(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_Update_timeout(void) { return mgos_config_get_Update_timeout(&mgos_sys_config); }
+void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_Update_timeout(int v) { mgos_config_set_Update_timeout(&mgos_sys_config, v); }
 
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value);
 bool mgos_sys_config_set(const struct mg_str key, const struct mg_str value, bool free_strings);

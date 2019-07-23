@@ -45,6 +45,10 @@ config_schema:
   - ["wifi.ap.enable", "b", true, {title: "Disable Access Point"}]
   - ["wifi.ap.ssid", "s", "esp8266.config", {title: "Access Point Name"}]
   - ["wifi.ap.pass", "s", "", {title: "Access Point Password"}]
+  # OTA URL
+  - ["Update", "o", {title: "Firmware updater"}]
+  - ["Update.timeout", "i", 60000, {title : "Update will be aborted if it does not finish within this time"}]
+
 
 tags:
   - js
@@ -59,6 +63,7 @@ libs:
   - origin: https://github.com/mongoose-os-libs/mjs
   - origin: https://github.com/mongoose-os-libs/pwm
   - origin: https://github.com/mongoose-os-libs/rpc-uart
+  - origin: https://github.com/mongoose-os-libs/rpc-common
   - origin: https://github.com/mongoose-os-libs/rpc-service-config
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-loopback

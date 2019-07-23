@@ -231,5 +231,7 @@
   ["board.neopixel", "o", {}],
   ["board.neopixel.state", "b", {"title": "Led current state"}],
   ["board.neopixel.pin", "i", {"title": "Neopixel pin"}],
-  ["board.neopixel.pixels", "i", {"title": "Neopixel number of pixels"}]
+  ["board.neopixel.pixels", "i", {"title": "Neopixel number of pixels"}],
+  ["Update", "o", {"title": "Firmware updater"}],
+  ["Update.timeout", "i", {"title": "Update will be aborted if it does not finish within this time"}]
 ]
