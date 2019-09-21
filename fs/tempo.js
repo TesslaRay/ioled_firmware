@@ -1,3 +1,4 @@
+// funcionará las pruebas que estoy realizando.
 // Cron de Encendido
 let tempo_on = JSON.stringify(timer.cron_on.hour);
 let tempo_on_cron = '*/' + tempo_on + ' * * * * *';
