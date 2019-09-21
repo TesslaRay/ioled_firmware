@@ -11,18 +11,19 @@ load('api_rpc.js');
 load('board.js');
 load('sensors.js');
 load('neopixel.js');
+load('tempo.js');
 load('mqtt.js');
-
 
 // Initialize all led stored config.
 initBoard();
+initTimer();
 
 // Neopixel Network search.
 netSearch();
 
 // Connect to the mqtt topic.
 connectMqtt();
-commandsMqtt();
+//commandsMqtt();
 
 // Public temp and hum
 //publishState();

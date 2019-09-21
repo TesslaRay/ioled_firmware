@@ -16,9 +16,11 @@ extern bool mgos_vfs_fs_spiffs_init(void);
 extern bool mgos_core_init(void);
 extern bool mgos_i2c_init(void);
 extern bool mgos_atca_init(void);
+extern bool mgos_location_init(void);
+extern bool mgos_sntp_init(void);
+extern bool mgos_cron_init(void);
 extern bool mgos_dht_init(void);
 extern bool mgos_mqtt_init(void);
-extern bool mgos_sntp_init(void);
 extern bool mgos_gcp_init(void);
 extern bool mgos_wifi_init(void);
 extern bool mgos_http_server_init(void);
@@ -63,14 +65,20 @@ static const struct lib_descr {
     // "atca". deps: [ "i2c" ]
     {.title = "atca", .init = mgos_atca_init},
 
+    // "location". deps: [ "core" ]
+    {.title = "location", .init = mgos_location_init},
+
+    // "sntp". deps: [ "core" ]
+    {.title = "sntp", .init = mgos_sntp_init},
+
+    // "cron". deps: [ "core" "location" "sntp" ]
+    {.title = "cron", .init = mgos_cron_init},
+
     // "dht". deps: [ "core" ]
     {.title = "dht", .init = mgos_dht_init},
 
     // "mqtt". deps: [ "core" ]
     {.title = "mqtt", .init = mgos_mqtt_init},
-
-    // "sntp". deps: [ "core" ]
-    {.title = "sntp", .init = mgos_sntp_init},
 
     // "gcp". deps: [ "ca-bundle" "core" "mqtt" "sntp" ]
     {.title = "gcp", .init = mgos_gcp_init},

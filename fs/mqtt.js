@@ -17,6 +17,8 @@ let connectMqtt = function() {
   MQTT.sub(configTopic, function(conn, topic, msg) {
     print('Topic:', topic, 'message:', msg);
     getConfigFromCloud(msg);
+    print(timer.cron_on.hour);
+    print(timer.cron_off.hour);
     applyBoardConfig();
   });
 };
@@ -38,11 +40,7 @@ let commandsMqtt = function() {
       setAllPixels(red);
       RPC.call(RPC.LOCAL, 'OTA.update', '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}', function(resp, ud) {
       }, null);
-      /* esto funciona
-      RPC.call(RPC.LOCAL, 'Sys.reboot', '1', function(resp, ud) {
-      }, null);
-      */
-      //OTA.Update '{"url": "/Users/cristian/Documents/Development/iOLED_firmware/ioled-esp8266-firmware/build/fw.zip"}'
+     
     }
     
   });

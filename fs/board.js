@@ -45,6 +45,16 @@ let board = {
   },
 };
 
+//  Timer 
+let timer = {
+  cron_on: {
+    hour: Cfg.get('timer.cron_on.hour'),
+  },
+  cron_off: {
+    hour: Cfg.get('timer.cron_off.hour'),
+  },
+};
+
 /** Initialize board.
  * @description Update all led values on board start and set GPIO modes.
  */
@@ -56,6 +66,15 @@ let initBoard = function() {
   GPIO.set_mode(board.led4.pin, GPIO.MODE_OUTPUT);
   GPIO.set_mode(board.led5.pin, GPIO.MODE_OUTPUT);
   applyBoardConfig();
+};
+
+/** Initialize timer.
+ * @description Update all TIMER values on board start.
+ */
+let initTimer = function() {
+  print('Initializing timer ...');
+  print(timer.cron_on.hour);
+  print(timer.cron_off.hour);
 };
 
 /**
@@ -90,7 +109,6 @@ let switchLed = function(ledName, turn) {
  */
 let getConfigFromCloud = function(msg) {
   let brdObj = typeof msg === 'string' ? JSON.parse(msg) : msg;
-  print(brdObj);
   Cfg.set(brdObj);
 };
 

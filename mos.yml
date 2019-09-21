@@ -48,7 +48,10 @@ config_schema:
   # OTA URL
   - ["Update", "o", {title: "Firmware updater"}]
   - ["Update.timeout", "i", 60000, {title : "Update will be aborted if it does not finish within this time"}]
-
+  
+  # Timer
+  - ["timer.cron_on.hour", "i", 1, {title: "Turn on time"}]
+  - ["timer.cron_off.hour", "i", 1, {title: "Turn off time"}]
 
 tags:
   - js
@@ -78,5 +81,7 @@ libs:
   - origin: https://github.com/mongoose-os-libs/neopixel
   # DHT Humidity and temp sensors.
   - origin: https://github.com/mongoose-os-libs/dht
+  # CRON
+  - origin: https://github.com/mongoose-os-libs/cron
 
 sources:
