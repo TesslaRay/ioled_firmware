@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/build/gen/mos_conf_schema.yml
+ * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -10,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[244] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 243},
+const struct mgos_conf_entry mgos_config_schema_[242] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 241},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "mbedtls_level", .offset = offsetof(struct mgos_config, debug.mbedtls_level)},
@@ -203,7 +203,7 @@ const struct mgos_conf_entry mgos_config_schema_[244] = {
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta2.dhcp_hostname)},
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
-  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 44},
+  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 47},
   {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led1.active_high)},
@@ -248,13 +248,11 @@ const struct mgos_conf_entry mgos_config_schema_[244] = {
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.neopixel.state)},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.neopixel.pin)},
   {.type = CONF_TYPE_INT, .key = "pixels", .offset = offsetof(struct mgos_config, board.neopixel.pixels)},
+  {.type = CONF_TYPE_OBJECT, .key = "timer", .offset = offsetof(struct mgos_config, board.timer), .num_desc = 2},
+  {.type = CONF_TYPE_INT, .key = "cron_on", .offset = offsetof(struct mgos_config, board.timer.cron_on)},
+  {.type = CONF_TYPE_INT, .key = "cron_off", .offset = offsetof(struct mgos_config, board.timer.cron_off)},
   {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
   {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
-  {.type = CONF_TYPE_OBJECT, .key = "timer", .offset = offsetof(struct mgos_config, timer), .num_desc = 4},
-  {.type = CONF_TYPE_OBJECT, .key = "cron_on", .offset = offsetof(struct mgos_config, timer.cron_on), .num_desc = 1},
-  {.type = CONF_TYPE_INT, .key = "hour", .offset = offsetof(struct mgos_config, timer.cron_on.hour)},
-  {.type = CONF_TYPE_OBJECT, .key = "cron_off", .offset = offsetof(struct mgos_config, timer.cron_off), .num_desc = 1},
-  {.type = CONF_TYPE_INT, .key = "hour", .offset = offsetof(struct mgos_config, timer.cron_off.hour)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -470,9 +468,9 @@ const struct mgos_config mgos_config_defaults = {
   .board.neopixel.state = 1,
   .board.neopixel.pin = 13,
   .board.neopixel.pixels = 3,
+  .board.timer.cron_on = 1,
+  .board.timer.cron_off = 1,
   .Update.timeout = 60000,
-  .timer.cron_on.hour = 1,
-  .timer.cron_off.hour = 1,
 };
 
 /* debug */
@@ -2745,6 +2743,33 @@ void mgos_config_set_board_neopixel_pixels(struct mgos_config *cfg, int v) {
   cfg->board.neopixel.pixels = v;
 }
 
+/* board.timer */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER
+const struct mgos_config_board_timer * mgos_config_get_board_timer(struct mgos_config *cfg) {
+  return &cfg->board.timer;
+}
+
+/* board.timer.cron_on */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_CRON_ON
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_CRON_ON
+int mgos_config_get_board_timer_cron_on(struct mgos_config *cfg) {
+  return cfg->board.timer.cron_on;
+}
+void mgos_config_set_board_timer_cron_on(struct mgos_config *cfg, int v) {
+  cfg->board.timer.cron_on = v;
+}
+
+/* board.timer.cron_off */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_CRON_OFF
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_CRON_OFF
+int mgos_config_get_board_timer_cron_off(struct mgos_config *cfg) {
+  return cfg->board.timer.cron_off;
+}
+void mgos_config_set_board_timer_cron_off(struct mgos_config *cfg, int v) {
+  cfg->board.timer.cron_off = v;
+}
+
 /* Update */
 #define MGOS_CONFIG_HAVE_UPDATE
 #define MGOS_SYS_CONFIG_HAVE_UPDATE
@@ -2760,47 +2785,6 @@ int mgos_config_get_Update_timeout(struct mgos_config *cfg) {
 }
 void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v) {
   cfg->Update.timeout = v;
-}
-
-/* timer */
-#define MGOS_CONFIG_HAVE_TIMER
-#define MGOS_SYS_CONFIG_HAVE_TIMER
-const struct mgos_config_timer * mgos_config_get_timer(struct mgos_config *cfg) {
-  return &cfg->timer;
-}
-
-/* timer.cron_on */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_ON
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_ON
-const struct mgos_config_timer_cron_on * mgos_config_get_timer_cron_on(struct mgos_config *cfg) {
-  return &cfg->timer.cron_on;
-}
-
-/* timer.cron_on.hour */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_ON_HOUR
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_ON_HOUR
-int mgos_config_get_timer_cron_on_hour(struct mgos_config *cfg) {
-  return cfg->timer.cron_on.hour;
-}
-void mgos_config_set_timer_cron_on_hour(struct mgos_config *cfg, int v) {
-  cfg->timer.cron_on.hour = v;
-}
-
-/* timer.cron_off */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_OFF
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_OFF
-const struct mgos_config_timer_cron_off * mgos_config_get_timer_cron_off(struct mgos_config *cfg) {
-  return &cfg->timer.cron_off;
-}
-
-/* timer.cron_off.hour */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_OFF_HOUR
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_OFF_HOUR
-int mgos_config_get_timer_cron_off_hour(struct mgos_config *cfg) {
-  return cfg->timer.cron_off.hour;
-}
-void mgos_config_set_timer_cron_off_hour(struct mgos_config *cfg, int v) {
-  cfg->timer.cron_off.hour = v;
 }
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value) {
   return mgos_config_get(key, value, &mgos_sys_config, mgos_config_schema());

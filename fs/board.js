@@ -43,15 +43,9 @@ let board = {
     pin: Cfg.get('board.led5.pin'),
     state: Cfg.get('board.led5.state'),
   },
-};
-
-//  Timer 
-let timer = {
-  cron_on: {
-    hour: Cfg.get('timer.cron_on.hour'),
-  },
-  cron_off: {
-    hour: Cfg.get('timer.cron_off.hour'),
+  timer: {
+    cron_on: Cfg.get('board.timer.cron_on'),
+    cron_off: Cfg.get('board.timer.cron_off'),
   },
 };
 
@@ -73,8 +67,8 @@ let initBoard = function() {
  */
 let initTimer = function() {
   print('Initializing timer ...');
-  print(timer.cron_on.hour);
-  print(timer.cron_off.hour);
+  print(board.timer.cron_on);
+  print(board.timer.cron_off);
 };
 
 /**

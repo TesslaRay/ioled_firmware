@@ -1,5 +1,5 @@
 // Cron de Encendido
-let tempo_on = JSON.stringify(timer.cron_on.hour);
+let tempo_on = JSON.stringify(board.timer.cron_on);
 let tempo_on_cron = '*/' + tempo_on + ' * * * * *';
 
 function cronCallback_on(arg, cron_id){

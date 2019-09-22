@@ -722,11 +722,11 @@
   - i
   - 60000
   - title: Update will be aborted if it does not finish within this time
-- - timer.cron_on.hour
+- - board.timer.cron_on
   - i
   - 1
   - title: Turn on time
-- - timer.cron_off.hour
+- - board.timer.cron_off
   - i
   - 1
   - title: Turn off time
