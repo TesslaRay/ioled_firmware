@@ -67,8 +67,6 @@ let initBoard = function() {
  */
 let initTimer = function() {
   print('Initializing timer ...');
-  print(board.timer.cron_on);
-  print(board.timer.cron_off);
 };
 
 /**

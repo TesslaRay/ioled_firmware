@@ -18,9 +18,8 @@ let connectMqtt = function() {
     print('Topic:', topic, 'message:', msg);
     getConfigFromCloud(msg);
     print(board.timer.cron_on);
-    print(board.timer.cron_off);
-    print(board.led1.duty);
     applyBoardConfig();
+    //applyTimerConfig();
   });
 };
 

@@ -16,9 +16,9 @@ let cronId_on  = 0;
  * @description Load a timer hour to the board.
  * @param {string} hour
  */
-// let applyTimerConfig = function() {
-//     let cronId_on = cronAdd_on(tempo_on_cron, cronCallback_on, null);
-//   };
+let applyTimerConfig = function() {
+    cronId_on = cronAdd_on(tempo_on_cron, cronCallback_on, null);
+};
 
 // Cron de apagado
 let tempo_off = JSON.stringify(0);
@@ -31,5 +31,5 @@ function cronCallback_off(arg, cron_id){
 }
 
 let cronAdd_off = ffi('int mgos_cron_add(char*, void (*)(userdata, int),userdata)');
-let cronId_off = cronAdd_off(tempo_off_cron, cronCallback_off, null);
+// let cronId_off = cronAdd_off(tempo_off_cron, cronCallback_off, null);
 
