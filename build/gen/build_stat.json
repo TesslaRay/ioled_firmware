@@ -2,5 +2,5 @@
   "arch": "esp8266",
   "platform": "esp8266",
   "app_name": "ioled_firmware",
-  "build_time_ms": 47138
+  "build_time_ms": 25525
 }

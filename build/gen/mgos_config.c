@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_040798938/build/gen/mos_conf_schema.yml
+ * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -436,17 +436,17 @@ const struct mgos_config mgos_config_defaults = {
   .board.led1.pin = 2,
   .board.led1.active_high = 0,
   .board.led1.duty = 0.5,
-  .board.led1.freq = 50,
+  .board.led1.freq = 500,
   .board.led1.state = 1,
   .board.led2.pin = 4,
-  .board.led2.active_high = 0,
+  .board.led2.active_high = 1,
   .board.led2.duty = 1.0,
-  .board.led2.freq = 100,
+  .board.led2.freq = 500,
   .board.led2.state = 1,
   .board.led3.pin = 5,
-  .board.led3.active_high = 0,
+  .board.led3.active_high = 1,
   .board.led3.duty = 1.0,
-  .board.led3.freq = 100,
+  .board.led3.freq = 500,
   .board.led3.state = 1,
   .board.btn1.pin = 0,
   .board.btn1.pull_up = 1,
@@ -455,14 +455,14 @@ const struct mgos_config mgos_config_defaults = {
   .board.btn2.pull_up = 0,
   .board.btn3.pin = -1,
   .board.btn3.pull_up = 0,
-  .board.led4.active_high = 0,
+  .board.led4.active_high = 1,
   .board.led4.duty = 1.0,
-  .board.led4.freq = 100,
+  .board.led4.freq = 500,
   .board.led4.pin = 14,
   .board.led4.state = 1,
-  .board.led5.active_high = 0,
+  .board.led5.active_high = 1,
   .board.led5.duty = 1.0,
-  .board.led5.freq = 100,
+  .board.led5.freq = 500,
   .board.led5.pin = 12,
   .board.led5.state = 1,
   .board.neopixel.state = 1,

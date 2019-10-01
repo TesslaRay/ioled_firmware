@@ -16,7 +16,6 @@ load('mqtt.js');
 
 // Initialize all led stored config.
 initBoard();
-initTimer();
 
 // Neopixel Network search.
 netSearch();
