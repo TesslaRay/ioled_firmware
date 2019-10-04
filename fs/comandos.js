@@ -1,4 +1,4 @@
-mos --port /dev/cu.usbserial-14320 console
+mos --port /dev/cu.usbserial-1410 console
 
 mos --port /dev/cu.usbserial-14120 license
 
@@ -7,10 +7,10 @@ mos --port /dev/cu.usbserial-14120 call OTA.Update '{"url":"https://github.com/T
 mos --port /dev/cu.usbserial-1430 ota FIRMWARE_FILENAME_OR_URL
 
 // Desarrollo
-mos --port /dev/cu.usbserial-14320 gcp-iot-setup --gcp-project ioled-dev-248517 --gcp-region us-central1 --gcp-registry ioled-devices
+mos --port /dev/cu.usbserial-1410 gcp-iot-setup --gcp-project ioled-dev-248517 --gcp-region us-central1 --gcp-registry ioled-devices
 
 // Producción
-mos --port /dev/cu.usbserial-1430 gcp-iot-setup --gcp-project ioled-production --gcp-region us-central1 --gcp-registry ioled-devices
+mos --port /dev/cu.usbserial-1410 gcp-iot-setup --gcp-project ioled-production --gcp-region us-central1 --gcp-registry ioled-devices
 
 mos --port /dev/cu.usbserial-14320 ota /Users/cristian/Documents/Development/iOLED_firmware/ioled-esp8266-firmware/build/fw.zip
 
@@ -20,7 +20,7 @@ mos --port /dev/cu.usbserial-14320 mdash-setup device1 506JdlOpt2TWnvAfiebUWQ
 
 
 // Wifi Oficina iOLED
-mos --port /dev/cu.usbserial-14320 wifi VTR-6439861 jkfq8yjFhwj9
+mos --port /dev/cu.usbserial-1410 wifi VTR-6439861 jkfq8yjFhwj9
 
 mos --port /dev/cu.usbserial-1410 wifi VTR-9004720 Tj3kzfbxwcrc
 

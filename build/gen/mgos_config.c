@@ -10,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[242] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 241},
+const struct mgos_conf_entry mgos_config_schema_[243] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 242},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "mbedtls_level", .offset = offsetof(struct mgos_config, debug.mbedtls_level)},
@@ -203,7 +203,7 @@ const struct mgos_conf_entry mgos_config_schema_[242] = {
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta2.dhcp_hostname)},
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
-  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 47},
+  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 48},
   {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led1.active_high)},
@@ -248,9 +248,10 @@ const struct mgos_conf_entry mgos_config_schema_[242] = {
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.neopixel.state)},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.neopixel.pin)},
   {.type = CONF_TYPE_INT, .key = "pixels", .offset = offsetof(struct mgos_config, board.neopixel.pixels)},
-  {.type = CONF_TYPE_OBJECT, .key = "timer", .offset = offsetof(struct mgos_config, board.timer), .num_desc = 2},
-  {.type = CONF_TYPE_INT, .key = "cron_on", .offset = offsetof(struct mgos_config, board.timer.cron_on)},
-  {.type = CONF_TYPE_INT, .key = "cron_off", .offset = offsetof(struct mgos_config, board.timer.cron_off)},
+  {.type = CONF_TYPE_OBJECT, .key = "timer", .offset = offsetof(struct mgos_config, board.timer), .num_desc = 3},
+  {.type = CONF_TYPE_INT, .key = "timerOn", .offset = offsetof(struct mgos_config, board.timer.timerOn)},
+  {.type = CONF_TYPE_INT, .key = "timerOff", .offset = offsetof(struct mgos_config, board.timer.timerOff)},
+  {.type = CONF_TYPE_BOOL, .key = "timerState", .offset = offsetof(struct mgos_config, board.timer.timerState)},
   {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
   {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
 };
@@ -468,8 +469,9 @@ const struct mgos_config mgos_config_defaults = {
   .board.neopixel.state = 1,
   .board.neopixel.pin = 13,
   .board.neopixel.pixels = 3,
-  .board.timer.cron_on = 1,
-  .board.timer.cron_off = 1,
+  .board.timer.timerOn = 1,
+  .board.timer.timerOff = 1,
+  .board.timer.timerState = 0,
   .Update.timeout = 60000,
 };
 
@@ -2750,24 +2752,34 @@ const struct mgos_config_board_timer * mgos_config_get_board_timer(struct mgos_c
   return &cfg->board.timer;
 }
 
-/* board.timer.cron_on */
-#define MGOS_CONFIG_HAVE_BOARD_TIMER_CRON_ON
-#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_CRON_ON
-int mgos_config_get_board_timer_cron_on(struct mgos_config *cfg) {
-  return cfg->board.timer.cron_on;
+/* board.timer.timerOn */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERON
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERON
+int mgos_config_get_board_timer_timerOn(struct mgos_config *cfg) {
+  return cfg->board.timer.timerOn;
 }
-void mgos_config_set_board_timer_cron_on(struct mgos_config *cfg, int v) {
-  cfg->board.timer.cron_on = v;
+void mgos_config_set_board_timer_timerOn(struct mgos_config *cfg, int v) {
+  cfg->board.timer.timerOn = v;
 }
 
-/* board.timer.cron_off */
-#define MGOS_CONFIG_HAVE_BOARD_TIMER_CRON_OFF
-#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_CRON_OFF
-int mgos_config_get_board_timer_cron_off(struct mgos_config *cfg) {
-  return cfg->board.timer.cron_off;
+/* board.timer.timerOff */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
+int mgos_config_get_board_timer_timerOff(struct mgos_config *cfg) {
+  return cfg->board.timer.timerOff;
 }
-void mgos_config_set_board_timer_cron_off(struct mgos_config *cfg, int v) {
-  cfg->board.timer.cron_off = v;
+void mgos_config_set_board_timer_timerOff(struct mgos_config *cfg, int v) {
+  cfg->board.timer.timerOff = v;
+}
+
+/* board.timer.timerState */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERSTATE
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERSTATE
+int mgos_config_get_board_timer_timerState(struct mgos_config *cfg) {
+  return cfg->board.timer.timerState;
+}
+void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v) {
+  cfg->board.timer.timerState = v;
 }
 
 /* Update */

@@ -44,8 +44,9 @@ let board = {
     state: Cfg.get('board.led5.state'),
   },
   timer: {
-    cron_on: Cfg.get('board.timer.cron_on'),
-    cron_off: Cfg.get('board.timer.cron_off'),
+    timerOn: Cfg.get('board.timer.timerOn'),
+    timerOff: Cfg.get('board.timer.timerOff'),
+    timerState: Cfg.get('board.timer.timerState'),
   },
 };
 

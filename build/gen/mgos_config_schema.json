@@ -236,8 +236,9 @@
   ["board.neopixel.pin", "i", {"title": "Neopixel pin"}],
   ["board.neopixel.pixels", "i", {"title": "Neopixel number of pixels"}],
   ["board.timer", "o", {}],
-  ["board.timer.cron_on", "i", {"title": "Turn on time"}],
-  ["board.timer.cron_off", "i", {"title": "Turn off time"}],
+  ["board.timer.timerOn", "i", {"title": "Turn on time"}],
+  ["board.timer.timerOff", "i", {"title": "Turn off time"}],
+  ["board.timer.timerState", "b", {"title": "Timer state"}],
   ["Update", "o", {"title": "Firmware updater"}],
   ["Update.timeout", "i", {"title": "Update will be aborted if it does not finish within this time"}]
 ]

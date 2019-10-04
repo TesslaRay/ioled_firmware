@@ -868,14 +868,18 @@ config_schema:
   - i
   - 60000
   - title: Update will be aborted if it does not finish within this time
-- - board.timer.cron_on
+- - board.timer.timerOn
   - i
   - 1
   - title: Turn on time
-- - board.timer.cron_off
+- - board.timer.timerOff
   - i
   - 1
   - title: Turn off time
+- - board.timer.timerState
+  - b
+  - false
+  - title: Timer state
 build_vars:
   BOARD: ""
   MGOS: "1"

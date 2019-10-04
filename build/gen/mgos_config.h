@@ -257,8 +257,9 @@ struct mgos_config_board_neopixel {
 };
 
 struct mgos_config_board_timer {
-  int cron_on;
-  int cron_off;
+  int timerOn;
+  int timerOff;
+  int timerState;
 };
 
 struct mgos_config_board {
@@ -2137,21 +2138,29 @@ static inline void mgos_sys_config_set_board_neopixel_pixels(int v) { mgos_confi
 const struct mgos_config_board_timer * mgos_config_get_board_timer(struct mgos_config *cfg);
 static inline const struct mgos_config_board_timer * mgos_sys_config_get_board_timer(void) { return mgos_config_get_board_timer(&mgos_sys_config); }
 
-/* board.timer.cron_on */
-#define MGOS_CONFIG_HAVE_BOARD_TIMER_CRON_ON
-#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_CRON_ON
-int mgos_config_get_board_timer_cron_on(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_board_timer_cron_on(void) { return mgos_config_get_board_timer_cron_on(&mgos_sys_config); }
-void mgos_config_set_board_timer_cron_on(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_board_timer_cron_on(int v) { mgos_config_set_board_timer_cron_on(&mgos_sys_config, v); }
+/* board.timer.timerOn */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERON
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERON
+int mgos_config_get_board_timer_timerOn(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_timer_timerOn(void) { return mgos_config_get_board_timer_timerOn(&mgos_sys_config); }
+void mgos_config_set_board_timer_timerOn(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_timer_timerOn(int v) { mgos_config_set_board_timer_timerOn(&mgos_sys_config, v); }
 
-/* board.timer.cron_off */
-#define MGOS_CONFIG_HAVE_BOARD_TIMER_CRON_OFF
-#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_CRON_OFF
-int mgos_config_get_board_timer_cron_off(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_board_timer_cron_off(void) { return mgos_config_get_board_timer_cron_off(&mgos_sys_config); }
-void mgos_config_set_board_timer_cron_off(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_board_timer_cron_off(int v) { mgos_config_set_board_timer_cron_off(&mgos_sys_config, v); }
+/* board.timer.timerOff */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
+int mgos_config_get_board_timer_timerOff(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_timer_timerOff(void) { return mgos_config_get_board_timer_timerOff(&mgos_sys_config); }
+void mgos_config_set_board_timer_timerOff(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_timer_timerOff(int v) { mgos_config_set_board_timer_timerOff(&mgos_sys_config, v); }
+
+/* board.timer.timerState */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERSTATE
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERSTATE
+int mgos_config_get_board_timer_timerState(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_timer_timerState(void) { return mgos_config_get_board_timer_timerState(&mgos_sys_config); }
+void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_timer_timerState(int v) { mgos_config_set_board_timer_timerState(&mgos_sys_config, v); }
 
 /* Update */
 #define MGOS_CONFIG_HAVE_UPDATE
