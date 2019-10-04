@@ -47,6 +47,7 @@ void * mgos_connect_http_ssl(char *, void (*)(void *, int, void *, void *), void
 void * mgos_connect_ssl(char *, void (*)(void *, int, void *, void *), void *, char *, char *, char *);
 int  mgos_cron_add(char*, void (*)(void *, int) ,void *);
 int  mgos_cron_add(char*, void (*)(void *, int),void *);
+void  mgos_cron_remove(int);
 int  mgos_debug_event_get_len(void *);
 void * mgos_debug_event_get_ptr(void *);
 void  mgos_dht_close(void *);
@@ -185,6 +186,7 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mgos_connect_ssl", mgos_connect_ssl},
   {"mgos_cron_add", mgos_cron_add},
   {"mgos_cron_add", mgos_cron_add},
+  {"mgos_cron_remove", mgos_cron_remove},
   {"mgos_debug_event_get_len", mgos_debug_event_get_len},
   {"mgos_debug_event_get_ptr", mgos_debug_event_get_ptr},
   {"mgos_dht_close", mgos_dht_close},
@@ -284,4 +286,4 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"sqrt", sqrt},
   {"strdup", strdup},
 };
-const int ffi_exports_cnt = 136;
+const int ffi_exports_cnt = 137;

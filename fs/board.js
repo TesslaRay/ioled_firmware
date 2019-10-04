@@ -43,15 +43,10 @@ let board = {
     pin: Cfg.get('board.led5.pin'),
     state: Cfg.get('board.led5.state'),
   },
-};
-
-//  Timer 
-let timer = {
-  cron_on: {
-    hour: Cfg.get('timer.cron_on.hour'),
-  },
-  cron_off: {
-    hour: Cfg.get('timer.cron_off.hour'),
+  timer: {
+    timerOn: Cfg.get('board.timer.timerOn'),
+    timerOff: Cfg.get('board.timer.timerOff'),
+    timerState: Cfg.get('board.timer.timerState'),
   },
 };
 
@@ -66,15 +61,6 @@ let initBoard = function() {
   GPIO.set_mode(board.led4.pin, GPIO.MODE_OUTPUT);
   GPIO.set_mode(board.led5.pin, GPIO.MODE_OUTPUT);
   applyBoardConfig();
-};
-
-/** Initialize timer.
- * @description Update all TIMER values on board start.
- */
-let initTimer = function() {
-  print('Initializing timer ...');
-  print(timer.cron_on.hour);
-  print(timer.cron_off.hour);
 };
 
 /**
@@ -141,30 +127,40 @@ let applyLedConfig = function(ledName) {
 };
 
 /**
+ * Turn off all led.
+ * @description Put all led duty in 0.
+ * @param {string} ledName The led name from the board object.
+ */
+let turnOffLed = function(ledName) {
+  for (let ledName in board) {
+    if (ledName.indexOf('led') >= 0) {
+      let led = board[ledName];
+      let brd = 'board.' + ledName + '.';
+      led.onhi = 1;
+      led.duty = Cfg.get(brd + 'duty');
+      led.freq = Cfg.get(brd + 'freq');
+      led.state = false;
+      normDuty(ledName);
+      switchLed(ledName, false);
+    }
+  }
+};
+
+/**
  * Normalize the value of the duty cycle between 0 - 1.
  * @param {string} ledName The led name from the board object.
  */
 let normDuty = function(ledName) {
   let led = board[ledName];
   if (led.duty >= 1) {
-    led.duty = led.onhi ? 1.0 : 0.0;
-    return;
-  }
-  if (led.duty <= 0) {
     led.duty = led.onhi ? 0.0 : 1.0;
     return;
   }
+  if (led.duty <= 0) {
+    led.duty = led.onhi ? 1.0 : 0.0;
+    return;
+  }
   led.duty = led.onhi ? led.duty : 1.0 - led.duty;
-};
-
-/**
- * Return the first element of an object.
- * @param {object} obj The object to return the element.
- * @example obj: {"led7": { "duty":0.5, "freq":50 }}
- * @return {object} The led object.
- */
-let getFirstKey = function(obj) {
-  for (let k in obj) return k;
 };
 
 /**

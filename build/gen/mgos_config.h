@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_675235327/build/gen/mos_conf_schema.yml
+ * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -256,6 +256,12 @@ struct mgos_config_board_neopixel {
   int pixels;
 };
 
+struct mgos_config_board_timer {
+  int timerOn;
+  int timerOff;
+  int timerState;
+};
+
 struct mgos_config_board {
   struct mgos_config_board_led1 led1;
   struct mgos_config_board_led2 led2;
@@ -266,23 +272,11 @@ struct mgos_config_board {
   struct mgos_config_board_led4 led4;
   struct mgos_config_board_led5 led5;
   struct mgos_config_board_neopixel neopixel;
+  struct mgos_config_board_timer timer;
 };
 
 struct mgos_config_Update {
   int timeout;
-};
-
-struct mgos_config_timer_cron_on {
-  int hour;
-};
-
-struct mgos_config_timer_cron_off {
-  int hour;
-};
-
-struct mgos_config_timer {
-  struct mgos_config_timer_cron_on cron_on;
-  struct mgos_config_timer_cron_off cron_off;
 };
 
 struct mgos_config {
@@ -302,7 +296,6 @@ struct mgos_config {
   struct mgos_config_wifi wifi;
   struct mgos_config_board board;
   struct mgos_config_Update Update;
-  struct mgos_config_timer timer;
 };
 
 
@@ -2139,6 +2132,36 @@ static inline int mgos_sys_config_get_board_neopixel_pixels(void) { return mgos_
 void mgos_config_set_board_neopixel_pixels(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_neopixel_pixels(int v) { mgos_config_set_board_neopixel_pixels(&mgos_sys_config, v); }
 
+/* board.timer */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER
+const struct mgos_config_board_timer * mgos_config_get_board_timer(struct mgos_config *cfg);
+static inline const struct mgos_config_board_timer * mgos_sys_config_get_board_timer(void) { return mgos_config_get_board_timer(&mgos_sys_config); }
+
+/* board.timer.timerOn */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERON
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERON
+int mgos_config_get_board_timer_timerOn(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_timer_timerOn(void) { return mgos_config_get_board_timer_timerOn(&mgos_sys_config); }
+void mgos_config_set_board_timer_timerOn(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_timer_timerOn(int v) { mgos_config_set_board_timer_timerOn(&mgos_sys_config, v); }
+
+/* board.timer.timerOff */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
+int mgos_config_get_board_timer_timerOff(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_timer_timerOff(void) { return mgos_config_get_board_timer_timerOff(&mgos_sys_config); }
+void mgos_config_set_board_timer_timerOff(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_timer_timerOff(int v) { mgos_config_set_board_timer_timerOff(&mgos_sys_config, v); }
+
+/* board.timer.timerState */
+#define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERSTATE
+#define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERSTATE
+int mgos_config_get_board_timer_timerState(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_timer_timerState(void) { return mgos_config_get_board_timer_timerState(&mgos_sys_config); }
+void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_timer_timerState(int v) { mgos_config_set_board_timer_timerState(&mgos_sys_config, v); }
+
 /* Update */
 #define MGOS_CONFIG_HAVE_UPDATE
 #define MGOS_SYS_CONFIG_HAVE_UPDATE
@@ -2152,40 +2175,6 @@ int mgos_config_get_Update_timeout(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_Update_timeout(void) { return mgos_config_get_Update_timeout(&mgos_sys_config); }
 void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_Update_timeout(int v) { mgos_config_set_Update_timeout(&mgos_sys_config, v); }
-
-/* timer */
-#define MGOS_CONFIG_HAVE_TIMER
-#define MGOS_SYS_CONFIG_HAVE_TIMER
-const struct mgos_config_timer * mgos_config_get_timer(struct mgos_config *cfg);
-static inline const struct mgos_config_timer * mgos_sys_config_get_timer(void) { return mgos_config_get_timer(&mgos_sys_config); }
-
-/* timer.cron_on */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_ON
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_ON
-const struct mgos_config_timer_cron_on * mgos_config_get_timer_cron_on(struct mgos_config *cfg);
-static inline const struct mgos_config_timer_cron_on * mgos_sys_config_get_timer_cron_on(void) { return mgos_config_get_timer_cron_on(&mgos_sys_config); }
-
-/* timer.cron_on.hour */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_ON_HOUR
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_ON_HOUR
-int mgos_config_get_timer_cron_on_hour(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_timer_cron_on_hour(void) { return mgos_config_get_timer_cron_on_hour(&mgos_sys_config); }
-void mgos_config_set_timer_cron_on_hour(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_timer_cron_on_hour(int v) { mgos_config_set_timer_cron_on_hour(&mgos_sys_config, v); }
-
-/* timer.cron_off */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_OFF
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_OFF
-const struct mgos_config_timer_cron_off * mgos_config_get_timer_cron_off(struct mgos_config *cfg);
-static inline const struct mgos_config_timer_cron_off * mgos_sys_config_get_timer_cron_off(void) { return mgos_config_get_timer_cron_off(&mgos_sys_config); }
-
-/* timer.cron_off.hour */
-#define MGOS_CONFIG_HAVE_TIMER_CRON_OFF_HOUR
-#define MGOS_SYS_CONFIG_HAVE_TIMER_CRON_OFF_HOUR
-int mgos_config_get_timer_cron_off_hour(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_timer_cron_off_hour(void) { return mgos_config_get_timer_cron_off_hour(&mgos_sys_config); }
-void mgos_config_set_timer_cron_off_hour(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_timer_cron_off_hour(int v) { mgos_config_set_timer_cron_off_hour(&mgos_sys_config, v); }
 
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value);
 bool mgos_sys_config_set(const struct mg_str key, const struct mg_str value, bool free_strings);

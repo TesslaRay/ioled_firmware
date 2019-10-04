@@ -17,9 +17,8 @@ let connectMqtt = function() {
   MQTT.sub(configTopic, function(conn, topic, msg) {
     print('Topic:', topic, 'message:', msg);
     getConfigFromCloud(msg);
-    print(timer.cron_on.hour);
-    print(timer.cron_off.hour);
     applyBoardConfig();
+    applyTimerConfig();
   });
 };
 
