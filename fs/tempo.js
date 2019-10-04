@@ -4,70 +4,62 @@
  */
 let cronRemove = ffi('void mgos_cron_remove(int)');
 
-function cronCallback_on(arg, cron_id){
+function cronCallback(arg, cron_id){
     let now = Timer.now();
     let timestring = Timer.fmt('%T', now);
-    print('Time on = ' + timestring);
-    print('On Function');
-    applyBoardConfig();
+    let timerNow = formatTime('%H', now);
+
+    print('Time = ' + timestring);
+    let tempoOn = Cfg.get('board.timer.timerOn');
+    tempoOn = JSON.stringify(tempoOn);
+    let tempoOff = Cfg.get('board.timer.timerOff');
+    tempoOff = JSON.stringify(tempoOff);
+ 
+    let time = JSON.parse(timerNow) - 3;    //  Ajuste horario
+    let timeOn = JSON.parse(tempoOn);
+    let timeOff = JSON.parse(tempoOff);
+   
+    if((time <= timeOn) && (time >= timeOff)){
+        turnOffLed();
+    } else {
+        applyBoardConfig();
+    }    
 }
 
+function formatTime(fmt, time) {
+    if (!fmt) return 'invalid format';
+    let res = 0, t = Math.round(time || Timer.now()), s = '      ';
+    while (res === 0) {
+      res = Timer._f(s, s.length, fmt, t);
+      if (res === -1) return 'invalid time';
+      if (res === 0) s += '     ';
+    }
+    return s.slice(0, res);
+  }
+
 /**
- * Call cron callback (ON) in function with te expression tempo_on_cron 
+ * Call cron callback (ON)in function with te expression tempo_on_cron 
  * @param {function} cronCallback_on callback for cron ON
  * @param {string} tempo_on_cron cron expression ON
  */
-let cronAdd_on = ffi('int mgos_cron_add(char*, void (*)(userdata, int) ,userdata)');
-let cronId_on  = 0;
-
-/**
- * Call cron callback (OFF) in function with te expression *expr 
- * @param {function} cronCallback_off callback for cron OFF
- * @param {string} tempo_off_cron cron expression OFF 
- */
-function cronCallback_off(arg, cron_id){
-    let now = Timer.now();
-    let timestring = Timer.fmt('%T', now);
-    print('Time off = ' + timestring);
-    print('Off Function');
-    turnOffLed();
-}
-
-let cronAdd_off = ffi('int mgos_cron_add(char*, void (*)(userdata, int),userdata)');
-let cronId_off  = 0;
+let cronAdd = ffi('int mgos_cron_add(char*, void (*)(userdata, int) ,userdata)');
+let cronId  = 0;
 
 let state_timer = true;
 
 /**
- * Apply timer configuration.
- * @description Load a timer hour to the board if state timer if true.
+ * Turn on/off cron 
+ * @description Turn on/off if state_timer is true
  * @param {boolean} state_timer
  */
+
 let applyTimerConfig = function() {
-    /** CRON ON */
-    let tempo_on = Cfg.get('board.timer.timerOn');
-    tempo_on = JSON.stringify(tempo_on);
-    if (JSON.parse(tempo_on) > 23){
-        tempo_on = JSON.stringify(0);;
-    }
-    let tempo_on_cron = '0 18 ' + tempo_on + ' * * *';
-
-    /** CRON OFF */
-    let tempo_off = Cfg.get('board.timer.timerOff');
-    tempo_off = JSON.stringify(tempo_off);
-    if (JSON.parse(tempo_off) > 23){
-        tempo_off = JSON.stringify(0);;
-    }
-    let tempo_off_cron = '0 20 ' + tempo_off + ' * * *';
-
+    state_timer = Cfg.get('board.timer.timerState');    
+    let timer = '*/5 * * * * *';
+    cronRemove(cronId);
     if (state_timer){
-        cronRemove(cronId_on);
-        cronId_on = cronAdd_on(tempo_on_cron, cronCallback_on, null);    
-
-        cronRemove(cronId_off);
-        cronId_off = cronAdd_off(tempo_off_cron, cronCallback_off, null); 
+        cronId = cronAdd(timer, cronCallback, null);    
     } else {
-        cronRemove(cronId_on);
-        cronRemove(cronId_off);
+        
     }      
 };

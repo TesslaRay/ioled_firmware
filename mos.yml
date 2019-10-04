@@ -19,24 +19,7 @@ config_schema:
   - ["board.led2.freq", "i", 500, {title: "Led frequency"}]
   - ["board.led2.pin", "i", 4, {title: "Led pin for PWM"}]
   - ["board.led2.state", "b", true, {title: "Led current state"}]
-  # Prototype led3 config
-  - ["board.led3.active_high", "b", true, {title: "True if LED is on when output is high (1)"}]
-  - ["board.led3.duty", "d", 1.0, {title: "Led duty cycle"}]
-  - ["board.led3.freq", "i", 500, {title: "Led frequency"}]
-  - ["board.led3.pin", "i", 5, {title: "Led pin for PWM"}]
-  - ["board.led3.state", "b", true, {title: "Led current state"}]
-  # Prototype led4 config
-  - ["board.led4.active_high", "b", true, {title: "True if LED is on when output is high (1)"}]
-  - ["board.led4.duty", "d", 1.0, {title: "Led duty cycle"}]
-  - ["board.led4.freq", "i", 500, {title: "Led frequency"}]
-  - ["board.led4.pin", "i", 14, {title: "Led pin for PWM"}]
-  - ["board.led4.state", "b", true, {title: "Led current state"}]
-   # Prototype led5 config
-  - ["board.led5.active_high", "b", true, {title: "True if LED is on when output is high (1)"}]
-  - ["board.led5.duty", "d", 1.0, {title: "Led duty cycle"}]
-  - ["board.led5.freq", "i", 500, {title: "Led frequency"}]
-  - ["board.led5.pin", "i", 12, {title: "Led pin for PWM"}]
-  - ["board.led5.state", "b", true, {title: "Led current state"}]
+  
   # Neopixel config
   - ["board.neopixel.state", "b", true, {title: "Led current state"}]
   - ["board.neopixel.pin", "i", 13, {title: "Neopixel pin"}]
