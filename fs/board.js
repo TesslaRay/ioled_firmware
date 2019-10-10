@@ -22,27 +22,6 @@ let board = {
     pin: Cfg.get('board.led2.pin'),
     state: Cfg.get('board.led2.state'),
   },
-  led3: {
-    onhi: Cfg.get('board.led3.active_high'),
-    duty: Cfg.get('board.led3.duty'),
-    freq: Cfg.get('board.led3.freq'),
-    pin: Cfg.get('board.led3.pin'),
-    state: Cfg.get('board.led3.state'),
-  },
-  led4: {
-    onhi: Cfg.get('board.led4.active_high'),
-    duty: Cfg.get('board.led4.duty'),
-    freq: Cfg.get('board.led4.freq'),
-    pin: Cfg.get('board.led4.pin'),
-    state: Cfg.get('board.led4.state'),
-  },
-  led5: {
-    onhi: Cfg.get('board.led5.active_high'),
-    duty: Cfg.get('board.led5.duty'),
-    freq: Cfg.get('board.led5.freq'),
-    pin: Cfg.get('board.led5.pin'),
-    state: Cfg.get('board.led5.state'),
-  },
   timer: {
     timerOn: Cfg.get('board.timer.timerOn'),
     timerOff: Cfg.get('board.timer.timerOff'),
@@ -57,9 +36,6 @@ let initBoard = function() {
   print('Initializing board ...');
   GPIO.set_mode(board.led1.pin, GPIO.MODE_OUTPUT);
   GPIO.set_mode(board.led2.pin, GPIO.MODE_OUTPUT);
-  GPIO.set_mode(board.led3.pin, GPIO.MODE_OUTPUT);
-  GPIO.set_mode(board.led4.pin, GPIO.MODE_OUTPUT);
-  GPIO.set_mode(board.led5.pin, GPIO.MODE_OUTPUT);
   applyBoardConfig();
 };
 
@@ -94,8 +70,8 @@ let switchLed = function(ledName, turn) {
  * // msg : {"board": {"led1":{"freq":20, "duty": 0.5, "state": true}, "led2":{"freq":20, "duty": 0.5, "state": true}}}
  */
 let getConfigFromCloud = function(msg) {
-  let brdObj = typeof msg === 'string' ? JSON.parse(msg) : msg;
-  Cfg.set(brdObj);
+  let obj = JSON.parse(msg);
+  Cfg.set(obj);
 };
 
 /**

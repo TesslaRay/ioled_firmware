@@ -28,15 +28,18 @@ mos --port /dev/cu.usbserial-1430 wifi POCOPHONE 23581321
 
 mos --port /dev/cu.usbserial-1430 wifi zapalloconhielo 98765432
 
-mos --port /dev/cu.usbserial-14320 flash
+mos --port /dev/cu.usbserial-1410 flash
 
 mos --port /dev/cu.usbserial-14320 build
 
 mos --port /dev/cu.usbserial-1430 put fs/mqtt.js
 
-mos --port /dev/cu.usbserial-14120 put fs/tempo.js
+mos --port /dev/cu.usbserial-1410 put fs/tempo.js
 
-mos --port /dev/cu.usbserial-1430 put fs/init.js
+mos --port /dev/cu.usbserial-1410 put fs/init.js
+
+mos --port /dev/cu.usbserial-1410 put fs/board.js
+
 
 mos build --platform esp8266
 

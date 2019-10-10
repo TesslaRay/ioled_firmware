@@ -33,8 +33,8 @@ config_schema:
   - ["Update.timeout", "i", 60000, {title : "Update will be aborted if it does not finish within this time"}]
   
   # Timer
-  - ["board.timer.timerOn", "i", 1, {title: "Turn on time"}]
-  - ["board.timer.timerOff", "i", 1, {title: "Turn off time"}]
+  - ["board.timer.timerOn", "s", "00:00", {title: "Turn on time"}]
+  - ["board.timer.timerOff", "s", "00:00", {title: "Turn off time"}]
   - ["board.timer.timerState", "b", false, {title: "Timer state"}]
 
 tags:

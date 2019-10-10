@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_127112240/build/gen/mos_conf_schema.yml
+ * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -10,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[243] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 242},
+const struct mgos_conf_entry mgos_config_schema_[228] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 227},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "mbedtls_level", .offset = offsetof(struct mgos_config, debug.mbedtls_level)},
@@ -203,7 +203,7 @@ const struct mgos_conf_entry mgos_config_schema_[243] = {
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta2.dhcp_hostname)},
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
-  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 48},
+  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 33},
   {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led1.active_high)},
@@ -216,12 +216,9 @@ const struct mgos_conf_entry mgos_config_schema_[243] = {
   {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led2.duty)},
   {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led2.freq)},
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led2.state)},
-  {.type = CONF_TYPE_OBJECT, .key = "led3", .offset = offsetof(struct mgos_config, board.led3), .num_desc = 5},
+  {.type = CONF_TYPE_OBJECT, .key = "led3", .offset = offsetof(struct mgos_config, board.led3), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led3.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led3.active_high)},
-  {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led3.duty)},
-  {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led3.freq)},
-  {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led3.state)},
   {.type = CONF_TYPE_OBJECT, .key = "btn1", .offset = offsetof(struct mgos_config, board.btn1), .num_desc = 3},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn1.pull_up)},
@@ -232,25 +229,13 @@ const struct mgos_conf_entry mgos_config_schema_[243] = {
   {.type = CONF_TYPE_OBJECT, .key = "btn3", .offset = offsetof(struct mgos_config, board.btn3), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn3.pin)},
   {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn3.pull_up)},
-  {.type = CONF_TYPE_OBJECT, .key = "led4", .offset = offsetof(struct mgos_config, board.led4), .num_desc = 5},
-  {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led4.active_high)},
-  {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led4.duty)},
-  {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led4.freq)},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led4.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led4.state)},
-  {.type = CONF_TYPE_OBJECT, .key = "led5", .offset = offsetof(struct mgos_config, board.led5), .num_desc = 5},
-  {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led5.active_high)},
-  {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led5.duty)},
-  {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led5.freq)},
-  {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led5.pin)},
-  {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led5.state)},
   {.type = CONF_TYPE_OBJECT, .key = "neopixel", .offset = offsetof(struct mgos_config, board.neopixel), .num_desc = 3},
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.neopixel.state)},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.neopixel.pin)},
   {.type = CONF_TYPE_INT, .key = "pixels", .offset = offsetof(struct mgos_config, board.neopixel.pixels)},
   {.type = CONF_TYPE_OBJECT, .key = "timer", .offset = offsetof(struct mgos_config, board.timer), .num_desc = 3},
-  {.type = CONF_TYPE_INT, .key = "timerOn", .offset = offsetof(struct mgos_config, board.timer.timerOn)},
-  {.type = CONF_TYPE_INT, .key = "timerOff", .offset = offsetof(struct mgos_config, board.timer.timerOff)},
+  {.type = CONF_TYPE_STRING, .key = "timerOn", .offset = offsetof(struct mgos_config, board.timer.timerOn)},
+  {.type = CONF_TYPE_STRING, .key = "timerOff", .offset = offsetof(struct mgos_config, board.timer.timerOff)},
   {.type = CONF_TYPE_BOOL, .key = "timerState", .offset = offsetof(struct mgos_config, board.timer.timerState)},
   {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
   {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
@@ -444,11 +429,8 @@ const struct mgos_config mgos_config_defaults = {
   .board.led2.duty = 1.0,
   .board.led2.freq = 500,
   .board.led2.state = 1,
-  .board.led3.pin = 5,
+  .board.led3.pin = -1,
   .board.led3.active_high = 1,
-  .board.led3.duty = 1.0,
-  .board.led3.freq = 500,
-  .board.led3.state = 1,
   .board.btn1.pin = 0,
   .board.btn1.pull_up = 1,
   .board.btn1.control = "led1",
@@ -456,21 +438,11 @@ const struct mgos_config mgos_config_defaults = {
   .board.btn2.pull_up = 0,
   .board.btn3.pin = -1,
   .board.btn3.pull_up = 0,
-  .board.led4.active_high = 1,
-  .board.led4.duty = 1.0,
-  .board.led4.freq = 500,
-  .board.led4.pin = 14,
-  .board.led4.state = 1,
-  .board.led5.active_high = 1,
-  .board.led5.duty = 1.0,
-  .board.led5.freq = 500,
-  .board.led5.pin = 12,
-  .board.led5.state = 1,
   .board.neopixel.state = 1,
   .board.neopixel.pin = 13,
   .board.neopixel.pixels = 3,
-  .board.timer.timerOn = 1,
-  .board.timer.timerOff = 1,
+  .board.timer.timerOn = "00:00",
+  .board.timer.timerOff = "00:00",
   .board.timer.timerState = 0,
   .Update.timeout = 60000,
 };
@@ -2473,36 +2445,6 @@ void mgos_config_set_board_led3_active_high(struct mgos_config *cfg, int v) {
   cfg->board.led3.active_high = v;
 }
 
-/* board.led3.duty */
-#define MGOS_CONFIG_HAVE_BOARD_LED3_DUTY
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED3_DUTY
-double mgos_config_get_board_led3_duty(struct mgos_config *cfg) {
-  return cfg->board.led3.duty;
-}
-void mgos_config_set_board_led3_duty(struct mgos_config *cfg, double v) {
-  cfg->board.led3.duty = v;
-}
-
-/* board.led3.freq */
-#define MGOS_CONFIG_HAVE_BOARD_LED3_FREQ
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED3_FREQ
-int mgos_config_get_board_led3_freq(struct mgos_config *cfg) {
-  return cfg->board.led3.freq;
-}
-void mgos_config_set_board_led3_freq(struct mgos_config *cfg, int v) {
-  cfg->board.led3.freq = v;
-}
-
-/* board.led3.state */
-#define MGOS_CONFIG_HAVE_BOARD_LED3_STATE
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED3_STATE
-int mgos_config_get_board_led3_state(struct mgos_config *cfg) {
-  return cfg->board.led3.state;
-}
-void mgos_config_set_board_led3_state(struct mgos_config *cfg, int v) {
-  cfg->board.led3.state = v;
-}
-
 /* board.btn1 */
 #define MGOS_CONFIG_HAVE_BOARD_BTN1
 #define MGOS_SYS_CONFIG_HAVE_BOARD_BTN1
@@ -2594,120 +2536,6 @@ void mgos_config_set_board_btn3_pull_up(struct mgos_config *cfg, int v) {
   cfg->board.btn3.pull_up = v;
 }
 
-/* board.led4 */
-#define MGOS_CONFIG_HAVE_BOARD_LED4
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED4
-const struct mgos_config_board_led4 * mgos_config_get_board_led4(struct mgos_config *cfg) {
-  return &cfg->board.led4;
-}
-
-/* board.led4.active_high */
-#define MGOS_CONFIG_HAVE_BOARD_LED4_ACTIVE_HIGH
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED4_ACTIVE_HIGH
-int mgos_config_get_board_led4_active_high(struct mgos_config *cfg) {
-  return cfg->board.led4.active_high;
-}
-void mgos_config_set_board_led4_active_high(struct mgos_config *cfg, int v) {
-  cfg->board.led4.active_high = v;
-}
-
-/* board.led4.duty */
-#define MGOS_CONFIG_HAVE_BOARD_LED4_DUTY
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED4_DUTY
-double mgos_config_get_board_led4_duty(struct mgos_config *cfg) {
-  return cfg->board.led4.duty;
-}
-void mgos_config_set_board_led4_duty(struct mgos_config *cfg, double v) {
-  cfg->board.led4.duty = v;
-}
-
-/* board.led4.freq */
-#define MGOS_CONFIG_HAVE_BOARD_LED4_FREQ
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED4_FREQ
-int mgos_config_get_board_led4_freq(struct mgos_config *cfg) {
-  return cfg->board.led4.freq;
-}
-void mgos_config_set_board_led4_freq(struct mgos_config *cfg, int v) {
-  cfg->board.led4.freq = v;
-}
-
-/* board.led4.pin */
-#define MGOS_CONFIG_HAVE_BOARD_LED4_PIN
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED4_PIN
-int mgos_config_get_board_led4_pin(struct mgos_config *cfg) {
-  return cfg->board.led4.pin;
-}
-void mgos_config_set_board_led4_pin(struct mgos_config *cfg, int v) {
-  cfg->board.led4.pin = v;
-}
-
-/* board.led4.state */
-#define MGOS_CONFIG_HAVE_BOARD_LED4_STATE
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED4_STATE
-int mgos_config_get_board_led4_state(struct mgos_config *cfg) {
-  return cfg->board.led4.state;
-}
-void mgos_config_set_board_led4_state(struct mgos_config *cfg, int v) {
-  cfg->board.led4.state = v;
-}
-
-/* board.led5 */
-#define MGOS_CONFIG_HAVE_BOARD_LED5
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED5
-const struct mgos_config_board_led5 * mgos_config_get_board_led5(struct mgos_config *cfg) {
-  return &cfg->board.led5;
-}
-
-/* board.led5.active_high */
-#define MGOS_CONFIG_HAVE_BOARD_LED5_ACTIVE_HIGH
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED5_ACTIVE_HIGH
-int mgos_config_get_board_led5_active_high(struct mgos_config *cfg) {
-  return cfg->board.led5.active_high;
-}
-void mgos_config_set_board_led5_active_high(struct mgos_config *cfg, int v) {
-  cfg->board.led5.active_high = v;
-}
-
-/* board.led5.duty */
-#define MGOS_CONFIG_HAVE_BOARD_LED5_DUTY
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED5_DUTY
-double mgos_config_get_board_led5_duty(struct mgos_config *cfg) {
-  return cfg->board.led5.duty;
-}
-void mgos_config_set_board_led5_duty(struct mgos_config *cfg, double v) {
-  cfg->board.led5.duty = v;
-}
-
-/* board.led5.freq */
-#define MGOS_CONFIG_HAVE_BOARD_LED5_FREQ
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED5_FREQ
-int mgos_config_get_board_led5_freq(struct mgos_config *cfg) {
-  return cfg->board.led5.freq;
-}
-void mgos_config_set_board_led5_freq(struct mgos_config *cfg, int v) {
-  cfg->board.led5.freq = v;
-}
-
-/* board.led5.pin */
-#define MGOS_CONFIG_HAVE_BOARD_LED5_PIN
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED5_PIN
-int mgos_config_get_board_led5_pin(struct mgos_config *cfg) {
-  return cfg->board.led5.pin;
-}
-void mgos_config_set_board_led5_pin(struct mgos_config *cfg, int v) {
-  cfg->board.led5.pin = v;
-}
-
-/* board.led5.state */
-#define MGOS_CONFIG_HAVE_BOARD_LED5_STATE
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED5_STATE
-int mgos_config_get_board_led5_state(struct mgos_config *cfg) {
-  return cfg->board.led5.state;
-}
-void mgos_config_set_board_led5_state(struct mgos_config *cfg, int v) {
-  cfg->board.led5.state = v;
-}
-
 /* board.neopixel */
 #define MGOS_CONFIG_HAVE_BOARD_NEOPIXEL
 #define MGOS_SYS_CONFIG_HAVE_BOARD_NEOPIXEL
@@ -2755,21 +2583,21 @@ const struct mgos_config_board_timer * mgos_config_get_board_timer(struct mgos_c
 /* board.timer.timerOn */
 #define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMERON
 #define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMERON
-int mgos_config_get_board_timer_timerOn(struct mgos_config *cfg) {
+const char * mgos_config_get_board_timer_timerOn(struct mgos_config *cfg) {
   return cfg->board.timer.timerOn;
 }
-void mgos_config_set_board_timer_timerOn(struct mgos_config *cfg, int v) {
-  cfg->board.timer.timerOn = v;
+void mgos_config_set_board_timer_timerOn(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->board.timer.timerOn, v);
 }
 
 /* board.timer.timerOff */
 #define MGOS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
 #define MGOS_SYS_CONFIG_HAVE_BOARD_TIMER_TIMEROFF
-int mgos_config_get_board_timer_timerOff(struct mgos_config *cfg) {
+const char * mgos_config_get_board_timer_timerOff(struct mgos_config *cfg) {
   return cfg->board.timer.timerOff;
 }
-void mgos_config_set_board_timer_timerOff(struct mgos_config *cfg, int v) {
-  cfg->board.timer.timerOff = v;
+void mgos_config_set_board_timer_timerOff(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->board.timer.timerOff, v);
 }
 
 /* board.timer.timerState */
