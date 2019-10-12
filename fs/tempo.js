@@ -4,26 +4,33 @@ function cronCallback(arg, cron_id){
     let now = Timer.now();
     let timestring = Timer.fmt('%T', now);
     let timerNow = formatTime('%H', now);
+    let timerMin = formatTime('%M', now);
 
     // print('Time = ' + timestring);
     let tempoOn = Cfg.get('board.timer.timerOn');
     tempoOn = JSON.stringify(tempoOn);
+
     let tempoOff = Cfg.get('board.timer.timerOff');
     tempoOff = JSON.stringify(tempoOff);
-    let hourOn = StringUtils.split(tempoOn, ':', true);
 
-    // let time = JSON.stringify(JSON.parse(timerNow) - 3);    //  Ajuste horario
-    let time = JSON.parse(timerNow) - 3;
-    // print('Time: ' + time);
-    print(JSON.parse(hourOn[0]));
-    // let timeOn = JSON.parse(tempoOn);
-    // let timeOff = JSON.parse(tempoOff);
-   
-    // if((time <= timeOn) && (time >= timeOff)){
-    //     // turnOffLed();
-    // } else {
-    //     // applyBoardConfig();
-    // }    
+    let hourOn = JSON.parse(tempoOn.slice(1,3));
+    let minOn = JSON.parse(tempoOn.slice(4,6));
+    let hourOff = JSON.parse(tempoOff.slice(1,3));
+    let minOff = JSON.parse(tempoOff.slice(4,6));
+    
+    let timeHour = JSON.parse(timerNow) - 3;    //  Ajuste horario
+    let timeMin = JSON.parse(timerMin);
+    print(timeHour);
+    if(timeHour >= hourOn){
+        print('Encendido');
+        applyBoardConfig();
+    } else if (timeHour <= hourOff){
+        print('Apagado');
+        turnOffLed();
+    }
+    
+
+    
 }
 
 let state_timer = true;
