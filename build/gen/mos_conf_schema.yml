@@ -674,3 +674,8 @@
   - b
   - false
   - title: Timer state
+- - sys.tz_spec
+  - s
+  - AMT4PDT
+  - title: 'See formats for the TZ env var: "man tzset". Formats like ":/path/to/file"
+      are not supported'

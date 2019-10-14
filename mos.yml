@@ -1,6 +1,6 @@
-mos author: Eduardo Hales
+mos author: Eduardo Hales/Cristian Valdivia
 description: iOLED
-version: 1.0
+version: 2.0
 manifest_version: 2018-05-18
 libs_version: ${mos.version}
 modules_version: ${mos.version}
@@ -36,6 +36,9 @@ config_schema:
   - ["board.timer.timerOn", "s", "00:00", {title: "Turn on time"}]
   - ["board.timer.timerOff", "s", "00:00", {title: "Turn off time"}]
   - ["board.timer.timerState", "b", false, {title: "Timer state"}]
+  
+  # Time zone
+  - ["sys.tz_spec", "s", "AMT4PDT", {title: "See formats for the TZ env var: \"man tzset\". Formats like \":/path/to/file\" are not supported"}]
 
 tags:
   - js

@@ -133,7 +133,7 @@ let normDuty = function(ledName) {
     return;
   }
   if (led.duty <= 0) {
-    led.duty = led.onhi ? 1.0 : 0.0;
+    led.duty = led.onhi ? 1.0 : 1.0;
     return;
   }
   led.duty = led.onhi ? led.duty : 1.0 - led.duty;

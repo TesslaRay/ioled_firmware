@@ -1,36 +1,22 @@
 load('api_string.js');
 
-function cronCallback(arg, cron_id){
+let onIsNext = true;
+
+function cronCallbackTimer(arg, cron_id){
     let now = Timer.now();
     let timestring = Timer.fmt('%T', now);
     let timerNow = formatTime('%H', now);
     let timerMin = formatTime('%M', now);
 
-    // print('Time = ' + timestring);
-    let tempoOn = Cfg.get('board.timer.timerOn');
-    tempoOn = JSON.stringify(tempoOn);
-
-    let tempoOff = Cfg.get('board.timer.timerOff');
-    tempoOff = JSON.stringify(tempoOff);
-
-    let hourOn = JSON.parse(tempoOn.slice(1,3));
-    let minOn = JSON.parse(tempoOn.slice(4,6));
-    let hourOff = JSON.parse(tempoOff.slice(1,3));
-    let minOff = JSON.parse(tempoOff.slice(4,6));
-    
-    let timeHour = JSON.parse(timerNow) - 3;    //  Ajuste horario
+    let timeHour = JSON.parse(timerNow);    //  Ajuste horario
     let timeMin = JSON.parse(timerMin);
-    print(timeHour);
-    if(timeHour >= hourOn){
-        print('Encendido');
-        applyBoardConfig();
-    } else if (timeHour <= hourOff){
-        print('Apagado');
-        turnOffLed();
-    }
-    
 
-    
+    print(timestring);
+    if (onIsNext){
+        print("Encendido");
+    } else {
+        print("Apagado");
+    }
 }
 
 let state_timer = true;
@@ -43,10 +29,13 @@ let state_timer = true;
 
 let applyTimerConfig = function() {
     state_timer = Cfg.get('board.timer.timerState'); 
+    
+    timerConfig();
+
     let timer = '*/5 * * * * *';
     cronRemove(cronId);
     if (state_timer){
-        cronId = cronAdd(timer, cronCallback, null);    
+        cronId = cronAdd(timer, cronCallbackTimer, null);    
     }     
 };
 
@@ -57,6 +46,8 @@ let applyTimerConfig = function() {
  */
 let cronAdd = ffi('int mgos_cron_add(char*, void (*)(userdata, int) ,userdata)');
 let cronId  = 0;
+let cronIdTimerOn = 0;
+let cronIdTimerOff = 0;
 
 /**
  * Delete cron entry with a given cron ID 
@@ -75,3 +66,40 @@ function formatTime(fmt, time) {
     return s.slice(0, res);
 }
 
+// NUEVA FORMA DE CAMBIAT ESTADO DEL EQUIPO CON EL TIMER
+
+function timerConfig(){
+    print("Configurando timer")
+    cronRemove(cronIdTimerOn);
+    cronRemove(cronIdTimerOff);
+
+    let tempoOn = Cfg.get('board.timer.timerOn');
+    tempoOn = JSON.stringify(tempoOn);
+
+    let tempoOff = Cfg.get('board.timer.timerOff');
+    tempoOff = JSON.stringify(tempoOff);
+
+    let hourOn = JSON.stringify(JSON.parse(tempoOn.slice(1,3)));
+    let minOn = JSON.stringify(JSON.parse(tempoOn.slice(4,6)));
+    let hourOff = JSON.stringify(JSON.parse(tempoOff.slice(1,3)));
+    let minOff = JSON.stringify(JSON.parse(tempoOff.slice(4,6)));
+
+    let timerOn = '0 '+ minOn + ' ' + hourOn +' * * *';
+    let timerOff = '0 '+ minOff + ' ' + hourOff +' * * *';
+
+    print("Timer On: " + timerOn);
+    print("Timer Off: " + timerOff);
+    cronIdTimerOn = cronAdd(timerOn, cronCallbackOn, null);
+    cronIdTimerOff = cronAdd(timerOff, cronCallbackOff, null);
+
+}
+
+function cronCallbackOn(arg, cron_id){
+    print("Cambio de estado");
+    if (!onIsNext) onIsNext = !onIsNext;
+}
+
+function cronCallbackOff(arg, cron_id){
+    print("Cambio de estado");
+    if (onIsNext) onIsNext = !onIsNext;
+}

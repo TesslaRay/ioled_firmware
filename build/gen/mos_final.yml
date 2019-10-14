@@ -1,6 +1,6 @@
 name: ioled_firmware
 type: app
-version: "1.0"
+version: "2.0"
 platform: esp8266
 platforms:
 - esp32
@@ -124,6 +124,7 @@ filesystem:
 - /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/mjs/esp8266/fs/api_esp8266.js
 - /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/wifi-setup-web-ui/fs/axios.min.js
 - /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/wifi-setup-web-ui/fs/index.html
+- /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/fs/api_string.js
 - /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/fs/board.js
 - /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/fs/comandos.js
 - /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/fs/init.js
@@ -820,6 +821,11 @@ config_schema:
   - b
   - false
   - title: Timer state
+- - sys.tz_spec
+  - s
+  - AMT4PDT
+  - title: 'See formats for the TZ env var: "man tzset". Formats like ":/path/to/file"
+      are not supported'
 build_vars:
   BOARD: ""
   MGOS: "1"
