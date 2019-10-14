@@ -12,10 +12,14 @@ function cronCallbackTimer(arg, cron_id){
     let timeMin = JSON.parse(timerMin);
 
     print(timestring);
+    let led2  = Cfg.get('board.led2.state');
+    print(led2);
     if (onIsNext){
         print("Encendido");
+        applyBoardConfig();
     } else {
         print("Apagado");
+        turnOffLed();
     }
 }
 
@@ -27,9 +31,10 @@ let state_timer = true;
  * @param {boolean} state_timer
  */
 
-let applyTimerConfig = function() {
+let applyTimerConfig = function(obj) {
     state_timer = Cfg.get('board.timer.timerState'); 
-    
+
+    // print(board.board.led2.state);
     timerConfig();
 
     let timer = '*/5 * * * * *';

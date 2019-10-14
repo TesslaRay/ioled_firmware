@@ -16,9 +16,9 @@ let connectMqtt = function() {
   print('Connecting to Mqtt topic: ', configTopic);
   MQTT.sub(configTopic, function(conn, topic, msg) {
     print('Topic:', topic, 'message:', msg);
-    getConfigFromCloud(msg);
+    let obj = getConfigFromCloud(msg);
     applyBoardConfig();
-    applyTimerConfig();
+    applyTimerConfig(obj);
   });
 };
 

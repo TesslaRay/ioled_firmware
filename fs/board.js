@@ -72,6 +72,7 @@ let switchLed = function(ledName, turn) {
 let getConfigFromCloud = function(msg) {
   let obj = JSON.parse(msg);
   Cfg.set(obj);
+  return obj;
 };
 
 /**

@@ -1,4 +1,4 @@
-mos --port /dev/cu.usbserial-1430 console
+mos --port /dev/cu.usbserial-1410 console
 
 mos --port /dev/cu.usbserial-14120 license
 
@@ -22,6 +22,9 @@ mos --port /dev/cu.usbserial-14320 mdash-setup device1 506JdlOpt2TWnvAfiebUWQ
 
 // Wifi Oficina iOLED
 mos --port /dev/cu.usbserial-1430 wifi VTR-6439861 jkfq8yjFhwj9
+
+mos --port /dev/cu.usbserial-1430 wifi VTR-3465258 6dfvcjCCgcdf
+
 
 mos --port /dev/cu.usbserial-1430 wifi DeptoVane2.4 vaneyuva2018
 
