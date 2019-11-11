@@ -1,4 +1,0 @@
-mos build --platform esp8266
-mos --port /dev/cu.usbserial-1430 flash
-mos --port /dev/cu.usbserial-1430 gcp-iot-setup --gcp-project ioled-dev-248517 --gcp-region us-central1 --gcp-registry ioled-devices
-mos --port /dev/cu.usbserial-1430 wifi VTR-6439861 jkfq8yjFhwj9
