@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_100457517/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_100457517/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -10,10 +10,11 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[228] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 227},
-  {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 10},
+const struct mgos_conf_entry mgos_config_schema_[238] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 237},
+  {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 11},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
+  {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
   {.type = CONF_TYPE_INT, .key = "mbedtls_level", .offset = offsetof(struct mgos_config, debug.mbedtls_level)},
   {.type = CONF_TYPE_INT, .key = "level", .offset = offsetof(struct mgos_config, debug.level)},
   {.type = CONF_TYPE_STRING, .key = "file_level", .offset = offsetof(struct mgos_config, debug.file_level)},
@@ -29,6 +30,12 @@ const struct mgos_conf_entry mgos_config_schema_[228] = {
   {.type = CONF_TYPE_BOOL, .key = "debug", .offset = offsetof(struct mgos_config, i2c.debug)},
   {.type = CONF_TYPE_INT, .key = "sda_gpio", .offset = offsetof(struct mgos_config, i2c.sda_gpio)},
   {.type = CONF_TYPE_INT, .key = "scl_gpio", .offset = offsetof(struct mgos_config, i2c.scl_gpio)},
+  {.type = CONF_TYPE_OBJECT, .key = "i2c1", .offset = offsetof(struct mgos_config, i2c1), .num_desc = 5},
+  {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, i2c1.enable)},
+  {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, i2c1.freq)},
+  {.type = CONF_TYPE_BOOL, .key = "debug", .offset = offsetof(struct mgos_config, i2c1.debug)},
+  {.type = CONF_TYPE_INT, .key = "sda_gpio", .offset = offsetof(struct mgos_config, i2c1.sda_gpio)},
+  {.type = CONF_TYPE_INT, .key = "scl_gpio", .offset = offsetof(struct mgos_config, i2c1.scl_gpio)},
   {.type = CONF_TYPE_OBJECT, .key = "sys", .offset = offsetof(struct mgos_config, sys), .num_desc = 8},
   {.type = CONF_TYPE_OBJECT, .key = "atca", .offset = offsetof(struct mgos_config, sys.atca), .num_desc = 4},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, sys.atca.enable)},
@@ -38,10 +45,11 @@ const struct mgos_conf_entry mgos_config_schema_[228] = {
   {.type = CONF_TYPE_STRING, .key = "tz_spec", .offset = offsetof(struct mgos_config, sys.tz_spec)},
   {.type = CONF_TYPE_INT, .key = "wdt_timeout", .offset = offsetof(struct mgos_config, sys.wdt_timeout)},
   {.type = CONF_TYPE_STRING, .key = "pref_ota_lib", .offset = offsetof(struct mgos_config, sys.pref_ota_lib)},
-  {.type = CONF_TYPE_OBJECT, .key = "device", .offset = offsetof(struct mgos_config, device), .num_desc = 6},
+  {.type = CONF_TYPE_OBJECT, .key = "device", .offset = offsetof(struct mgos_config, device), .num_desc = 7},
   {.type = CONF_TYPE_STRING, .key = "id", .offset = offsetof(struct mgos_config, device.id)},
   {.type = CONF_TYPE_STRING, .key = "license", .offset = offsetof(struct mgos_config, device.license)},
   {.type = CONF_TYPE_STRING, .key = "mac", .offset = offsetof(struct mgos_config, device.mac)},
+  {.type = CONF_TYPE_STRING, .key = "public_key", .offset = offsetof(struct mgos_config, device.public_key)},
   {.type = CONF_TYPE_OBJECT, .key = "location", .offset = offsetof(struct mgos_config, device.location), .num_desc = 2},
   {.type = CONF_TYPE_DOUBLE, .key = "lat", .offset = offsetof(struct mgos_config, device.location.lat)},
   {.type = CONF_TYPE_DOUBLE, .key = "lon", .offset = offsetof(struct mgos_config, device.location.lon)},
@@ -52,7 +60,7 @@ const struct mgos_conf_entry mgos_config_schema_[228] = {
   {.type = CONF_TYPE_INT, .key = "retry_min", .offset = offsetof(struct mgos_config, sntp.retry_min)},
   {.type = CONF_TYPE_INT, .key = "retry_max", .offset = offsetof(struct mgos_config, sntp.retry_max)},
   {.type = CONF_TYPE_INT, .key = "update_interval", .offset = offsetof(struct mgos_config, sntp.update_interval)},
-  {.type = CONF_TYPE_OBJECT, .key = "mqtt", .offset = offsetof(struct mgos_config, mqtt), .num_desc = 21},
+  {.type = CONF_TYPE_OBJECT, .key = "mqtt", .offset = offsetof(struct mgos_config, mqtt), .num_desc = 22},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, mqtt.enable)},
   {.type = CONF_TYPE_STRING, .key = "server", .offset = offsetof(struct mgos_config, mqtt.server)},
   {.type = CONF_TYPE_STRING, .key = "client_id", .offset = offsetof(struct mgos_config, mqtt.client_id)},
@@ -70,11 +78,12 @@ const struct mgos_conf_entry mgos_config_schema_[228] = {
   {.type = CONF_TYPE_INT, .key = "keep_alive", .offset = offsetof(struct mgos_config, mqtt.keep_alive)},
   {.type = CONF_TYPE_STRING, .key = "will_topic", .offset = offsetof(struct mgos_config, mqtt.will_topic)},
   {.type = CONF_TYPE_STRING, .key = "will_message", .offset = offsetof(struct mgos_config, mqtt.will_message)},
+  {.type = CONF_TYPE_BOOL, .key = "will_retain", .offset = offsetof(struct mgos_config, mqtt.will_retain)},
   {.type = CONF_TYPE_INT, .key = "max_qos", .offset = offsetof(struct mgos_config, mqtt.max_qos)},
   {.type = CONF_TYPE_INT, .key = "recv_mbuf_limit", .offset = offsetof(struct mgos_config, mqtt.recv_mbuf_limit)},
   {.type = CONF_TYPE_BOOL, .key = "require_time", .offset = offsetof(struct mgos_config, mqtt.require_time)},
   {.type = CONF_TYPE_BOOL, .key = "cloud_events", .offset = offsetof(struct mgos_config, mqtt.cloud_events)},
-  {.type = CONF_TYPE_OBJECT, .key = "mqtt1", .offset = offsetof(struct mgos_config, mqtt1), .num_desc = 21},
+  {.type = CONF_TYPE_OBJECT, .key = "mqtt1", .offset = offsetof(struct mgos_config, mqtt1), .num_desc = 22},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, mqtt1.enable)},
   {.type = CONF_TYPE_STRING, .key = "server", .offset = offsetof(struct mgos_config, mqtt1.server)},
   {.type = CONF_TYPE_STRING, .key = "client_id", .offset = offsetof(struct mgos_config, mqtt1.client_id)},
@@ -92,6 +101,7 @@ const struct mgos_conf_entry mgos_config_schema_[228] = {
   {.type = CONF_TYPE_INT, .key = "keep_alive", .offset = offsetof(struct mgos_config, mqtt1.keep_alive)},
   {.type = CONF_TYPE_STRING, .key = "will_topic", .offset = offsetof(struct mgos_config, mqtt1.will_topic)},
   {.type = CONF_TYPE_STRING, .key = "will_message", .offset = offsetof(struct mgos_config, mqtt1.will_message)},
+  {.type = CONF_TYPE_BOOL, .key = "will_retain", .offset = offsetof(struct mgos_config, mqtt1.will_retain)},
   {.type = CONF_TYPE_INT, .key = "max_qos", .offset = offsetof(struct mgos_config, mqtt1.max_qos)},
   {.type = CONF_TYPE_INT, .key = "recv_mbuf_limit", .offset = offsetof(struct mgos_config, mqtt1.recv_mbuf_limit)},
   {.type = CONF_TYPE_BOOL, .key = "require_time", .offset = offsetof(struct mgos_config, mqtt1.require_time)},
@@ -249,6 +259,7 @@ const struct mgos_conf_entry *mgos_config_schema() {
 struct mgos_config mgos_sys_config;
 const struct mgos_config mgos_config_defaults = {
   .debug.udp_log_addr = NULL,
+  .debug.udp_log_level = 3,
   .debug.mbedtls_level = 1,
   .debug.level = 2,
   .debug.file_level = NULL,
@@ -263,16 +274,22 @@ const struct mgos_config mgos_config_defaults = {
   .i2c.debug = 0,
   .i2c.sda_gpio = 12,
   .i2c.scl_gpio = 14,
+  .i2c1.enable = 0,
+  .i2c1.freq = 100000,
+  .i2c1.debug = 0,
+  .i2c1.sda_gpio = 4,
+  .i2c1.scl_gpio = 5,
   .sys.atca.enable = 0,
   .sys.atca.i2c_bus = 0,
   .sys.atca.i2c_addr = 96,
   .sys.atca.ecdh_slots_mask = 12,
-  .sys.tz_spec = "AMT4PDT",
+  .sys.tz_spec = "CLST3",
   .sys.wdt_timeout = 30,
   .sys.pref_ota_lib = NULL,
   .device.id = "esp8266_??????",
   .device.license = NULL,
   .device.mac = NULL,
+  .device.public_key = NULL,
   .device.location.lat = 999.0,
   .device.location.lon = 999.0,
   .conf_acl = "*",
@@ -298,12 +315,13 @@ const struct mgos_config mgos_config_defaults = {
   .mqtt.keep_alive = 60,
   .mqtt.will_topic = NULL,
   .mqtt.will_message = NULL,
+  .mqtt.will_retain = 0,
   .mqtt.max_qos = 2,
   .mqtt.recv_mbuf_limit = 3072,
   .mqtt.require_time = 0,
   .mqtt.cloud_events = 1,
   .mqtt1.enable = 0,
-  .mqtt1.server = "iot.eclipse.org:1883",
+  .mqtt1.server = NULL,
   .mqtt1.client_id = NULL,
   .mqtt1.user = NULL,
   .mqtt1.pass = NULL,
@@ -319,6 +337,7 @@ const struct mgos_config mgos_config_defaults = {
   .mqtt1.keep_alive = 60,
   .mqtt1.will_topic = NULL,
   .mqtt1.will_message = NULL,
+  .mqtt1.will_retain = 0,
   .mqtt1.max_qos = 2,
   .mqtt1.recv_mbuf_limit = 3072,
   .mqtt1.require_time = 0,
@@ -462,6 +481,16 @@ const char * mgos_config_get_debug_udp_log_addr(struct mgos_config *cfg) {
 }
 void mgos_config_set_debug_udp_log_addr(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->debug.udp_log_addr, v);
+}
+
+/* debug.udp_log_level */
+#define MGOS_CONFIG_HAVE_DEBUG_UDP_LOG_LEVEL
+#define MGOS_SYS_CONFIG_HAVE_DEBUG_UDP_LOG_LEVEL
+int mgos_config_get_debug_udp_log_level(struct mgos_config *cfg) {
+  return cfg->debug.udp_log_level;
+}
+void mgos_config_set_debug_udp_log_level(struct mgos_config *cfg, int v) {
+  cfg->debug.udp_log_level = v;
 }
 
 /* debug.mbedtls_level */
@@ -611,6 +640,63 @@ void mgos_config_set_i2c_scl_gpio(struct mgos_config *cfg, int v) {
   cfg->i2c.scl_gpio = v;
 }
 
+/* i2c1 */
+#define MGOS_CONFIG_HAVE_I2C1
+#define MGOS_SYS_CONFIG_HAVE_I2C1
+const struct mgos_config_i2c * mgos_config_get_i2c1(struct mgos_config *cfg) {
+  return &cfg->i2c1;
+}
+
+/* i2c1.enable */
+#define MGOS_CONFIG_HAVE_I2C1_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_I2C1_ENABLE
+int mgos_config_get_i2c1_enable(struct mgos_config *cfg) {
+  return cfg->i2c1.enable;
+}
+void mgos_config_set_i2c1_enable(struct mgos_config *cfg, int v) {
+  cfg->i2c1.enable = v;
+}
+
+/* i2c1.freq */
+#define MGOS_CONFIG_HAVE_I2C1_FREQ
+#define MGOS_SYS_CONFIG_HAVE_I2C1_FREQ
+int mgos_config_get_i2c1_freq(struct mgos_config *cfg) {
+  return cfg->i2c1.freq;
+}
+void mgos_config_set_i2c1_freq(struct mgos_config *cfg, int v) {
+  cfg->i2c1.freq = v;
+}
+
+/* i2c1.debug */
+#define MGOS_CONFIG_HAVE_I2C1_DEBUG
+#define MGOS_SYS_CONFIG_HAVE_I2C1_DEBUG
+int mgos_config_get_i2c1_debug(struct mgos_config *cfg) {
+  return cfg->i2c1.debug;
+}
+void mgos_config_set_i2c1_debug(struct mgos_config *cfg, int v) {
+  cfg->i2c1.debug = v;
+}
+
+/* i2c1.sda_gpio */
+#define MGOS_CONFIG_HAVE_I2C1_SDA_GPIO
+#define MGOS_SYS_CONFIG_HAVE_I2C1_SDA_GPIO
+int mgos_config_get_i2c1_sda_gpio(struct mgos_config *cfg) {
+  return cfg->i2c1.sda_gpio;
+}
+void mgos_config_set_i2c1_sda_gpio(struct mgos_config *cfg, int v) {
+  cfg->i2c1.sda_gpio = v;
+}
+
+/* i2c1.scl_gpio */
+#define MGOS_CONFIG_HAVE_I2C1_SCL_GPIO
+#define MGOS_SYS_CONFIG_HAVE_I2C1_SCL_GPIO
+int mgos_config_get_i2c1_scl_gpio(struct mgos_config *cfg) {
+  return cfg->i2c1.scl_gpio;
+}
+void mgos_config_set_i2c1_scl_gpio(struct mgos_config *cfg, int v) {
+  cfg->i2c1.scl_gpio = v;
+}
+
 /* sys */
 #define MGOS_CONFIG_HAVE_SYS
 #define MGOS_SYS_CONFIG_HAVE_SYS
@@ -730,6 +816,16 @@ const char * mgos_config_get_device_mac(struct mgos_config *cfg) {
 }
 void mgos_config_set_device_mac(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->device.mac, v);
+}
+
+/* device.public_key */
+#define MGOS_CONFIG_HAVE_DEVICE_PUBLIC_KEY
+#define MGOS_SYS_CONFIG_HAVE_DEVICE_PUBLIC_KEY
+const char * mgos_config_get_device_public_key(struct mgos_config *cfg) {
+  return cfg->device.public_key;
+}
+void mgos_config_set_device_public_key(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->device.public_key, v);
 }
 
 /* device.location */
@@ -1003,6 +1099,16 @@ void mgos_config_set_mqtt_will_message(struct mgos_config *cfg, const char * v) 
   mgos_conf_set_str(&cfg->mqtt.will_message, v);
 }
 
+/* mqtt.will_retain */
+#define MGOS_CONFIG_HAVE_MQTT_WILL_RETAIN
+#define MGOS_SYS_CONFIG_HAVE_MQTT_WILL_RETAIN
+int mgos_config_get_mqtt_will_retain(struct mgos_config *cfg) {
+  return cfg->mqtt.will_retain;
+}
+void mgos_config_set_mqtt_will_retain(struct mgos_config *cfg, int v) {
+  cfg->mqtt.will_retain = v;
+}
+
 /* mqtt.max_qos */
 #define MGOS_CONFIG_HAVE_MQTT_MAX_QOS
 #define MGOS_SYS_CONFIG_HAVE_MQTT_MAX_QOS
@@ -1218,6 +1324,16 @@ const char * mgos_config_get_mqtt1_will_message(struct mgos_config *cfg) {
 }
 void mgos_config_set_mqtt1_will_message(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->mqtt1.will_message, v);
+}
+
+/* mqtt1.will_retain */
+#define MGOS_CONFIG_HAVE_MQTT1_WILL_RETAIN
+#define MGOS_SYS_CONFIG_HAVE_MQTT1_WILL_RETAIN
+int mgos_config_get_mqtt1_will_retain(struct mgos_config *cfg) {
+  return cfg->mqtt1.will_retain;
+}
+void mgos_config_set_mqtt1_will_retain(struct mgos_config *cfg, int v) {
+  cfg->mqtt1.will_retain = v;
 }
 
 /* mqtt1.max_qos */

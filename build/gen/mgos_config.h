@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/modules/mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/build/gen/ /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/deps/modules/mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.15.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_060852151/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_100457517/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_100457517/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -15,6 +15,7 @@ extern "C" {
 
 struct mgos_config_debug {
   const char * udp_log_addr;
+  int udp_log_level;
   int mbedtls_level;
   int level;
   const char * file_level;
@@ -57,6 +58,7 @@ struct mgos_config_device {
   const char * id;
   const char * license;
   const char * mac;
+  const char * public_key;
   struct mgos_config_device_location location;
 };
 
@@ -86,6 +88,7 @@ struct mgos_config_mqtt {
   int keep_alive;
   const char * will_topic;
   const char * will_message;
+  int will_retain;
   int max_qos;
   int recv_mbuf_limit;
   int require_time;
@@ -261,6 +264,7 @@ struct mgos_config_Update {
 struct mgos_config {
   struct mgos_config_debug debug;
   struct mgos_config_i2c i2c;
+  struct mgos_config_i2c i2c1;
   struct mgos_config_sys sys;
   struct mgos_config_device device;
   const char * conf_acl;
@@ -296,6 +300,14 @@ const char * mgos_config_get_debug_udp_log_addr(struct mgos_config *cfg);
 static inline const char * mgos_sys_config_get_debug_udp_log_addr(void) { return mgos_config_get_debug_udp_log_addr(&mgos_sys_config); }
 void mgos_config_set_debug_udp_log_addr(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_debug_udp_log_addr(const char * v) { mgos_config_set_debug_udp_log_addr(&mgos_sys_config, v); }
+
+/* debug.udp_log_level */
+#define MGOS_CONFIG_HAVE_DEBUG_UDP_LOG_LEVEL
+#define MGOS_SYS_CONFIG_HAVE_DEBUG_UDP_LOG_LEVEL
+int mgos_config_get_debug_udp_log_level(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_debug_udp_log_level(void) { return mgos_config_get_debug_udp_log_level(&mgos_sys_config); }
+void mgos_config_set_debug_udp_log_level(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_debug_udp_log_level(int v) { mgos_config_set_debug_udp_log_level(&mgos_sys_config, v); }
 
 /* debug.mbedtls_level */
 #define MGOS_CONFIG_HAVE_DEBUG_MBEDTLS_LEVEL
@@ -415,6 +427,52 @@ static inline int mgos_sys_config_get_i2c_scl_gpio(void) { return mgos_config_ge
 void mgos_config_set_i2c_scl_gpio(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_i2c_scl_gpio(int v) { mgos_config_set_i2c_scl_gpio(&mgos_sys_config, v); }
 
+/* i2c1 */
+#define MGOS_CONFIG_HAVE_I2C1
+#define MGOS_SYS_CONFIG_HAVE_I2C1
+const struct mgos_config_i2c * mgos_config_get_i2c1(struct mgos_config *cfg);
+static inline const struct mgos_config_i2c * mgos_sys_config_get_i2c1(void) { return mgos_config_get_i2c1(&mgos_sys_config); }
+
+/* i2c1.enable */
+#define MGOS_CONFIG_HAVE_I2C1_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_I2C1_ENABLE
+int mgos_config_get_i2c1_enable(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c1_enable(void) { return mgos_config_get_i2c1_enable(&mgos_sys_config); }
+void mgos_config_set_i2c1_enable(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c1_enable(int v) { mgos_config_set_i2c1_enable(&mgos_sys_config, v); }
+
+/* i2c1.freq */
+#define MGOS_CONFIG_HAVE_I2C1_FREQ
+#define MGOS_SYS_CONFIG_HAVE_I2C1_FREQ
+int mgos_config_get_i2c1_freq(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c1_freq(void) { return mgos_config_get_i2c1_freq(&mgos_sys_config); }
+void mgos_config_set_i2c1_freq(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c1_freq(int v) { mgos_config_set_i2c1_freq(&mgos_sys_config, v); }
+
+/* i2c1.debug */
+#define MGOS_CONFIG_HAVE_I2C1_DEBUG
+#define MGOS_SYS_CONFIG_HAVE_I2C1_DEBUG
+int mgos_config_get_i2c1_debug(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c1_debug(void) { return mgos_config_get_i2c1_debug(&mgos_sys_config); }
+void mgos_config_set_i2c1_debug(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c1_debug(int v) { mgos_config_set_i2c1_debug(&mgos_sys_config, v); }
+
+/* i2c1.sda_gpio */
+#define MGOS_CONFIG_HAVE_I2C1_SDA_GPIO
+#define MGOS_SYS_CONFIG_HAVE_I2C1_SDA_GPIO
+int mgos_config_get_i2c1_sda_gpio(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c1_sda_gpio(void) { return mgos_config_get_i2c1_sda_gpio(&mgos_sys_config); }
+void mgos_config_set_i2c1_sda_gpio(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c1_sda_gpio(int v) { mgos_config_set_i2c1_sda_gpio(&mgos_sys_config, v); }
+
+/* i2c1.scl_gpio */
+#define MGOS_CONFIG_HAVE_I2C1_SCL_GPIO
+#define MGOS_SYS_CONFIG_HAVE_I2C1_SCL_GPIO
+int mgos_config_get_i2c1_scl_gpio(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c1_scl_gpio(void) { return mgos_config_get_i2c1_scl_gpio(&mgos_sys_config); }
+void mgos_config_set_i2c1_scl_gpio(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c1_scl_gpio(int v) { mgos_config_set_i2c1_scl_gpio(&mgos_sys_config, v); }
+
 /* sys */
 #define MGOS_CONFIG_HAVE_SYS
 #define MGOS_SYS_CONFIG_HAVE_SYS
@@ -512,6 +570,14 @@ const char * mgos_config_get_device_mac(struct mgos_config *cfg);
 static inline const char * mgos_sys_config_get_device_mac(void) { return mgos_config_get_device_mac(&mgos_sys_config); }
 void mgos_config_set_device_mac(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_device_mac(const char * v) { mgos_config_set_device_mac(&mgos_sys_config, v); }
+
+/* device.public_key */
+#define MGOS_CONFIG_HAVE_DEVICE_PUBLIC_KEY
+#define MGOS_SYS_CONFIG_HAVE_DEVICE_PUBLIC_KEY
+const char * mgos_config_get_device_public_key(struct mgos_config *cfg);
+static inline const char * mgos_sys_config_get_device_public_key(void) { return mgos_config_get_device_public_key(&mgos_sys_config); }
+void mgos_config_set_device_public_key(struct mgos_config *cfg, const char * v);
+static inline void mgos_sys_config_set_device_public_key(const char * v) { mgos_config_set_device_public_key(&mgos_sys_config, v); }
 
 /* device.location */
 #define MGOS_CONFIG_HAVE_DEVICE_LOCATION
@@ -731,6 +797,14 @@ static inline const char * mgos_sys_config_get_mqtt_will_message(void) { return 
 void mgos_config_set_mqtt_will_message(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_mqtt_will_message(const char * v) { mgos_config_set_mqtt_will_message(&mgos_sys_config, v); }
 
+/* mqtt.will_retain */
+#define MGOS_CONFIG_HAVE_MQTT_WILL_RETAIN
+#define MGOS_SYS_CONFIG_HAVE_MQTT_WILL_RETAIN
+int mgos_config_get_mqtt_will_retain(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_mqtt_will_retain(void) { return mgos_config_get_mqtt_will_retain(&mgos_sys_config); }
+void mgos_config_set_mqtt_will_retain(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_mqtt_will_retain(int v) { mgos_config_set_mqtt_will_retain(&mgos_sys_config, v); }
+
 /* mqtt.max_qos */
 #define MGOS_CONFIG_HAVE_MQTT_MAX_QOS
 #define MGOS_SYS_CONFIG_HAVE_MQTT_MAX_QOS
@@ -904,6 +978,14 @@ const char * mgos_config_get_mqtt1_will_message(struct mgos_config *cfg);
 static inline const char * mgos_sys_config_get_mqtt1_will_message(void) { return mgos_config_get_mqtt1_will_message(&mgos_sys_config); }
 void mgos_config_set_mqtt1_will_message(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_mqtt1_will_message(const char * v) { mgos_config_set_mqtt1_will_message(&mgos_sys_config, v); }
+
+/* mqtt1.will_retain */
+#define MGOS_CONFIG_HAVE_MQTT1_WILL_RETAIN
+#define MGOS_SYS_CONFIG_HAVE_MQTT1_WILL_RETAIN
+int mgos_config_get_mqtt1_will_retain(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_mqtt1_will_retain(void) { return mgos_config_get_mqtt1_will_retain(&mgos_sys_config); }
+void mgos_config_set_mqtt1_will_retain(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_mqtt1_will_retain(int v) { mgos_config_set_mqtt1_will_retain(&mgos_sys_config, v); }
 
 /* mqtt1.max_qos */
 #define MGOS_CONFIG_HAVE_MQTT1_MAX_QOS

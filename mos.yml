@@ -38,7 +38,7 @@ config_schema:
   - ["board.timer.timerState", "b", false, {title: "Timer state"}]
   
   # Time zone
-  - ["sys.tz_spec", "s", "AMT4PDT", {title: "See formats for the TZ env var: \"man tzset\". Formats like \":/path/to/file\" are not supported"}]
+  - ["sys.tz_spec", "s", "CLST3", {title: "Chile Summer Time"}]
 
 tags:
   - js
