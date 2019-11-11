@@ -1,7 +1,6 @@
 # Dependency directories
 
 # Private 
-gcp-esp8266_A9A742.key.pem
-gcp-esp8266_A9A742.pub.pem
-core-ioled-esp8266-firmware-esp8266-20190717-124223.150581508
+*.pem
 fs/comandos.js
+flash
