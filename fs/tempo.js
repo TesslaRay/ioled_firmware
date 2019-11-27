@@ -5,15 +5,9 @@ let onIsNext = true;
 function cronCallbackTimer(arg, cron_id){
     let now = Timer.now();
     let timestring = Timer.fmt('%T', now);
-    let timerNow = formatTime('%H', now);
-    let timerMin = formatTime('%M', now);
-
-    let timeHour = JSON.parse(timerNow);    //  Ajuste horario
-    let timeMin = JSON.parse(timerMin);
 
     print(timestring);
-    let led2  = Cfg.get('board.led2.state');
-    print(led2);
+    
     if (onIsNext){
         print("Encendido");
         applyBoardConfig();
@@ -33,10 +27,7 @@ let state_timer = true;
 
 let applyTimerConfig = function(obj) {
     state_timer = Cfg.get('board.timer.timerState'); 
-
-    // print(board.board.led2.state);
     timerConfig();
-
     let timer = '*/5 * * * * *';
     cronRemove(cronId);
     if (state_timer){
@@ -71,7 +62,7 @@ function formatTime(fmt, time) {
     return s.slice(0, res);
 }
 
-// NUEVA FORMA DE CAMBIAT ESTADO DEL EQUIPO CON EL TIMER
+// NUEVA FORMA DE CAMBIAR ESTADO DEL EQUIPO CON EL TIMER
 
 function timerConfig(){
     print("Configurando timer")

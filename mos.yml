@@ -9,21 +9,24 @@ mongoose_os_version: ${mos.version}
 config_schema:
   # Button control
   - ["board.btn1.control", "s", "led1", {title: "Name of the led that controls"}]
+  
   # Integrated led config
   - ["board.led1.duty", "d", 0.5, {title: "Integrated Led duty cycle"}]
   - ["board.led1.freq", "i", 500, {title: "Integrated Led frequency"}]
   - ["board.led1.state", "b", true, {title: "Integrated Led current state"}]
+  
   # Prototype led2 config
   - ["board.led2.active_high", "b", true, {title: "True if LED is on when output is high (1)"}]
   - ["board.led2.duty", "d", 1.0, {title: "Led duty cycle"}]
   - ["board.led2.freq", "i", 500, {title: "Led frequency"}]
-  - ["board.led2.pin", "i", 4, {title: "Led pin for PWM"}]
+  - ["board.led2.pin", "i", 2, {title: "Led pin for PWM"}]
   - ["board.led2.state", "b", true, {title: "Led current state"}]
   
   # Neopixel config
   - ["board.neopixel.state", "b", true, {title: "Led current state"}]
   - ["board.neopixel.pin", "i", 13, {title: "Neopixel pin"}]
   - ["board.neopixel.pixels", "i", 3, {title: "Neopixel number of pixels"}]
+  
   # Enable access point
   - ["wifi.ap.enable", "b", true, {title: "Disable Access Point"}]
   - ["wifi.ap.ssid", "s", "esp8266.config", {title: "Access Point Name"}]
@@ -38,7 +41,12 @@ config_schema:
   - ["board.timer.timerState", "b", false, {title: "Timer state"}]
   
   # Time zone
-  - ["sys.tz_spec", "s", "CLST3", {title: "Chile Summer Time"}]
+  - ["sys.tz_spec", "s", "CLST3", {title: "CHile Summer Timer"}]
+
+  # I2C
+  - ["i2c.enable", true]
+  - ["i2c.sda_gpio", 5]
+  - ["i2c.scl_gpio", 4]
 
 tags:
   - js
@@ -73,5 +81,7 @@ libs:
   - origin: https://github.com/mongoose-os-libs/dht
   # CRON
   - origin: https://github.com/mongoose-os-libs/cron
+  # I2C
+  - origin: https://github.com/mongoose-os-libs/i2c
 
 sources:

@@ -35,8 +35,7 @@ let commandsMqtt = function() {
 
     if (eventObj.event === 'ota'){
       print('Actualizando ...');
-      Timer.del(timerId);
-      setAllPixels(red);
+      // setAllPixels(red);
       RPC.call(RPC.LOCAL, 'OTA.update', '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}', function(resp, ud) {
       }, null);
      

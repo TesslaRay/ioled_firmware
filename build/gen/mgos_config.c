@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_100457517/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_100457517/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_556414611/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_556414611/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -269,11 +269,11 @@ const struct mgos_config mgos_config_defaults = {
   .debug.mg_mgr_hexdump_file = NULL,
   .debug.stdout_topic = NULL,
   .debug.stderr_topic = NULL,
-  .i2c.enable = 0,
+  .i2c.enable = 1,
   .i2c.freq = 100000,
   .i2c.debug = 0,
-  .i2c.sda_gpio = 12,
-  .i2c.scl_gpio = 14,
+  .i2c.sda_gpio = 5,
+  .i2c.scl_gpio = 4,
   .i2c1.enable = 0,
   .i2c1.freq = 100000,
   .i2c1.debug = 0,
@@ -443,7 +443,7 @@ const struct mgos_config mgos_config_defaults = {
   .board.led1.duty = 0.5,
   .board.led1.freq = 500,
   .board.led1.state = 1,
-  .board.led2.pin = 4,
+  .board.led2.pin = 2,
   .board.led2.active_high = 1,
   .board.led2.duty = 1.0,
   .board.led2.freq = 500,

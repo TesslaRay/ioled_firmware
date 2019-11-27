@@ -29,7 +29,7 @@
   ["sys.atca.i2c_bus", "i", {"title": "Which I2C bus to use"}],
   ["sys.atca.i2c_addr", "i", {"title": "I2C address of the chip"}],
   ["sys.atca.ecdh_slots_mask", "i", {"title": "Which slots can be used for ECDH (bitmask)"}],
-  ["sys.tz_spec", "s", {"title": "Chile Summer Time"}],
+  ["sys.tz_spec", "s", {"title": "CHile Summer Timer"}],
   ["sys.wdt_timeout", "i", {"title": "Watchdog timeout (seconds)"}],
   ["sys.pref_ota_lib", "s", {"title": "Preferred ota lib, e.g. dash, ota-http-client"}],
   ["device", "o", {"title": "Device settings"}],
