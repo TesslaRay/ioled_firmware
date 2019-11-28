@@ -5,11 +5,6 @@ let onIsNext = true;
 function cronCallbackTimer(arg, cron_id){
     let now = Timer.now();
     let timestring = Timer.fmt('%T', now);
-    let timerNow = formatTime('%H', now);
-    let timerMin = formatTime('%M', now);
-
-    let timeHour = JSON.parse(timerNow);    //  Ajuste horario
-    let timeMin = JSON.parse(timerMin);
 
     print(timestring);
     let led2  = Cfg.get('board.led2.state');
