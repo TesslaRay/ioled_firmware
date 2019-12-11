@@ -1,7 +1,7 @@
 load('api_i2c.js');
 
 // Time between each state
-let time = 2 * 1000;
+let time = 120 * 1000;
 
 let i2c = I2C.get();
 let addr = 64;	//0x40 - 1000000
@@ -24,8 +24,8 @@ let publishState = function() {
 			print('humidity: ',hum);
 			print('temperature: ',temp);
 
-			// let res = MQTT.pub(stateTopic, JSON.stringify({temp: temp, hum: hum}), 1);
-			// print('Published:', res ? 'yes' : 'no');
+			let res = MQTT.pub(stateTopic, JSON.stringify({temp: temp, hum: hum}), 1);
+			print('Published:', res ? 'yes' : 'no');
 		},
 		null
 	);
