@@ -49,10 +49,6 @@ int  mgos_cron_add(char*, void (*)(void *, int) ,void *);
 void  mgos_cron_remove(int);
 int  mgos_debug_event_get_len(void *);
 void * mgos_debug_event_get_ptr(void *);
-void  mgos_dht_close(void *);
-void * mgos_dht_create(int, int);
-float  mgos_dht_get_humidity(void *);
-float  mgos_dht_get_temp(void *);
 void  mgos_disconnect(void *);
 bool  mgos_event_add_group_handler(int, void(*)(int, void *, void *), void *);
 bool  mgos_event_add_handler(int, void(*)(int, void *, void *), void *);
@@ -187,10 +183,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mgos_cron_remove", mgos_cron_remove},
   {"mgos_debug_event_get_len", mgos_debug_event_get_len},
   {"mgos_debug_event_get_ptr", mgos_debug_event_get_ptr},
-  {"mgos_dht_close", mgos_dht_close},
-  {"mgos_dht_create", mgos_dht_create},
-  {"mgos_dht_get_humidity", mgos_dht_get_humidity},
-  {"mgos_dht_get_temp", mgos_dht_get_temp},
   {"mgos_disconnect", mgos_disconnect},
   {"mgos_event_add_group_handler", mgos_event_add_group_handler},
   {"mgos_event_add_handler", mgos_event_add_handler},
@@ -284,4 +276,4 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"sqrt", sqrt},
   {"strdup", strdup},
 };
-const int ffi_exports_cnt = 136;
+const int ffi_exports_cnt = 132;

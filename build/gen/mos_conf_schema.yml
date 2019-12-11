@@ -648,7 +648,7 @@
   - title: Led frequency
 - - board.led2.pin
   - i
-  - 2
+  - 14
   - title: Led pin for PWM
 - - board.led2.state
   - b

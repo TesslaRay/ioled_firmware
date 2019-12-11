@@ -19,7 +19,6 @@ extern bool mgos_atca_init(void);
 extern bool mgos_location_init(void);
 extern bool mgos_sntp_init(void);
 extern bool mgos_cron_init(void);
-extern bool mgos_dht_init(void);
 extern bool mgos_mqtt_init(void);
 extern bool mgos_gcp_init(void);
 extern bool mgos_wifi_init(void);
@@ -74,9 +73,6 @@ static const struct lib_descr {
 
     // "cron". deps: [ "core" "location" "sntp" ]
     {.title = "cron", .init = mgos_cron_init},
-
-    // "dht". deps: [ "core" ]
-    {.title = "dht", .init = mgos_dht_init},
 
     // "mqtt". deps: [ "core" ]
     {.title = "mqtt", .init = mgos_mqtt_init},

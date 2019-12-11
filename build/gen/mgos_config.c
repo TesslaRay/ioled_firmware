@@ -1,11 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
-<<<<<<< HEAD
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_089369991/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_089369991/build/gen/mos_conf_schema.yml
-=======
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/build/gen/mos_conf_schema.yml
->>>>>>> develop
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -447,7 +443,7 @@ const struct mgos_config mgos_config_defaults = {
   .board.led1.duty = 0.5,
   .board.led1.freq = 500,
   .board.led1.state = 1,
-  .board.led2.pin = 2,
+  .board.led2.pin = 14,
   .board.led2.active_high = 1,
   .board.led2.duty = 1.0,
   .board.led2.freq = 500,

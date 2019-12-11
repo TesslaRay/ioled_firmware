@@ -1,12 +1,10 @@
 load('api_i2c.js');
 
 // Time between each state
-let time = 120 * 1000;
+let time = 2 * 1000;
 
 let i2c = I2C.get();
 let addr = 64;	//0x40 - 1000000
-
-let vectorTemp = [];
 
 let publishState = function() {
 	Timer.set(
