@@ -19,7 +19,7 @@ config_schema:
   - ["board.led2.active_high", "b", true, {title: "True if LED is on when output is high (1)"}]
   - ["board.led2.duty", "d", 1.0, {title: "Led duty cycle"}]
   - ["board.led2.freq", "i", 500, {title: "Led frequency"}]
-  - ["board.led2.pin", "i", 2, {title: "Led pin for PWM"}]
+  - ["board.led2.pin", "i", 14, {title: "Led pin for PWM"}]
   - ["board.led2.state", "b", true, {title: "Led current state"}]
   
   # Neopixel config
@@ -78,8 +78,6 @@ libs:
   - origin: https://github.com/mongoose-os-libs/http-server
   # Neopixel lib
   - origin: https://github.com/mongoose-os-libs/neopixel
-  # DHT Humidity and temp sensors.
-  - origin: https://github.com/mongoose-os-libs/dht
   # CRON
   - origin: https://github.com/mongoose-os-libs/cron
   # I2C
