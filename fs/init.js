@@ -23,8 +23,8 @@ netSearch();
 
 // Connect to the mqtt topic.
 connectMqtt();
-//commandsMqtt();
+commandsMqtt();
 
 // Public temp and hum
-// publishState();
+publishState();
 

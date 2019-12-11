@@ -648,7 +648,7 @@
   - title: Led frequency
 - - board.led2.pin
   - i
-  - 4
+  - 2
   - title: Led pin for PWM
 - - board.led2.state
   - b
@@ -700,4 +700,10 @@
 - - sys.tz_spec
   - s
   - CLST3
-  - title: Chile Summer Time
+  - title: CHile Summer Timer
+- - i2c.enable
+  - true
+- - i2c.sda_gpio
+  - 5
+- - i2c.scl_gpio
+  - 4
