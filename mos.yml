@@ -68,6 +68,7 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-service-config
   - origin: https://github.com/mongoose-os-libs/rpc-service-fs
   - origin: https://github.com/mongoose-os-libs/rpc-loopback
+  - origin: https://github.com/mongoose-os-libs/rpc-service-i2c
   # ota rpc
   - origin: https://github.com/mongoose-os-libs/rpc-service-ota
   # gcp include mqtt and ca-bundle (certificates).
