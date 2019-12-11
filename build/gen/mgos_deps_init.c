@@ -33,6 +33,7 @@ extern bool mgos_rpc_common_init(void);
 extern bool mgos_rpc_loopback_init(void);
 extern bool mgos_rpc_service_config_init(void);
 extern bool mgos_rpc_service_fs_init(void);
+extern bool mgos_rpc_service_i2c_init(void);
 extern bool mgos_rpc_service_ota_init(void);
 extern bool mgos_rpc_uart_init(void);
 
@@ -115,6 +116,9 @@ static const struct lib_descr {
 
     // "rpc-service-fs". deps: [ "core" "rpc-common" ]
     {.title = "rpc-service-fs", .init = mgos_rpc_service_fs_init},
+
+    // "rpc-service-i2c". deps: [ "core" "i2c" "rpc-common" ]
+    {.title = "rpc-service-i2c", .init = mgos_rpc_service_i2c_init},
 
     // "rpc-service-ota". deps: [ "core" "ota-http-client" "rpc-common" ]
     {.title = "rpc-service-ota", .init = mgos_rpc_service_ota_init},

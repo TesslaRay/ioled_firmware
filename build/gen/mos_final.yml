@@ -56,6 +56,7 @@ sources:
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-config/src/mgos_service_config.c
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-fs/src/mgos_service_filesystem.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-i2c/src/mgos_i2c_service.c
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-uart/src/mgos_rpc_channel_uart.c
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/wifi/src/mgos_wifi.c
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/wifi/src/mjs_wifi.c
@@ -89,6 +90,7 @@ includes:
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-loopback/include
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-config/include
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-fs/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-i2c/include
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/ota-common/src
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/ota-common/include
 - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/ota-common/include/esp8266
@@ -880,6 +882,7 @@ build_vars:
   MGOS_HAVE_RPC_LOOPBACK: "1"
   MGOS_HAVE_RPC_SERVICE_CONFIG: "1"
   MGOS_HAVE_RPC_SERVICE_FS: "1"
+  MGOS_HAVE_RPC_SERVICE_I2C: "1"
   MGOS_HAVE_RPC_SERVICE_OTA: "1"
   MGOS_HAVE_RPC_UART: "1"
   MGOS_HAVE_SNTP: "1"
@@ -928,6 +931,7 @@ cdefs:
   MGOS_HAVE_RPC_LOOPBACK: "1"
   MGOS_HAVE_RPC_SERVICE_CONFIG: "1"
   MGOS_HAVE_RPC_SERVICE_FS: "1"
+  MGOS_HAVE_RPC_SERVICE_I2C: "1"
   MGOS_HAVE_RPC_SERVICE_OTA: "1"
   MGOS_HAVE_RPC_UART: "1"
   MGOS_HAVE_SNTP: "1"
@@ -1185,6 +1189,17 @@ libs_handled:
   sources:
   - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-fs/src/mgos_service_filesystem.c
 - lib:
+    origin: https://github.com/mongoose-os-libs/rpc-service-i2c
+    location: https://github.com/mongoose-os-libs/rpc-service-i2c
+    name: rpc-service-i2c
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-i2c
+  init_deps:
+  - core
+  - i2c
+  - rpc-common
+  sources:
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_557733729/deps/rpc-service-i2c/src/mgos_i2c_service.c
+- lib:
     origin: https://github.com/mongoose-os-libs/ota-common
     location: https://github.com/mongoose-os-libs/ota-common
     name: ota-common
@@ -1266,6 +1281,7 @@ init_deps:
 - rpc-loopback
 - rpc-service-config
 - rpc-service-fs
+- rpc-service-i2c
 - rpc-service-ota
 - rpc-uart
 - wifi-setup-web-ui

@@ -47,7 +47,9 @@ mos --port /dev/cu.usbserial-1430 put fs/init.js
 
 mos --port /dev/cu.usbserial-1430 put fs/board.js
 
-mos --port /dev/cu.usbserial-1410 put fs/sensors.js
+mos --port /dev/cu.usbserial-1430 put fs/sensors.js
+
+mos --port /dev/cu.usbserial-1430 call I2C.Read '{"addr": 64, "len": 2}'
 
 
 
@@ -58,6 +60,9 @@ mos build --platform esp8266
 mos --port /dev/cu.usbserial-1430 flash
 
 mos --port /dev/cu.usbserial-1430 call I2C.Scan
+
+mos --port /dev/cu.usbserial-1430 call I2C.Read '{"addr": 64, "len": 2}'
+
 
 
 
