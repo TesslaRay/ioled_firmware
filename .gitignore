@@ -4,3 +4,4 @@
 *.pem
 fs/comandos.js
 flash
+build/
