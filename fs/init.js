@@ -14,9 +14,9 @@ load('neopixel.js');
 load('tempo.js');
 load('mqtt.js');
 
-// Initialize all led stored config.
+// Initialize all led stored config and timer
 initBoard();
-timerConfig();
+initTimer();
 
 // Neopixel Network search.
 netSearch();
@@ -26,5 +26,5 @@ connectMqtt();
 commandsMqtt();
 
 // Public temp and hum
-publishState();
+// publishState();
 

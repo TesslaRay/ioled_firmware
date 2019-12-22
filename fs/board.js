@@ -61,6 +61,7 @@ let switchLed = function(ledName, turn) {
     GPIO.write(led.pin, !led.onhi);
   }
   print(ledName, 'state:', led.state ? 'true' : 'false');
+  print(ledName,'intensity: ', led.duty);
 };
 
 /**
