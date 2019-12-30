@@ -26,5 +26,5 @@ connectMqtt();
 commandsMqtt();
 
 // Public temp and hum
-// publishState();
+publishState();
 

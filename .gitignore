@@ -4,6 +4,6 @@
 *.pem
 fs/comandos.js
 flash
-build/
+/build
 build/build.log
 build/gen/build_stat.json
