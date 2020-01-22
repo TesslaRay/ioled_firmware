@@ -27,4 +27,3 @@ commandsMqtt();
 
 // Public temp and hum
 publishState();
-

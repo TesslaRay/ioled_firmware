@@ -346,34 +346,6 @@
   - b
   - true
   - title: Generate .jsc file when executing any .js file
-- - rpc
-  - o
-  - title: RPC settings
-- - rpc.enable
-  - b
-  - true
-  - title: Enable RPC
-- - rpc.max_frame_size
-  - i
-  - 4096
-  - title: Max Frame Size
-- - rpc.max_queue_length
-  - i
-  - 25
-  - title: Max Queue Length
-- - rpc.default_out_channel_idle_close_timeout
-  - i
-  - 10
-  - title: Default idle close timeout for outbound channels
-- - rpc.acl_file
-  - s
-  - title: File with RPC ACL JSON
-- - rpc.auth_domain
-  - s
-  - title: Realm to use for digest authentication
-- - rpc.auth_file
-  - s
-  - title: File with user credentials in the htdigest format
 - - update
   - o
   - title: Firmware updater
@@ -403,6 +375,34 @@
 - - update.ssl_server_name
   - s
   - title: TLS Server Name
+- - rpc
+  - o
+  - title: RPC settings
+- - rpc.enable
+  - b
+  - true
+  - title: Enable RPC
+- - rpc.max_frame_size
+  - i
+  - 4096
+  - title: Max Frame Size
+- - rpc.max_queue_length
+  - i
+  - 25
+  - title: Max Queue Length
+- - rpc.default_out_channel_idle_close_timeout
+  - i
+  - 10
+  - title: Default idle close timeout for outbound channels
+- - rpc.acl_file
+  - s
+  - title: File with RPC ACL JSON
+- - rpc.auth_domain
+  - s
+  - title: Realm to use for digest authentication
+- - rpc.auth_file
+  - s
+  - title: File with user credentials in the htdigest format
 - - rpc.uart
   - o
   - title: RPC-over-UART settings
@@ -622,6 +622,10 @@
   - s
   - led1
   - title: Name of the led that controls
+- - board.led1.active_high
+  - b
+  - true
+  - title: True if LED is on when output is high (1)
 - - board.led1.duty
   - d
   - 0.5
@@ -630,6 +634,10 @@
   - i
   - 500
   - title: Integrated Led frequency
+- - board.led1.pin
+  - i
+  - 2
+  - title: Led pin for PWM
 - - board.led1.state
   - b
   - true

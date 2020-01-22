@@ -28,18 +28,21 @@ let commandsMqtt = function() {
     let eventObj = JSON.parse(msg);
     print(JSON.stringify(eventObj));
 
-    if (eventObj.event === 'reboot'){
+    if (eventObj.event === 'reboot') {
       print('Reiniciando ...');
       Sys.reboot(1);
     }
 
-    if (eventObj.event === 'ota'){
+    if (eventObj.event === 'ota') {
       print('Actualizando ...');
       // setAllPixels(red);
-      RPC.call(RPC.LOCAL, 'OTA.update', '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}', function(resp, ud) {
-      }, null);
-     
+      RPC.call(
+        RPC.LOCAL,
+        'OTA.Update',
+        '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}',
+        function(resp, ud) {},
+        null,
+      );
     }
-    
   });
 };

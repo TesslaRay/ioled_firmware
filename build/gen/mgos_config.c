@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_484783341/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_484783341/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -130,6 +130,15 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, http.auth_file)},
   {.type = CONF_TYPE_OBJECT, .key = "mjs", .offset = offsetof(struct mgos_config, mjs), .num_desc = 1},
   {.type = CONF_TYPE_BOOL, .key = "generate_jsc", .offset = offsetof(struct mgos_config, mjs.generate_jsc)},
+  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 8},
+  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
+  {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
+  {.type = CONF_TYPE_STRING, .key = "url", .offset = offsetof(struct mgos_config, update.url)},
+  {.type = CONF_TYPE_INT, .key = "interval", .offset = offsetof(struct mgos_config, update.interval)},
+  {.type = CONF_TYPE_STRING, .key = "extra_http_headers", .offset = offsetof(struct mgos_config, update.extra_http_headers)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_ca_file", .offset = offsetof(struct mgos_config, update.ssl_ca_file)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
   {.type = CONF_TYPE_OBJECT, .key = "rpc", .offset = offsetof(struct mgos_config, rpc), .num_desc = 12},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, rpc.enable)},
   {.type = CONF_TYPE_INT, .key = "max_frame_size", .offset = offsetof(struct mgos_config, rpc.max_frame_size)},
@@ -143,15 +152,6 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_INT, .key = "baud_rate", .offset = offsetof(struct mgos_config, rpc.uart.baud_rate)},
   {.type = CONF_TYPE_INT, .key = "fc_type", .offset = offsetof(struct mgos_config, rpc.uart.fc_type)},
   {.type = CONF_TYPE_STRING, .key = "dst", .offset = offsetof(struct mgos_config, rpc.uart.dst)},
-  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 8},
-  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
-  {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
-  {.type = CONF_TYPE_STRING, .key = "url", .offset = offsetof(struct mgos_config, update.url)},
-  {.type = CONF_TYPE_INT, .key = "interval", .offset = offsetof(struct mgos_config, update.interval)},
-  {.type = CONF_TYPE_STRING, .key = "extra_http_headers", .offset = offsetof(struct mgos_config, update.extra_http_headers)},
-  {.type = CONF_TYPE_STRING, .key = "ssl_ca_file", .offset = offsetof(struct mgos_config, update.ssl_ca_file)},
-  {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
-  {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
   {.type = CONF_TYPE_OBJECT, .key = "wifi", .offset = offsetof(struct mgos_config, wifi), .num_desc = 60},
   {.type = CONF_TYPE_OBJECT, .key = "ap", .offset = offsetof(struct mgos_config, wifi.ap), .num_desc = 15},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, wifi.ap.enable)},
@@ -363,6 +363,14 @@ const struct mgos_config mgos_config_defaults = {
   .http.auth_domain = NULL,
   .http.auth_file = NULL,
   .mjs.generate_jsc = 1,
+  .update.timeout = 600,
+  .update.commit_timeout = 0,
+  .update.url = NULL,
+  .update.interval = 0,
+  .update.extra_http_headers = NULL,
+  .update.ssl_ca_file = "ca.pem",
+  .update.ssl_client_cert_file = NULL,
+  .update.ssl_server_name = NULL,
   .rpc.enable = 1,
   .rpc.max_frame_size = 4096,
   .rpc.max_queue_length = 25,
@@ -374,14 +382,6 @@ const struct mgos_config mgos_config_defaults = {
   .rpc.uart.baud_rate = 115200,
   .rpc.uart.fc_type = 2,
   .rpc.uart.dst = NULL,
-  .update.timeout = 600,
-  .update.commit_timeout = 0,
-  .update.url = NULL,
-  .update.interval = 0,
-  .update.extra_http_headers = NULL,
-  .update.ssl_ca_file = "ca.pem",
-  .update.ssl_client_cert_file = NULL,
-  .update.ssl_server_name = NULL,
   .wifi.ap.enable = 1,
   .wifi.ap.ssid = "esp8266.config",
   .wifi.ap.pass = NULL,
@@ -1607,6 +1607,93 @@ void mgos_config_set_mjs_generate_jsc(struct mgos_config *cfg, int v) {
   cfg->mjs.generate_jsc = v;
 }
 
+/* update */
+#define MGOS_CONFIG_HAVE_UPDATE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE
+const struct mgos_config_update * mgos_config_get_update(struct mgos_config *cfg) {
+  return &cfg->update;
+}
+
+/* update.timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
+int mgos_config_get_update_timeout(struct mgos_config *cfg) {
+  return cfg->update.timeout;
+}
+void mgos_config_set_update_timeout(struct mgos_config *cfg, int v) {
+  cfg->update.timeout = v;
+}
+
+/* update.commit_timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
+int mgos_config_get_update_commit_timeout(struct mgos_config *cfg) {
+  return cfg->update.commit_timeout;
+}
+void mgos_config_set_update_commit_timeout(struct mgos_config *cfg, int v) {
+  cfg->update.commit_timeout = v;
+}
+
+/* update.url */
+#define MGOS_CONFIG_HAVE_UPDATE_URL
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_URL
+const char * mgos_config_get_update_url(struct mgos_config *cfg) {
+  return cfg->update.url;
+}
+void mgos_config_set_update_url(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.url, v);
+}
+
+/* update.interval */
+#define MGOS_CONFIG_HAVE_UPDATE_INTERVAL
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_INTERVAL
+int mgos_config_get_update_interval(struct mgos_config *cfg) {
+  return cfg->update.interval;
+}
+void mgos_config_set_update_interval(struct mgos_config *cfg, int v) {
+  cfg->update.interval = v;
+}
+
+/* update.extra_http_headers */
+#define MGOS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
+const char * mgos_config_get_update_extra_http_headers(struct mgos_config *cfg) {
+  return cfg->update.extra_http_headers;
+}
+void mgos_config_set_update_extra_http_headers(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.extra_http_headers, v);
+}
+
+/* update.ssl_ca_file */
+#define MGOS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
+const char * mgos_config_get_update_ssl_ca_file(struct mgos_config *cfg) {
+  return cfg->update.ssl_ca_file;
+}
+void mgos_config_set_update_ssl_ca_file(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.ssl_ca_file, v);
+}
+
+/* update.ssl_client_cert_file */
+#define MGOS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
+const char * mgos_config_get_update_ssl_client_cert_file(struct mgos_config *cfg) {
+  return cfg->update.ssl_client_cert_file;
+}
+void mgos_config_set_update_ssl_client_cert_file(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.ssl_client_cert_file, v);
+}
+
+/* update.ssl_server_name */
+#define MGOS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
+const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg) {
+  return cfg->update.ssl_server_name;
+}
+void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.ssl_server_name, v);
+}
+
 /* rpc */
 #define MGOS_CONFIG_HAVE_RPC
 #define MGOS_SYS_CONFIG_HAVE_RPC
@@ -1729,93 +1816,6 @@ const char * mgos_config_get_rpc_uart_dst(struct mgos_config *cfg) {
 }
 void mgos_config_set_rpc_uart_dst(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->rpc.uart.dst, v);
-}
-
-/* update */
-#define MGOS_CONFIG_HAVE_UPDATE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE
-const struct mgos_config_update * mgos_config_get_update(struct mgos_config *cfg) {
-  return &cfg->update;
-}
-
-/* update.timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
-int mgos_config_get_update_timeout(struct mgos_config *cfg) {
-  return cfg->update.timeout;
-}
-void mgos_config_set_update_timeout(struct mgos_config *cfg, int v) {
-  cfg->update.timeout = v;
-}
-
-/* update.commit_timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
-int mgos_config_get_update_commit_timeout(struct mgos_config *cfg) {
-  return cfg->update.commit_timeout;
-}
-void mgos_config_set_update_commit_timeout(struct mgos_config *cfg, int v) {
-  cfg->update.commit_timeout = v;
-}
-
-/* update.url */
-#define MGOS_CONFIG_HAVE_UPDATE_URL
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_URL
-const char * mgos_config_get_update_url(struct mgos_config *cfg) {
-  return cfg->update.url;
-}
-void mgos_config_set_update_url(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.url, v);
-}
-
-/* update.interval */
-#define MGOS_CONFIG_HAVE_UPDATE_INTERVAL
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_INTERVAL
-int mgos_config_get_update_interval(struct mgos_config *cfg) {
-  return cfg->update.interval;
-}
-void mgos_config_set_update_interval(struct mgos_config *cfg, int v) {
-  cfg->update.interval = v;
-}
-
-/* update.extra_http_headers */
-#define MGOS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
-const char * mgos_config_get_update_extra_http_headers(struct mgos_config *cfg) {
-  return cfg->update.extra_http_headers;
-}
-void mgos_config_set_update_extra_http_headers(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.extra_http_headers, v);
-}
-
-/* update.ssl_ca_file */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
-const char * mgos_config_get_update_ssl_ca_file(struct mgos_config *cfg) {
-  return cfg->update.ssl_ca_file;
-}
-void mgos_config_set_update_ssl_ca_file(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.ssl_ca_file, v);
-}
-
-/* update.ssl_client_cert_file */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
-const char * mgos_config_get_update_ssl_client_cert_file(struct mgos_config *cfg) {
-  return cfg->update.ssl_client_cert_file;
-}
-void mgos_config_set_update_ssl_client_cert_file(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.ssl_client_cert_file, v);
-}
-
-/* update.ssl_server_name */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
-const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg) {
-  return cfg->update.ssl_server_name;
-}
-void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.ssl_server_name, v);
 }
 
 /* wifi */
