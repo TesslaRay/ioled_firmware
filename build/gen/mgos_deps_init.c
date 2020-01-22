@@ -8,10 +8,11 @@
 #include "mgos_app.h"
 
 
+extern bool mgos_freertos_init(void);
 extern bool mgos_mongoose_init(void);
 extern bool mgos_ota_common_init(void);
 extern bool mgos_vfs_common_init(void);
-extern bool mgos_vfs_dev_part_init(void);
+extern bool mgos_vfs_fs_lfs_init(void);
 extern bool mgos_vfs_fs_spiffs_init(void);
 extern bool mgos_core_init(void);
 extern bool mgos_i2c_init(void);
@@ -19,16 +20,20 @@ extern bool mgos_atca_init(void);
 extern bool mgos_location_init(void);
 extern bool mgos_sntp_init(void);
 extern bool mgos_cron_init(void);
-extern bool mgos_mqtt_init(void);
-extern bool mgos_gcp_init(void);
+extern bool mgos_ota_http_client_init(void);
+extern bool mgos_shadow_init(void);
+extern bool mgos_ota_shadow_init(void);
 extern bool mgos_wifi_init(void);
 extern bool mgos_http_server_init(void);
+extern bool mgos_rpc_common_init(void);
+extern bool mgos_rpc_ws_init(void);
+extern bool mgos_dash_init(void);
+extern bool mgos_mqtt_init(void);
+extern bool mgos_gcp_init(void);
 extern bool mgos_mbedtls_init(void);
 extern bool mgos_mjs_init(void);
 extern bool mgos_neopixel_init(void);
-extern bool mgos_ota_http_client_init(void);
 extern bool mgos_pwm_init(void);
-extern bool mgos_rpc_common_init(void);
 extern bool mgos_rpc_loopback_init(void);
 extern bool mgos_rpc_service_config_init(void);
 extern bool mgos_rpc_service_fs_init(void);
@@ -41,6 +46,9 @@ static const struct lib_descr {
   bool (*init)(void);
 } descrs[] = {
 
+    // "freertos". deps: [ ]
+    {.title = "freertos", .init = mgos_freertos_init},
+
     // "mongoose". deps: [ ]
     {.title = "mongoose", .init = mgos_mongoose_init},
 
@@ -50,13 +58,13 @@ static const struct lib_descr {
     // "vfs-common". deps: [ ]
     {.title = "vfs-common", .init = mgos_vfs_common_init},
 
-    // "vfs-dev-part". deps: [ "vfs-common" ]
-    {.title = "vfs-dev-part", .init = mgos_vfs_dev_part_init},
+    // "vfs-fs-lfs". deps: [ "vfs-common" ]
+    {.title = "vfs-fs-lfs", .init = mgos_vfs_fs_lfs_init},
 
     // "vfs-fs-spiffs". deps: [ "vfs-common" ]
     {.title = "vfs-fs-spiffs", .init = mgos_vfs_fs_spiffs_init},
 
-    // "core". deps: [ "mongoose" "ota-common" "vfs-common" "vfs-dev-part" "vfs-fs-spiffs" ]
+    // "core". deps: [ "freertos" "mongoose" "ota-common" "vfs-common" "vfs-fs-lfs" "vfs-fs-spiffs" ]
     {.title = "core", .init = mgos_core_init},
 
     // "i2c". deps: [ "core" ]
@@ -74,17 +82,35 @@ static const struct lib_descr {
     // "cron". deps: [ "core" "location" "sntp" ]
     {.title = "cron", .init = mgos_cron_init},
 
-    // "mqtt". deps: [ "core" ]
-    {.title = "mqtt", .init = mgos_mqtt_init},
+    // "ota-http-client". deps: [ "core" "ota-common" ]
+    {.title = "ota-http-client", .init = mgos_ota_http_client_init},
 
-    // "gcp". deps: [ "ca-bundle" "core" "mqtt" "sntp" ]
-    {.title = "gcp", .init = mgos_gcp_init},
+    // "shadow". deps: [ "core" ]
+    {.title = "shadow", .init = mgos_shadow_init},
+
+    // "ota-shadow". deps: [ "core" "ota-common" "ota-http-client" "shadow" ]
+    {.title = "ota-shadow", .init = mgos_ota_shadow_init},
 
     // "wifi". deps: [ "core" ]
     {.title = "wifi", .init = mgos_wifi_init},
 
     // "http-server". deps: [ "atca" "core" "wifi" ]
     {.title = "http-server", .init = mgos_http_server_init},
+
+    // "rpc-common". deps: [ "core" "http-server" "mongoose" ]
+    {.title = "rpc-common", .init = mgos_rpc_common_init},
+
+    // "rpc-ws". deps: [ "core" "http-server" "rpc-common" ]
+    {.title = "rpc-ws", .init = mgos_rpc_ws_init},
+
+    // "dash". deps: [ "core" "ota-shadow" "rpc-ws" "shadow" ]
+    {.title = "dash", .init = mgos_dash_init},
+
+    // "mqtt". deps: [ "core" ]
+    {.title = "mqtt", .init = mgos_mqtt_init},
+
+    // "gcp". deps: [ "ca-bundle" "core" "mqtt" "sntp" ]
+    {.title = "gcp", .init = mgos_gcp_init},
 
     // "mbedtls". deps: [ ]
     {.title = "mbedtls", .init = mgos_mbedtls_init},
@@ -95,14 +121,8 @@ static const struct lib_descr {
     // "neopixel". deps: [ "core" ]
     {.title = "neopixel", .init = mgos_neopixel_init},
 
-    // "ota-http-client". deps: [ "core" "ota-common" ]
-    {.title = "ota-http-client", .init = mgos_ota_http_client_init},
-
     // "pwm". deps: [ "core" ]
     {.title = "pwm", .init = mgos_pwm_init},
-
-    // "rpc-common". deps: [ "core" "http-server" "mongoose" ]
-    {.title = "rpc-common", .init = mgos_rpc_common_init},
 
     // "rpc-loopback". deps: [ "core" "rpc-common" ]
     {.title = "rpc-loopback", .init = mgos_rpc_loopback_init},

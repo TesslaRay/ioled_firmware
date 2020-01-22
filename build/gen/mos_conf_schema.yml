@@ -1,6 +1,10 @@
 - - i2c
   - o
   - title: I2C settings
+- - i2c.unit_no
+  - i
+  - 0
+  - title: Which hardware unit to use, 0 or 1
 - - i2c.enable
   - b
   - false
@@ -15,23 +19,23 @@
   - title: Debug I2C bus activity
 - - i2c.sda_gpio
   - i
-  - 12
+  - 32
   - title: GPIO to use for SDA
 - - i2c.scl_gpio
   - i
-  - 14
+  - 33
   - title: GPIO to use for SCL
 - - i2c1
   - i2c
   - title: I2C settings
+- - i2c1.unit_no
+  - 1
 - - i2c1.enable
   - false
-- - i2c1.freq
-  - 100000
 - - i2c1.sda_gpio
-  - 4
+  - 22
 - - i2c1.scl_gpio
-  - 5
+  - 23
 - - sys.atca
   - o
   - title: CryptoAuthLib configuration
@@ -117,8 +121,6 @@
   - s
   - '*'
   - title: Conf ACL
-- - device.id
-  - esp8266_??????
 - - device.location
   - o
   - title: Device location
@@ -153,6 +155,141 @@
   - i
   - 7200
   - title: Update interval. If 0, performs a one-off sync
+- - update
+  - o
+  - title: Firmware updater
+- - update.timeout
+  - i
+  - 600
+  - title: Update will be aborted if it does not finish within this time
+- - update.commit_timeout
+  - i
+  - title: After applying update, wait for commit up to this long
+- - update.url
+  - s
+  - title: Fetch updates from here
+- - update.interval
+  - i
+  - title: Check for updates this often
+- - update.extra_http_headers
+  - s
+  - title: Extra HTTP request headers
+- - update.ssl_ca_file
+  - s
+  - ca.pem
+  - title: TLS CA file
+- - update.ssl_client_cert_file
+  - s
+  - title: TLS client cert file
+- - update.ssl_server_name
+  - s
+  - title: TLS Server Name
+- - shadow
+  - o
+  - title: Device shadow settings
+- - shadow.enable
+  - b
+  - true
+  - title: Enable device shadow functionality
+- - shadow.lib
+  - s
+  - ""
+  - title: Preferred shadow lib, e.g. aws, dash, gcp
+- - shadow.ota_enable
+  - b
+  - true
+  - title: Enable OTA via shadow
+- - shadow.autocommit
+  - b
+  - false
+  - title: Autocommit OTA if the shadow connection is successful
+- - rpc
+  - o
+  - title: RPC settings
+- - rpc.enable
+  - b
+  - true
+  - title: Enable RPC
+- - rpc.max_frame_size
+  - i
+  - 4096
+  - title: Max Frame Size
+- - rpc.max_queue_length
+  - i
+  - 25
+  - title: Max Queue Length
+- - rpc.default_out_channel_idle_close_timeout
+  - i
+  - 10
+  - title: Default idle close timeout for outbound channels
+- - rpc.acl_file
+  - s
+  - title: File with RPC ACL JSON
+- - rpc.auth_domain
+  - s
+  - title: Realm to use for digest authentication
+- - rpc.auth_file
+  - s
+  - title: File with user credentials in the htdigest format
+- - rpc.ws
+  - o
+  - title: RPC over WebSocket settings
+- - rpc.ws.enable
+  - b
+  - true
+  - title: Enable RPC over WebSocket
+- - rpc.ws.server_address
+  - s
+  - ""
+  - title: Cloud server address
+- - rpc.ws.reconnect_interval_min
+  - i
+  - 1
+  - title: Minimal reconnect interval
+- - rpc.ws.reconnect_interval_max
+  - i
+  - 60
+  - title: Maximal reconnect interval
+- - rpc.ws.ssl_server_name
+  - s
+  - title: TLS Server Name
+- - rpc.ws.ssl_cert
+  - s
+  - title: TLS client cert file
+- - rpc.ws.ssl_key
+  - s
+  - title: TLS client key file
+- - rpc.ws.ssl_ca_cert
+  - s
+  - title: TLS CA file
+- - dash.enable
+  - b
+  - false
+  - title: Enable
+- - dash.token
+  - s
+  - ""
+  - title: Access token
+- - dash.server
+  - s
+  - wss://mdash.net/api/v2/rpc
+  - title: Server address
+- - dash.ssl_cert
+  - s
+  - ""
+  - title: Client certificate to present to the server
+- - dash.ssl_key
+  - s
+  - ""
+  - title: Private key corresponding to the certificate
+- - dash.ssl_ca_cert
+  - s
+  - ca.pem
+  - title: Verify server certificate using this CA bundle
+- - dash.send_logs
+  - b
+  - false
+  - title: Send logs
 - - mqtt
   - o
   - title: MQTT settings
@@ -346,63 +483,6 @@
   - b
   - true
   - title: Generate .jsc file when executing any .js file
-- - rpc
-  - o
-  - title: RPC settings
-- - rpc.enable
-  - b
-  - true
-  - title: Enable RPC
-- - rpc.max_frame_size
-  - i
-  - 4096
-  - title: Max Frame Size
-- - rpc.max_queue_length
-  - i
-  - 25
-  - title: Max Queue Length
-- - rpc.default_out_channel_idle_close_timeout
-  - i
-  - 10
-  - title: Default idle close timeout for outbound channels
-- - rpc.acl_file
-  - s
-  - title: File with RPC ACL JSON
-- - rpc.auth_domain
-  - s
-  - title: Realm to use for digest authentication
-- - rpc.auth_file
-  - s
-  - title: File with user credentials in the htdigest format
-- - update
-  - o
-  - title: Firmware updater
-- - update.timeout
-  - i
-  - 600
-  - title: Update will be aborted if it does not finish within this time
-- - update.commit_timeout
-  - i
-  - title: After applying update, wait for commit up to this long
-- - update.url
-  - s
-  - title: Fetch updates from here
-- - update.interval
-  - i
-  - title: Check for updates this often
-- - update.extra_http_headers
-  - s
-  - title: Extra HTTP request headers
-- - update.ssl_ca_file
-  - s
-  - ca.pem
-  - title: TLS CA file
-- - update.ssl_client_cert_file
-  - s
-  - title: TLS client cert file
-- - update.ssl_server_name
-  - s
-  - title: TLS Server Name
 - - rpc.uart
   - o
   - title: RPC-over-UART settings
@@ -551,6 +631,28 @@
   - b
   - true
   - title: Keep AP enabled when station is on
+- - wifi.ap.bandwidth_20mhz
+  - b
+  - false
+  - title: enable 20MHz bandwidth AP operation
+- - wifi.ap.protocol
+  - s
+  - BGN
+  - title: 802.11 Wi-Fi Protocol for AP Mode, defaults to BGN, can be any combination
+      of BGNLR. Note LR only works between 2 ESP32 devices.
+- - wifi.sta_ps_mode
+  - i
+  - 0
+  - title: 'Power save mode for station: 0 - none, 1 - min, 2 - max.'
+- - wifi.sta_all_chan_scan
+  - b
+  - false
+  - title: true to scan all channels or false to perform fast scan
+- - wifi.sta.protocol
+  - s
+  - BGN
+  - title: 802.11 Wi-Fi Protocol for STA Mode, defaults to BGN, can be any combination
+      of BGNLR. Note LR only works between 2 ESP32 devices.
 - - board
   - o
   - title: Board layout configuration
@@ -603,9 +705,7 @@
   - false
   - title: True if button is pulled up when inactive
 - - board.led1.pin
-  - 2
-- - board.led1.active_high
-  - false
+  - 13
 - - board.btn1.pin
   - 0
 - - board.btn1.pull_up
@@ -614,10 +714,6 @@
   - 0
 - - provision.btn.pull_up
   - true
-- - provision.led.pin
-  - 2
-- - provision.led.active_high
-  - false
 - - board.btn1.control
   - s
   - led1
@@ -707,3 +803,31 @@
   - 5
 - - i2c.scl_gpio
   - 4
+- - dash.enable
+  - b
+  - false
+  - title: Enable
+- - dash.token
+  - s
+  - ""
+  - title: Access token
+- - dash.server
+  - s
+  - wss://mdash.net/api/v2/rpc
+  - title: Server address
+- - dash.ssl_cert
+  - s
+  - ""
+  - title: Client certificate to present to the server
+- - dash.ssl_key
+  - s
+  - ""
+  - title: Private key corresponding to the certificate
+- - dash.ssl_ca_cert
+  - s
+  - ca.pem
+  - title: Verify server certificate using this CA bundle
+- - dash.send_logs
+  - b
+  - false
+  - title: Send logs

@@ -1,146 +1,165 @@
 name: ioled_firmware
 type: app
 version: "2.0"
-platform: esp8266
+platform: esp32
 platforms:
 - esp32
 - esp8266
 description: iOLED
 sources:
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/gen/mgos_deps_init.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c/src/mgos_i2c_master.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c/src/gpio/mgos_i2c_gpio_master.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/src/mgos_atca.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_cfgs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_command.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_device.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_iface.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/basic/atca_basic.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/basic/atca_helpers.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/host/atca_host.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/mgos_vfs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/mgos_vfs_dev.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/mgos_vfs_internal.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/esp8266/esp_flash_writer.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/esp8266/esp_fs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/esp8266/esp_vfs_dev_sysflash.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-dev-part/src/mgos_vfs_dev_part.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core/src/mgos_core.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core/src/esp8266/esp_rboot.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/location/src/mgos_location.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/sntp/src/mgos_sntp.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/src/ccronexpr.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/src/mgos_cron.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/src/sunriset.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mqtt/src/mgos_mqtt.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/gcp/src/mgos_gcp.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/http-server/src/mgos_http_server.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/src/mos_mjs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/modules/mjs/mjs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/esp8266/src/esp8266_mjs.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/neopixel/src/mgos_neopixel.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/src/mgos_pwm.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/src/mgos_pwm_rgb_led.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/src/esp8266/esp_pwm.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mg_rpc.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mg_rpc_channel.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mg_rpc_channel_http.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mgos_rpc.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-config/src/mgos_service_config.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-fs/src/mgos_service_filesystem.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-i2c/src/mgos_i2c_service.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-uart/src/mgos_rpc_channel_uart.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/src/mgos_wifi.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/src/mjs_wifi.c
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/src/esp8266/esp_wifi.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/gen/mgos_deps_init.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos/src/mgos_freertos.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos/src/mgos_freertos_core_dump.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c/src/mgos_i2c_master.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c/src/esp32/esp32_i2c_master.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/src/mgos_atca.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_cfgs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_command.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_device.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_iface.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/basic/atca_basic.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/basic/atca_helpers.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/host/atca_host.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/mgos_vfs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/mgos_vfs_dev.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/mgos_vfs_internal.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/esp32/esp32_fs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/esp32/esp32_fs_crypt.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/esp32/esp32_vfs_dev_partition.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/src/mgos_vfs_lfs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs/lfs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs/lfs_util.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs1/lfs1.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs1/lfs1_util.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/core/src/mgos_core.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/location/src/mgos_location.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/sntp/src/mgos_sntp.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/src/ccronexpr.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/src/mgos_cron.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/src/sunriset.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/shadow/src/mgos_shadow.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mg_rpc.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mg_rpc_channel.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mg_rpc_channel_http.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mgos_rpc.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-ws/src/mgos_rpc_channel_ws.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-ws/src/mgos_rpc_ws.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mqtt/src/mgos_mqtt.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/gcp/src/mgos_gcp.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/http-server/src/mgos_http_server.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/src/mos_mjs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/modules/mjs/mjs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/esp32/src/esp32_mjs.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/neopixel/src/mgos_neopixel.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/src/mgos_pwm.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/src/mgos_pwm_rgb_led.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/src/esp32/esp32_pwm.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-config/src/mgos_service_config.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-fs/src/mgos_service_filesystem.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-i2c/src/mgos_i2c_service.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-uart/src/mgos_rpc_channel_uart.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/src/mgos_wifi.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/src/mjs_wifi.c
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/src/esp32/esp32_wifi.c
 includes:
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mbedtls/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mbedtls/include/esp8266
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mbedtls/mbedtls/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/include/esp8266
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mongoose/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-dev-part/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/include/spiffs
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/include/esp8266
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core/include/esp8266
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/location/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mqtt/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/gcp/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/http-server/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/neopixel/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-loopback/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-config/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-fs/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-i2c/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-common/src
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-common/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-common/include/esp8266
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-http-client/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-ota/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-uart/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/include
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/include/esp8266
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos/include/esp32
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mbedtls/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mbedtls/include/esp32
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mbedtls/mbedtls/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/include/esp32
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mongoose/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs1
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/include/spiffs
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/include/esp32
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/core/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/core/include/esp32
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/location/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-common/src
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-common/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-common/include/esp32
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-http-client/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/shadow/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-ws/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/dash/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mqtt/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/gcp/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/http-server/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/neopixel/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-loopback/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-config/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-fs/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-i2c/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-ota/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-uart/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/include
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/include/esp32
 filesystem:
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ca-bundle/fs/ca.pem
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_bitbang.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_config.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_events.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_gpio.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_http.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_log.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_net.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_sys.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_timer.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/api_uart.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/init.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/fs/polyfill.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/modules/mjs/mjs/lib/api_dataview.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/modules/mjs/mjs/lib/api_file.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/modules/mjs/mjs/lib/api_math.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c/mjs_fs/api_i2c.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mqtt/mjs_fs/api_mqtt.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/gcp/mjs_fs/api_gcp.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/neopixel/mjs_fs/api_neopixel.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/mjs_fs/api_pwm.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/mjs_fs/api_rpc.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-http-client/mjs_fs/api_ota.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/mjs_fs/api_wifi.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/esp8266/fs/api_arch_uart.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/esp8266/fs/api_esp8266.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi-setup-web-ui/fs/axios.min.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi-setup-web-ui/fs/index.html
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/api_string.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/board.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/comandos.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/init.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/mqtt.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/neopixel.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/rpc.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/sensors.js
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/fs/tempo.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ca-bundle/fs/ca.pem
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_bitbang.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_config.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_events.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_gpio.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_http.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_log.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_net.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_sys.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_timer.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/api_uart.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/init.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/fs/polyfill.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/modules/mjs/mjs/lib/api_dataview.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/modules/mjs/mjs/lib/api_file.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/modules/mjs/mjs/lib/api_math.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c/mjs_fs/api_i2c.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-http-client/mjs_fs/api_ota.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/shadow/mjs_fs/api_shadow.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/mjs_fs/api_rpc.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/dash/mjs_fs/api_dash.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mqtt/mjs_fs/api_mqtt.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/gcp/mjs_fs/api_gcp.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/neopixel/mjs_fs/api_neopixel.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/mjs_fs/api_pwm.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/mjs_fs/api_wifi.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/esp32/fs/api_arch_uart.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/esp32/fs/api_esp32.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi-setup-web-ui/fs/axios.min.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi-setup-web-ui/fs/index.html
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/api_string.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/board.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/comandos.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/init.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/mqtt.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/neopixel.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/rpc.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/sensors.js
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/fs/tempo.js
 binary_libs:
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/objs/libmbedtls-esp8266-2.16.0.a
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/objs/libmongoose-esp8266-2.16.0.a
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/objs/libota-common-esp8266-2.16.0.a
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/objs/libota-http-client-esp8266-2.16.0.a
-- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/build/objs/librpc-service-ota-esp8266-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/libmbedtls-esp32-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/libmongoose-esp32-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/libota-common-esp32-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/libota-http-client-esp32-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/libota-shadow-esp32-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/libdash-esp32-2.16.0.a
+- /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/objs/librpc-service-ota-esp32-2.16.0.a
 modules:
 - origin: https://github.com/cesanta/mjs
   location: https://github.com/cesanta/mjs
@@ -149,6 +168,10 @@ config_schema:
 - - i2c
   - o
   - title: I2C settings
+- - i2c.unit_no
+  - i
+  - 0
+  - title: Which hardware unit to use, 0 or 1
 - - i2c.enable
   - b
   - false
@@ -163,23 +186,23 @@ config_schema:
   - title: Debug I2C bus activity
 - - i2c.sda_gpio
   - i
-  - 12
+  - 32
   - title: GPIO to use for SDA
 - - i2c.scl_gpio
   - i
-  - 14
+  - 33
   - title: GPIO to use for SCL
 - - i2c1
   - i2c
   - title: I2C settings
+- - i2c1.unit_no
+  - 1
 - - i2c1.enable
   - false
-- - i2c1.freq
-  - 100000
 - - i2c1.sda_gpio
-  - 4
+  - 22
 - - i2c1.scl_gpio
-  - 5
+  - 23
 - - sys.atca
   - o
   - title: CryptoAuthLib configuration
@@ -265,8 +288,6 @@ config_schema:
   - s
   - '*'
   - title: Conf ACL
-- - device.id
-  - esp8266_??????
 - - device.location
   - o
   - title: Device location
@@ -301,6 +322,141 @@ config_schema:
   - i
   - 7200
   - title: Update interval. If 0, performs a one-off sync
+- - update
+  - o
+  - title: Firmware updater
+- - update.timeout
+  - i
+  - 600
+  - title: Update will be aborted if it does not finish within this time
+- - update.commit_timeout
+  - i
+  - title: After applying update, wait for commit up to this long
+- - update.url
+  - s
+  - title: Fetch updates from here
+- - update.interval
+  - i
+  - title: Check for updates this often
+- - update.extra_http_headers
+  - s
+  - title: Extra HTTP request headers
+- - update.ssl_ca_file
+  - s
+  - ca.pem
+  - title: TLS CA file
+- - update.ssl_client_cert_file
+  - s
+  - title: TLS client cert file
+- - update.ssl_server_name
+  - s
+  - title: TLS Server Name
+- - shadow
+  - o
+  - title: Device shadow settings
+- - shadow.enable
+  - b
+  - true
+  - title: Enable device shadow functionality
+- - shadow.lib
+  - s
+  - ""
+  - title: Preferred shadow lib, e.g. aws, dash, gcp
+- - shadow.ota_enable
+  - b
+  - true
+  - title: Enable OTA via shadow
+- - shadow.autocommit
+  - b
+  - false
+  - title: Autocommit OTA if the shadow connection is successful
+- - rpc
+  - o
+  - title: RPC settings
+- - rpc.enable
+  - b
+  - true
+  - title: Enable RPC
+- - rpc.max_frame_size
+  - i
+  - 4096
+  - title: Max Frame Size
+- - rpc.max_queue_length
+  - i
+  - 25
+  - title: Max Queue Length
+- - rpc.default_out_channel_idle_close_timeout
+  - i
+  - 10
+  - title: Default idle close timeout for outbound channels
+- - rpc.acl_file
+  - s
+  - title: File with RPC ACL JSON
+- - rpc.auth_domain
+  - s
+  - title: Realm to use for digest authentication
+- - rpc.auth_file
+  - s
+  - title: File with user credentials in the htdigest format
+- - rpc.ws
+  - o
+  - title: RPC over WebSocket settings
+- - rpc.ws.enable
+  - b
+  - true
+  - title: Enable RPC over WebSocket
+- - rpc.ws.server_address
+  - s
+  - ""
+  - title: Cloud server address
+- - rpc.ws.reconnect_interval_min
+  - i
+  - 1
+  - title: Minimal reconnect interval
+- - rpc.ws.reconnect_interval_max
+  - i
+  - 60
+  - title: Maximal reconnect interval
+- - rpc.ws.ssl_server_name
+  - s
+  - title: TLS Server Name
+- - rpc.ws.ssl_cert
+  - s
+  - title: TLS client cert file
+- - rpc.ws.ssl_key
+  - s
+  - title: TLS client key file
+- - rpc.ws.ssl_ca_cert
+  - s
+  - title: TLS CA file
+- - dash.enable
+  - b
+  - false
+  - title: Enable
+- - dash.token
+  - s
+  - ""
+  - title: Access token
+- - dash.server
+  - s
+  - wss://mdash.net/api/v2/rpc
+  - title: Server address
+- - dash.ssl_cert
+  - s
+  - ""
+  - title: Client certificate to present to the server
+- - dash.ssl_key
+  - s
+  - ""
+  - title: Private key corresponding to the certificate
+- - dash.ssl_ca_cert
+  - s
+  - ca.pem
+  - title: Verify server certificate using this CA bundle
+- - dash.send_logs
+  - b
+  - false
+  - title: Send logs
 - - mqtt
   - o
   - title: MQTT settings
@@ -494,63 +650,6 @@ config_schema:
   - b
   - true
   - title: Generate .jsc file when executing any .js file
-- - rpc
-  - o
-  - title: RPC settings
-- - rpc.enable
-  - b
-  - true
-  - title: Enable RPC
-- - rpc.max_frame_size
-  - i
-  - 4096
-  - title: Max Frame Size
-- - rpc.max_queue_length
-  - i
-  - 25
-  - title: Max Queue Length
-- - rpc.default_out_channel_idle_close_timeout
-  - i
-  - 10
-  - title: Default idle close timeout for outbound channels
-- - rpc.acl_file
-  - s
-  - title: File with RPC ACL JSON
-- - rpc.auth_domain
-  - s
-  - title: Realm to use for digest authentication
-- - rpc.auth_file
-  - s
-  - title: File with user credentials in the htdigest format
-- - update
-  - o
-  - title: Firmware updater
-- - update.timeout
-  - i
-  - 600
-  - title: Update will be aborted if it does not finish within this time
-- - update.commit_timeout
-  - i
-  - title: After applying update, wait for commit up to this long
-- - update.url
-  - s
-  - title: Fetch updates from here
-- - update.interval
-  - i
-  - title: Check for updates this often
-- - update.extra_http_headers
-  - s
-  - title: Extra HTTP request headers
-- - update.ssl_ca_file
-  - s
-  - ca.pem
-  - title: TLS CA file
-- - update.ssl_client_cert_file
-  - s
-  - title: TLS client cert file
-- - update.ssl_server_name
-  - s
-  - title: TLS Server Name
 - - rpc.uart
   - o
   - title: RPC-over-UART settings
@@ -699,6 +798,28 @@ config_schema:
   - b
   - true
   - title: Keep AP enabled when station is on
+- - wifi.ap.bandwidth_20mhz
+  - b
+  - false
+  - title: enable 20MHz bandwidth AP operation
+- - wifi.ap.protocol
+  - s
+  - BGN
+  - title: 802.11 Wi-Fi Protocol for AP Mode, defaults to BGN, can be any combination
+      of BGNLR. Note LR only works between 2 ESP32 devices.
+- - wifi.sta_ps_mode
+  - i
+  - 0
+  - title: 'Power save mode for station: 0 - none, 1 - min, 2 - max.'
+- - wifi.sta_all_chan_scan
+  - b
+  - false
+  - title: true to scan all channels or false to perform fast scan
+- - wifi.sta.protocol
+  - s
+  - BGN
+  - title: 802.11 Wi-Fi Protocol for STA Mode, defaults to BGN, can be any combination
+      of BGNLR. Note LR only works between 2 ESP32 devices.
 - - board
   - o
   - title: Board layout configuration
@@ -751,9 +872,7 @@ config_schema:
   - false
   - title: True if button is pulled up when inactive
 - - board.led1.pin
-  - 2
-- - board.led1.active_high
-  - false
+  - 13
 - - board.btn1.pin
   - 0
 - - board.btn1.pull_up
@@ -762,10 +881,6 @@ config_schema:
   - 0
 - - provision.btn.pull_up
   - true
-- - provision.led.pin
-  - 2
-- - provision.led.active_high
-  - false
 - - board.btn1.control
   - s
   - led1
@@ -855,13 +970,46 @@ config_schema:
   - 5
 - - i2c.scl_gpio
   - 4
+- - dash.enable
+  - b
+  - false
+  - title: Enable
+- - dash.token
+  - s
+  - ""
+  - title: Access token
+- - dash.server
+  - s
+  - wss://mdash.net/api/v2/rpc
+  - title: Server address
+- - dash.ssl_cert
+  - s
+  - ""
+  - title: Client certificate to present to the server
+- - dash.ssl_key
+  - s
+  - ""
+  - title: Private key corresponding to the certificate
+- - dash.ssl_ca_cert
+  - s
+  - ca.pem
+  - title: Verify server certificate using this CA bundle
+- - dash.send_logs
+  - b
+  - false
+  - title: Send logs
 build_vars:
   BOARD: ""
+  ESP_IDF_EXTRA_COMPONENTS: ""
+  ESP_IDF_SDKCONFIG_OPTS: |2
+     CONFIG_SUPPORT_STATIC_ALLOCATION=y
   MGOS: "1"
   MGOS_HAVE_ATCA: "1"
   MGOS_HAVE_CA_BUNDLE: "1"
   MGOS_HAVE_CORE: "1"
   MGOS_HAVE_CRON: "1"
+  MGOS_HAVE_DASH: "1"
+  MGOS_HAVE_FREERTOS: "1"
   MGOS_HAVE_GCP: "1"
   MGOS_HAVE_HTTP_SERVER: "1"
   MGOS_HAVE_I2C: "1"
@@ -873,6 +1021,7 @@ build_vars:
   MGOS_HAVE_NEOPIXEL: "1"
   MGOS_HAVE_OTA_COMMON: "1"
   MGOS_HAVE_OTA_HTTP_CLIENT: "1"
+  MGOS_HAVE_OTA_SHADOW: "1"
   MGOS_HAVE_PWM: "1"
   MGOS_HAVE_RPC_COMMON: "1"
   MGOS_HAVE_RPC_LOOPBACK: "1"
@@ -881,15 +1030,18 @@ build_vars:
   MGOS_HAVE_RPC_SERVICE_I2C: "1"
   MGOS_HAVE_RPC_SERVICE_OTA: "1"
   MGOS_HAVE_RPC_UART: "1"
+  MGOS_HAVE_RPC_WS: "1"
+  MGOS_HAVE_SHADOW: "1"
   MGOS_HAVE_SNTP: "1"
   MGOS_HAVE_VFS_COMMON: "1"
-  MGOS_HAVE_VFS_DEV_PART: "1"
+  MGOS_HAVE_VFS_FS_LFS: "1"
   MGOS_HAVE_VFS_FS_SPIFFS: "1"
   MGOS_HAVE_WIFI: "1"
   MGOS_HAVE_WIFI_SETUP_WEB_UI: "1"
   MGOS_HAVE_ZZ_BOARDS: "1"
   MGOS_WIFI_ENABLE_AP_STA: "0"
 cdefs:
+  LFS_NO_DEBUG: "1"
   MBEDTLS_ECP_ATCA: "1"
   MBEDTLS_FREE_CERT_CHAIN: "1"
   MBEDTLS_USER_CONFIG_FILE: \"mbedtls_platform_config.h\"
@@ -910,6 +1062,8 @@ cdefs:
   MGOS_HAVE_CA_BUNDLE: "1"
   MGOS_HAVE_CORE: "1"
   MGOS_HAVE_CRON: "1"
+  MGOS_HAVE_DASH: "1"
+  MGOS_HAVE_FREERTOS: "1"
   MGOS_HAVE_GCP: "1"
   MGOS_HAVE_HTTP_SERVER: "1"
   MGOS_HAVE_I2C: "1"
@@ -921,6 +1075,7 @@ cdefs:
   MGOS_HAVE_NEOPIXEL: "1"
   MGOS_HAVE_OTA_COMMON: "1"
   MGOS_HAVE_OTA_HTTP_CLIENT: "1"
+  MGOS_HAVE_OTA_SHADOW: "1"
   MGOS_HAVE_PWM: "1"
   MGOS_HAVE_RPC_COMMON: "1"
   MGOS_HAVE_RPC_LOOPBACK: "1"
@@ -929,13 +1084,16 @@ cdefs:
   MGOS_HAVE_RPC_SERVICE_I2C: "1"
   MGOS_HAVE_RPC_SERVICE_OTA: "1"
   MGOS_HAVE_RPC_UART: "1"
+  MGOS_HAVE_RPC_WS: "1"
+  MGOS_HAVE_SHADOW: "1"
   MGOS_HAVE_SNTP: "1"
   MGOS_HAVE_VFS_COMMON: "1"
-  MGOS_HAVE_VFS_DEV_PART: "1"
+  MGOS_HAVE_VFS_FS_LFS: "1"
   MGOS_HAVE_VFS_FS_SPIFFS: "1"
   MGOS_HAVE_WIFI: "1"
   MGOS_HAVE_WIFI_SETUP_WEB_UI: "1"
   MGOS_HAVE_ZZ_BOARDS: "1"
+  MGOS_LFS1_COMPAT: "0"
   MGOS_WIFI_ENABLE_AP_STA: "1"
 tags:
 - js
@@ -945,264 +1103,317 @@ mongoose_os_version: 2.16.0
 manifest_version: "2018-05-18"
 libs_handled:
 - lib:
+    origin: https://github.com/mongoose-os-libs/freertos
+    location: https://github.com/mongoose-os-libs/freertos
+    name: freertos
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos
+  sources:
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos/src/mgos_freertos.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/freertos/src/mgos_freertos_core_dump.c
+- lib:
     origin: https://github.com/mongoose-os-libs/i2c
     location: https://github.com/mongoose-os-libs/i2c
     name: i2c
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c/src/mgos_i2c_master.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/i2c/src/gpio/mgos_i2c_gpio_master.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c/src/mgos_i2c_master.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/i2c/src/esp32/esp32_i2c_master.c
 - lib:
     origin: https://github.com/mongoose-os-libs/atca
     location: https://github.com/mongoose-os-libs/atca
     name: atca
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca
   init_deps:
   - i2c
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/src/mgos_atca.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_cfgs.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_command.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_device.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/atca_iface.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/basic/atca_basic.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/basic/atca_helpers.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/atca/cryptoauthlib/lib/host/atca_host.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/src/mgos_atca.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_cfgs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_command.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_device.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/atca_iface.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/basic/atca_basic.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/basic/atca_helpers.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/atca/cryptoauthlib/lib/host/atca_host.c
 - lib:
     origin: https://github.com/mongoose-os-libs/mbedtls
     location: https://github.com/mongoose-os-libs/mbedtls
     name: mbedtls
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mbedtls
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mbedtls
 - lib:
     origin: https://github.com/mongoose-os-libs/vfs-common
     location: https://github.com/mongoose-os-libs/vfs-common
     name: vfs-common
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/mgos_vfs.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/mgos_vfs_dev.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/mgos_vfs_internal.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/esp8266/esp_flash_writer.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/esp8266/esp_fs.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-common/src/esp8266/esp_vfs_dev_sysflash.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/mgos_vfs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/mgos_vfs_dev.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/mgos_vfs_internal.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/esp32/esp32_fs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/esp32/esp32_fs_crypt.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-common/src/esp32/esp32_vfs_dev_partition.c
 - lib:
     origin: https://github.com/mongoose-os-libs/mongoose
     location: https://github.com/mongoose-os-libs/mongoose
     name: mongoose
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mongoose
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mongoose
 - lib:
-    origin: https://github.com/mongoose-os-libs/vfs-dev-part
-    location: https://github.com/mongoose-os-libs/vfs-dev-part
-    name: vfs-dev-part
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-dev-part
+    origin: https://github.com/mongoose-os-libs/vfs-fs-lfs
+    location: https://github.com/mongoose-os-libs/vfs-fs-lfs
+    name: vfs-fs-lfs
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs
   init_deps:
   - vfs-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-dev-part/src/mgos_vfs_dev_part.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/src/mgos_vfs_lfs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs/lfs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs/lfs_util.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs1/lfs1.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-lfs/littlefs1/lfs1_util.c
 - lib:
     origin: https://github.com/mongoose-os-libs/vfs-fs-spiffs
     location: https://github.com/mongoose-os-libs/vfs-fs-spiffs
     name: vfs-fs-spiffs
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs
   init_deps:
   - vfs-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/mgos_vfs_fs_spiffs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_cache.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_check.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_gc.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_hydrogen.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/vfs-fs-spiffs/src/spiffs/spiffs_nucleus.c
 - lib:
     origin: https://github.com/mongoose-os-libs/core
     location: https://github.com/mongoose-os-libs/core
     name: core
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/core
   init_deps:
+  - freertos
   - mongoose
   - ota-common
   - vfs-common
-  - vfs-dev-part
+  - vfs-fs-lfs
   - vfs-fs-spiffs
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core/src/mgos_core.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/core/src/esp8266/esp_rboot.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/core/src/mgos_core.c
 - lib:
     origin: https://github.com/mongoose-os-libs/location
     location: https://github.com/mongoose-os-libs/location
     name: location
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/location
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/location
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/location/src/mgos_location.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/location/src/mgos_location.c
 - lib:
     origin: https://github.com/mongoose-os-libs/sntp
     location: https://github.com/mongoose-os-libs/sntp
     name: sntp
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/sntp
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/sntp
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/sntp/src/mgos_sntp.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/sntp/src/mgos_sntp.c
 - lib:
     origin: https://github.com/mongoose-os-libs/cron
     location: https://github.com/mongoose-os-libs/cron
     name: cron
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron
   init_deps:
   - core
   - location
   - sntp
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/src/ccronexpr.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/src/mgos_cron.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/cron/src/sunriset.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/src/ccronexpr.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/src/mgos_cron.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/cron/src/sunriset.c
+- lib:
+    origin: https://github.com/mongoose-os-libs/ota-common
+    location: https://github.com/mongoose-os-libs/ota-common
+    name: ota-common
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-common
+- lib:
+    origin: https://github.com/mongoose-os-libs/ota-http-client
+    location: https://github.com/mongoose-os-libs/ota-http-client
+    name: ota-http-client
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-http-client
+  init_deps:
+  - core
+  - ota-common
+- lib:
+    origin: https://github.com/mongoose-os-libs/shadow
+    location: https://github.com/mongoose-os-libs/shadow
+    name: shadow
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/shadow
+  init_deps:
+  - core
+  sources:
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/shadow/src/mgos_shadow.c
+- lib:
+    origin: https://github.com/mongoose-os-libs/ota-shadow
+    location: https://github.com/mongoose-os-libs/ota-shadow
+    name: ota-shadow
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ota-shadow
+  init_deps:
+  - core
+  - ota-common
+  - ota-http-client
+  - shadow
+- lib:
+    origin: https://github.com/mongoose-os-libs/rpc-common
+    location: https://github.com/mongoose-os-libs/rpc-common
+    name: rpc-common
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common
+  init_deps:
+  - core
+  - http-server
+  - mongoose
+  sources:
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mg_rpc.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mg_rpc_channel.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mg_rpc_channel_http.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-common/src/mgos_rpc.c
+- lib:
+    origin: https://github.com/mongoose-os-libs/rpc-ws
+    location: https://github.com/mongoose-os-libs/rpc-ws
+    name: rpc-ws
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-ws
+  init_deps:
+  - core
+  - http-server
+  - rpc-common
+  sources:
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-ws/src/mgos_rpc_channel_ws.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-ws/src/mgos_rpc_ws.c
+- lib:
+    origin: https://github.com/mongoose-os-libs/dash
+    location: https://github.com/mongoose-os-libs/dash
+    name: dash
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/dash
+  init_deps:
+  - core
+  - ota-shadow
+  - rpc-ws
+  - shadow
 - lib:
     origin: https://github.com/mongoose-os-libs/ca-bundle
     location: https://github.com/mongoose-os-libs/ca-bundle
     name: ca-bundle
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ca-bundle
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/ca-bundle
   init_deps:
   - core
 - lib:
     origin: https://github.com/mongoose-os-libs/mqtt
     location: https://github.com/mongoose-os-libs/mqtt
     name: mqtt
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mqtt
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mqtt
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mqtt/src/mgos_mqtt.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mqtt/src/mgos_mqtt.c
 - lib:
     origin: https://github.com/mongoose-os-libs/gcp
     location: https://github.com/mongoose-os-libs/gcp
     name: gcp
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/gcp
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/gcp
   init_deps:
   - ca-bundle
   - core
   - mqtt
   - sntp
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/gcp/src/mgos_gcp.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/gcp/src/mgos_gcp.c
 - lib:
     origin: https://github.com/mongoose-os-libs/http-server
     location: https://github.com/mongoose-os-libs/http-server
     name: http-server
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/http-server
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/http-server
   init_deps:
   - atca
   - core
   - wifi
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/http-server/src/mgos_http_server.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/http-server/src/mgos_http_server.c
 - lib:
     origin: https://github.com/mongoose-os-libs/mjs
     location: https://github.com/mongoose-os-libs/mjs
     name: mjs
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/src/mos_mjs.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/modules/mjs/mjs.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/mjs/esp8266/src/esp8266_mjs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/src/mos_mjs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/modules/mjs/mjs.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/mjs/esp32/src/esp32_mjs.c
 - lib:
     origin: https://github.com/mongoose-os-libs/neopixel
     location: https://github.com/mongoose-os-libs/neopixel
     name: neopixel
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/neopixel
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/neopixel
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/neopixel/src/mgos_neopixel.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/neopixel/src/mgos_neopixel.c
 - lib:
     origin: https://github.com/mongoose-os-libs/pwm
     location: https://github.com/mongoose-os-libs/pwm
     name: pwm
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/src/mgos_pwm.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/src/mgos_pwm_rgb_led.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/pwm/src/esp8266/esp_pwm.c
-- lib:
-    origin: https://github.com/mongoose-os-libs/rpc-common
-    location: https://github.com/mongoose-os-libs/rpc-common
-    name: rpc-common
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common
-  init_deps:
-  - core
-  - http-server
-  - mongoose
-  sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mg_rpc.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mg_rpc_channel.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mg_rpc_channel_http.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-common/src/mgos_rpc.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/src/mgos_pwm.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/src/mgos_pwm_rgb_led.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/pwm/src/esp32/esp32_pwm.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-loopback
     location: https://github.com/mongoose-os-libs/rpc-loopback
     name: rpc-loopback
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-loopback
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-loopback
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-loopback/src/mg_rpc_channel_loopback.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-service-config
     location: https://github.com/mongoose-os-libs/rpc-service-config
     name: rpc-service-config
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-config
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-config
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-config/src/mgos_service_config.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-config/src/mgos_service_config.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-service-fs
     location: https://github.com/mongoose-os-libs/rpc-service-fs
     name: rpc-service-fs
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-fs
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-fs
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-fs/src/mgos_service_filesystem.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-fs/src/mgos_service_filesystem.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-service-i2c
     location: https://github.com/mongoose-os-libs/rpc-service-i2c
     name: rpc-service-i2c
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-i2c
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-i2c
   init_deps:
   - core
   - i2c
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-i2c/src/mgos_i2c_service.c
-- lib:
-    origin: https://github.com/mongoose-os-libs/ota-common
-    location: https://github.com/mongoose-os-libs/ota-common
-    name: ota-common
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-common
-- lib:
-    origin: https://github.com/mongoose-os-libs/ota-http-client
-    location: https://github.com/mongoose-os-libs/ota-http-client
-    name: ota-http-client
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/ota-http-client
-  init_deps:
-  - core
-  - ota-common
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-i2c/src/mgos_i2c_service.c
 - lib:
     origin: https://github.com/mongoose-os-libs/rpc-service-ota
     location: https://github.com/mongoose-os-libs/rpc-service-ota
     name: rpc-service-ota
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-service-ota
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-service-ota
   init_deps:
   - core
   - ota-http-client
@@ -1211,40 +1422,41 @@ libs_handled:
     origin: https://github.com/mongoose-os-libs/rpc-uart
     location: https://github.com/mongoose-os-libs/rpc-uart
     name: rpc-uart
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-uart
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-uart
   init_deps:
   - core
   - rpc-common
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/rpc-uart/src/mgos_rpc_channel_uart.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/rpc-uart/src/mgos_rpc_channel_uart.c
 - lib:
     origin: https://github.com/mongoose-os-libs/wifi-setup-web-ui
     location: https://github.com/mongoose-os-libs/wifi-setup-web-ui
     name: wifi-setup-web-ui
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi-setup-web-ui
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi-setup-web-ui
   init_deps:
   - core
 - lib:
     origin: https://github.com/mongoose-os-libs/wifi
     location: https://github.com/mongoose-os-libs/wifi
     name: wifi
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi
   init_deps:
   - core
   sources:
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/src/mgos_wifi.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/src/mjs_wifi.c
-  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/wifi/src/esp8266/esp_wifi.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/src/mgos_wifi.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/src/mjs_wifi.c
+  - /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/wifi/src/esp32/esp32_wifi.c
 - lib:
     origin: https://github.com/mongoose-os-libs/boards
     location: https://github.com/mongoose-os-libs/boards
     name: zz_boards
-  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_659048986/deps/boards
+  path: /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/deps/boards
 init_deps:
+- freertos
 - mongoose
 - ota-common
 - vfs-common
-- vfs-dev-part
+- vfs-fs-lfs
 - vfs-fs-spiffs
 - core
 - i2c
@@ -1253,16 +1465,20 @@ init_deps:
 - location
 - sntp
 - cron
-- mqtt
-- gcp
+- ota-http-client
+- shadow
+- ota-shadow
 - wifi
 - http-server
+- rpc-common
+- rpc-ws
+- dash
+- mqtt
+- gcp
 - mbedtls
 - mjs
 - neopixel
-- ota-http-client
 - pwm
-- rpc-common
 - rpc-loopback
 - rpc-service-config
 - rpc-service-fs

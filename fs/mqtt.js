@@ -1,9 +1,9 @@
 // Topic to send events.
-let commandsTopic = '/devices/' + Cfg.get('device.id') + '/commands';
+let commandsTopic = "/devices/" + Cfg.get("device.id") + "/commands";
 // Topic to receive config.
-let configTopic = '/devices/' + Cfg.get('device.id') + '/config';
+let configTopic = "/devices/" + Cfg.get("device.id") + "/config";
 // Topic to send state data.
-let stateTopic = '/devices/' + Cfg.get('device.id') + '/state';
+let stateTopic = "/devices/" + Cfg.get("device.id") + "/state";
 
 /**
  * Subscribe to a MQTT topic and receive config data from IoT Core.
@@ -13,9 +13,9 @@ let stateTopic = '/devices/' + Cfg.get('device.id') + '/state';
  * @see https://github.com/mongoose-os-libs/mqtt/blob/master/mjs_fs/api_mqtt.js
  */
 let connectMqtt = function() {
-  print('Connecting to Mqtt topic: ', configTopic);
+  print("Connecting to Mqtt topic: ", configTopic);
   MQTT.sub(configTopic, function(conn, topic, msg) {
-    print('Topic:', topic, 'message:', msg);
+    print("Topic:", topic, "message:", msg);
     let obj = getConfigFromCloud(msg);
     applyBoardConfig();
     applyTimerConfig(obj);
@@ -23,23 +23,26 @@ let connectMqtt = function() {
 };
 
 let commandsMqtt = function() {
-  print('Connecting to Mqtt topic: ', commandsTopic);
+  print("Connecting to Mqtt topic: ", commandsTopic);
   MQTT.sub(commandsTopic, function(conn, topic, msg) {
     let eventObj = JSON.parse(msg);
     print(JSON.stringify(eventObj));
 
-    if (eventObj.event === 'reboot'){
-      print('Reiniciando ...');
+    if (eventObj.event === "reboot") {
+      print("Reiniciando ...");
       Sys.reboot(1);
     }
 
-    if (eventObj.event === 'ota'){
-      print('Actualizando ...');
+    if (eventObj.event === "ota") {
+      print("Actualizando ...");
       // setAllPixels(red);
-      RPC.call(RPC.LOCAL, 'OTA.update', '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}', function(resp, ud) {
-      }, null);
-     
+      RPC.call(
+        RPC.LOCAL,
+        "OTA.update",
+        '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}',
+        function(resp, ud) {},
+        null
+      );
     }
-    
   });
 };
