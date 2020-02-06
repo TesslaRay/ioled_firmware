@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_293465979/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -10,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[269] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 268},
+const struct mgos_conf_entry mgos_config_schema_[268] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 267},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 11},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
@@ -62,7 +62,7 @@ const struct mgos_conf_entry mgos_config_schema_[269] = {
   {.type = CONF_TYPE_INT, .key = "retry_min", .offset = offsetof(struct mgos_config, sntp.retry_min)},
   {.type = CONF_TYPE_INT, .key = "retry_max", .offset = offsetof(struct mgos_config, sntp.retry_max)},
   {.type = CONF_TYPE_INT, .key = "update_interval", .offset = offsetof(struct mgos_config, sntp.update_interval)},
-  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 8},
+  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 9},
   {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
   {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
   {.type = CONF_TYPE_STRING, .key = "url", .offset = offsetof(struct mgos_config, update.url)},
@@ -71,6 +71,7 @@ const struct mgos_conf_entry mgos_config_schema_[269] = {
   {.type = CONF_TYPE_STRING, .key = "ssl_ca_file", .offset = offsetof(struct mgos_config, update.ssl_ca_file)},
   {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
   {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
+  {.type = CONF_TYPE_BOOL, .key = "enable_post", .offset = offsetof(struct mgos_config, update.enable_post)},
   {.type = CONF_TYPE_OBJECT, .key = "shadow", .offset = offsetof(struct mgos_config, shadow), .num_desc = 4},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, shadow.enable)},
   {.type = CONF_TYPE_STRING, .key = "lib", .offset = offsetof(struct mgos_config, shadow.lib)},
@@ -278,8 +279,6 @@ const struct mgos_conf_entry mgos_config_schema_[269] = {
   {.type = CONF_TYPE_STRING, .key = "timerOn", .offset = offsetof(struct mgos_config, board.timer.timerOn)},
   {.type = CONF_TYPE_STRING, .key = "timerOff", .offset = offsetof(struct mgos_config, board.timer.timerOff)},
   {.type = CONF_TYPE_BOOL, .key = "timerState", .offset = offsetof(struct mgos_config, board.timer.timerState)},
-  {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
-  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -331,14 +330,15 @@ const struct mgos_config mgos_config_defaults = {
   .sntp.retry_min = 1,
   .sntp.retry_max = 30,
   .sntp.update_interval = 7200,
-  .update.timeout = 600,
-  .update.commit_timeout = 0,
+  .update.timeout = 6000000,
+  .update.commit_timeout = 60,
   .update.url = NULL,
   .update.interval = 0,
   .update.extra_http_headers = NULL,
   .update.ssl_ca_file = "ca.pem",
   .update.ssl_client_cert_file = NULL,
   .update.ssl_server_name = NULL,
+  .update.enable_post = 1,
   .shadow.enable = 1,
   .shadow.lib = NULL,
   .shadow.ota_enable = 1,
@@ -522,7 +522,6 @@ const struct mgos_config mgos_config_defaults = {
   .board.timer.timerOn = "00:00",
   .board.timer.timerOff = "00:00",
   .board.timer.timerState = 0,
-  .Update.timeout = 60000,
 };
 
 /* debug */
@@ -1086,6 +1085,16 @@ const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg) {
 }
 void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->update.ssl_server_name, v);
+}
+
+/* update.enable_post */
+#define MGOS_CONFIG_HAVE_UPDATE_ENABLE_POST
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_ENABLE_POST
+int mgos_config_get_update_enable_post(struct mgos_config *cfg) {
+  return cfg->update.enable_post;
+}
+void mgos_config_set_update_enable_post(struct mgos_config *cfg, int v) {
+  cfg->update.enable_post = v;
 }
 
 /* shadow */
@@ -3084,23 +3093,6 @@ int mgos_config_get_board_timer_timerState(struct mgos_config *cfg) {
 }
 void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v) {
   cfg->board.timer.timerState = v;
-}
-
-/* Update */
-#define MGOS_CONFIG_HAVE_UPDATE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE
-const struct mgos_config_Update * mgos_config_get_Update(struct mgos_config *cfg) {
-  return &cfg->Update;
-}
-
-/* Update.timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
-int mgos_config_get_Update_timeout(struct mgos_config *cfg) {
-  return cfg->Update.timeout;
-}
-void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v) {
-  cfg->Update.timeout = v;
 }
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value) {
   return mgos_config_get(key, value, &mgos_sys_config, mgos_config_schema());

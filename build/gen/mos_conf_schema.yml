@@ -774,13 +774,21 @@
   - s
   - ""
   - title: Access Point Password
-- - Update
+- - update
   - o
   - title: Firmware updater
-- - Update.timeout
+- - update.timeout
   - i
-  - 60000
+  - 6000000
   - title: Update will be aborted if it does not finish within this time
+- - update.commit_timeout
+  - i
+  - 60
+  - title: After applying update, wait for commit up to this long
+- - update.enable_post
+  - b
+  - true
+  - title: Enable POST updates
 - - board.timer.timerOn
   - s
   - "00:00"

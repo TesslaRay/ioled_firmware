@@ -58,6 +58,7 @@
   ["update.ssl_ca_file", "s", {"title": "TLS CA file"}],
   ["update.ssl_client_cert_file", "s", {"title": "TLS client cert file"}],
   ["update.ssl_server_name", "s", {"title": "TLS Server Name"}],
+  ["update.enable_post", "b", {"title": "Enable POST updates"}],
   ["shadow", "o", {"title": "Device shadow settings"}],
   ["shadow.enable", "b", {"title": "Enable device shadow functionality"}],
   ["shadow.lib", "s", {"title": "Preferred shadow lib, e.g. aws, dash, gcp"}],
@@ -264,7 +265,5 @@
   ["board.timer", "o", {}],
   ["board.timer.timerOn", "s", {"title": "Turn on time"}],
   ["board.timer.timerOff", "s", {"title": "Turn off time"}],
-  ["board.timer.timerState", "b", {"title": "Timer state"}],
-  ["Update", "o", {"title": "Firmware updater"}],
-  ["Update.timeout", "i", {"title": "Update will be aborted if it does not finish within this time"}]
+  ["board.timer.timerState", "b", {"title": "Timer state"}]
 ]
