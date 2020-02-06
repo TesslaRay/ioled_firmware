@@ -1,6 +1,6 @@
-mos author: Eduardo Hales/Cristian Valdivia
-description: iOLED
-version: 2.0
+mos author: Cristian Valdivia
+description: iOLED Firmware
+version: 1.0.3
 manifest_version: 2018-05-18
 libs_version: ${mos.version}
 modules_version: ${mos.version}
@@ -11,10 +11,15 @@ config_schema:
   - ['board.btn1.control', 's', 'led1', {title: 'Name of the led that controls'}]
 
   # Integrated led config
+<<<<<<< HEAD
   - ['board.led1.active_high', 'b', true, {title: 'True if LED is on when output is high (1)'}]
   - ['board.led1.duty', 'd', 0.5, {title: 'Integrated Led duty cycle'}]
   - ['board.led1.freq', 'i', 500, {title: 'Integrated Led frequency'}]
   - ['board.led1.pin', 'i', 2, {title: 'Led pin for PWM'}]
+=======
+  - ['board.led1.duty', 'd', 0.5, {title: 'Integrated Led duty cycle'}]
+  - ['board.led1.freq', 'i', 500, {title: 'Integrated Led frequency'}]
+>>>>>>> f/mdash
   - ['board.led1.state', 'b', true, {title: 'Integrated Led current state'}]
 
   # Prototype led2 config
@@ -33,9 +38,18 @@ config_schema:
   - ['wifi.ap.enable', 'b', true, {title: 'Disable Access Point'}]
   - ['wifi.ap.ssid', 's', 'esp8266.config', {title: 'Access Point Name'}]
   - ['wifi.ap.pass', 's', '', {title: 'Access Point Password'}]
+<<<<<<< HEAD
   # OTA URL
   - ['Update', 'o', {title: 'Firmware updater'}]
   - ['Update.timeout', 'i', 60000, {title: 'Update will be aborted if it does not finish within this time'}]
+=======
+
+  # OTA URL
+  - ['update', 'o', {title: 'Firmware updater'}]
+  - ['update.timeout', 'i', 6000000, {title: 'Update will be aborted if it does not finish within this time'}]
+  - ['update.commit_timeout', 'i', 60, {title: 'After applying update, wait for commit up to this long'}]
+  - ['update.enable_post', 'b', true, {title: 'Enable POST updates'}]
+>>>>>>> f/mdash
 
   # Timer
   - ['board.timer.timerOn', 's', '00:00', {title: 'Turn on time'}]
@@ -49,6 +63,18 @@ config_schema:
   - ['i2c.enable', true]
   - ['i2c.sda_gpio', 5]
   - ['i2c.scl_gpio', 4]
+<<<<<<< HEAD
+=======
+
+  # Config for mDash
+  - ['dash.enable', 'b', false, {'title': 'Enable'}]
+  - ['dash.token', 's', '', {'title': 'Access token'}]
+  - ['dash.server', 's', 'wss://mdash.net/api/v2/rpc', {'title': 'Server address'}]
+  - ['dash.ssl_cert', 's', '', {title: 'Client certificate to present to the server'}]
+  - ['dash.ssl_key', 's', '', {title: 'Private key corresponding to the certificate'}]
+  - ['dash.ssl_ca_cert', 's', 'ca.pem', {'title': 'Verify server certificate using this CA bundle'}]
+  - ['dash.send_logs', 'b', false, {'title': 'Send logs'}]
+>>>>>>> f/mdash
 
 tags:
   - js
@@ -72,7 +98,13 @@ libs:
   - origin: https://github.com/mongoose-os-libs/rpc-loopback
   - origin: https://github.com/mongoose-os-libs/rpc-service-i2c
   # ota rpc
+  - origin: https://github.com/mongoose-os-libs/ota-common
   - origin: https://github.com/mongoose-os-libs/rpc-service-ota
+<<<<<<< HEAD
+=======
+  - origin: https://github.com/mongoose-os-libs/http-server
+  - origin: https://github.com/mongoose-os-libs/ota-common
+>>>>>>> f/mdash
   - origin: https://github.com/mongoose-os-libs/ota-http-client
   # gcp include mqtt and ca-bundle (certificates).
   - origin: https://github.com/mongoose-os-libs/gcp
@@ -85,5 +117,10 @@ libs:
   - origin: https://github.com/mongoose-os-libs/cron
   # I2C
   - origin: https://github.com/mongoose-os-libs/i2c
+  # mDash
+  - origin: https://github.com/mongoose-os-libs/dash
+  - origin: https://github.com/mongoose-os-libs/core
+  - origin: https://github.com/mongoose-os-libs/rpc-ws
+  - origin: https://github.com/mongoose-os-libs/shadow
 
 sources:

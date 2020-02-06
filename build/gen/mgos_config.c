@@ -1,7 +1,11 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
+<<<<<<< HEAD
  * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/mos_conf_schema.yml
+=======
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/mos_conf_schema.yml
+>>>>>>> f/mdash
  */
 
 #include "mgos_config.h"
@@ -10,8 +14,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[238] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 237},
+const struct mgos_conf_entry mgos_config_schema_[268] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 267},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 11},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
@@ -24,13 +28,15 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "mg_mgr_hexdump_file", .offset = offsetof(struct mgos_config, debug.mg_mgr_hexdump_file)},
   {.type = CONF_TYPE_STRING, .key = "stdout_topic", .offset = offsetof(struct mgos_config, debug.stdout_topic)},
   {.type = CONF_TYPE_STRING, .key = "stderr_topic", .offset = offsetof(struct mgos_config, debug.stderr_topic)},
-  {.type = CONF_TYPE_OBJECT, .key = "i2c", .offset = offsetof(struct mgos_config, i2c), .num_desc = 5},
+  {.type = CONF_TYPE_OBJECT, .key = "i2c", .offset = offsetof(struct mgos_config, i2c), .num_desc = 6},
+  {.type = CONF_TYPE_INT, .key = "unit_no", .offset = offsetof(struct mgos_config, i2c.unit_no)},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, i2c.enable)},
   {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, i2c.freq)},
   {.type = CONF_TYPE_BOOL, .key = "debug", .offset = offsetof(struct mgos_config, i2c.debug)},
   {.type = CONF_TYPE_INT, .key = "sda_gpio", .offset = offsetof(struct mgos_config, i2c.sda_gpio)},
   {.type = CONF_TYPE_INT, .key = "scl_gpio", .offset = offsetof(struct mgos_config, i2c.scl_gpio)},
-  {.type = CONF_TYPE_OBJECT, .key = "i2c1", .offset = offsetof(struct mgos_config, i2c1), .num_desc = 5},
+  {.type = CONF_TYPE_OBJECT, .key = "i2c1", .offset = offsetof(struct mgos_config, i2c1), .num_desc = 6},
+  {.type = CONF_TYPE_INT, .key = "unit_no", .offset = offsetof(struct mgos_config, i2c1.unit_no)},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, i2c1.enable)},
   {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, i2c1.freq)},
   {.type = CONF_TYPE_BOOL, .key = "debug", .offset = offsetof(struct mgos_config, i2c1.debug)},
@@ -60,6 +66,51 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_INT, .key = "retry_min", .offset = offsetof(struct mgos_config, sntp.retry_min)},
   {.type = CONF_TYPE_INT, .key = "retry_max", .offset = offsetof(struct mgos_config, sntp.retry_max)},
   {.type = CONF_TYPE_INT, .key = "update_interval", .offset = offsetof(struct mgos_config, sntp.update_interval)},
+  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 9},
+  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
+  {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
+  {.type = CONF_TYPE_STRING, .key = "url", .offset = offsetof(struct mgos_config, update.url)},
+  {.type = CONF_TYPE_INT, .key = "interval", .offset = offsetof(struct mgos_config, update.interval)},
+  {.type = CONF_TYPE_STRING, .key = "extra_http_headers", .offset = offsetof(struct mgos_config, update.extra_http_headers)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_ca_file", .offset = offsetof(struct mgos_config, update.ssl_ca_file)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
+  {.type = CONF_TYPE_BOOL, .key = "enable_post", .offset = offsetof(struct mgos_config, update.enable_post)},
+  {.type = CONF_TYPE_OBJECT, .key = "shadow", .offset = offsetof(struct mgos_config, shadow), .num_desc = 4},
+  {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, shadow.enable)},
+  {.type = CONF_TYPE_STRING, .key = "lib", .offset = offsetof(struct mgos_config, shadow.lib)},
+  {.type = CONF_TYPE_BOOL, .key = "ota_enable", .offset = offsetof(struct mgos_config, shadow.ota_enable)},
+  {.type = CONF_TYPE_BOOL, .key = "autocommit", .offset = offsetof(struct mgos_config, shadow.autocommit)},
+  {.type = CONF_TYPE_OBJECT, .key = "rpc", .offset = offsetof(struct mgos_config, rpc), .num_desc = 21},
+  {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, rpc.enable)},
+  {.type = CONF_TYPE_INT, .key = "max_frame_size", .offset = offsetof(struct mgos_config, rpc.max_frame_size)},
+  {.type = CONF_TYPE_INT, .key = "max_queue_length", .offset = offsetof(struct mgos_config, rpc.max_queue_length)},
+  {.type = CONF_TYPE_INT, .key = "default_out_channel_idle_close_timeout", .offset = offsetof(struct mgos_config, rpc.default_out_channel_idle_close_timeout)},
+  {.type = CONF_TYPE_STRING, .key = "acl_file", .offset = offsetof(struct mgos_config, rpc.acl_file)},
+  {.type = CONF_TYPE_STRING, .key = "auth_domain", .offset = offsetof(struct mgos_config, rpc.auth_domain)},
+  {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, rpc.auth_file)},
+  {.type = CONF_TYPE_OBJECT, .key = "ws", .offset = offsetof(struct mgos_config, rpc.ws), .num_desc = 8},
+  {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, rpc.ws.enable)},
+  {.type = CONF_TYPE_STRING, .key = "server_address", .offset = offsetof(struct mgos_config, rpc.ws.server_address)},
+  {.type = CONF_TYPE_INT, .key = "reconnect_interval_min", .offset = offsetof(struct mgos_config, rpc.ws.reconnect_interval_min)},
+  {.type = CONF_TYPE_INT, .key = "reconnect_interval_max", .offset = offsetof(struct mgos_config, rpc.ws.reconnect_interval_max)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, rpc.ws.ssl_server_name)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_cert", .offset = offsetof(struct mgos_config, rpc.ws.ssl_cert)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_key", .offset = offsetof(struct mgos_config, rpc.ws.ssl_key)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_ca_cert", .offset = offsetof(struct mgos_config, rpc.ws.ssl_ca_cert)},
+  {.type = CONF_TYPE_OBJECT, .key = "uart", .offset = offsetof(struct mgos_config, rpc.uart), .num_desc = 4},
+  {.type = CONF_TYPE_INT, .key = "uart_no", .offset = offsetof(struct mgos_config, rpc.uart.uart_no)},
+  {.type = CONF_TYPE_INT, .key = "baud_rate", .offset = offsetof(struct mgos_config, rpc.uart.baud_rate)},
+  {.type = CONF_TYPE_INT, .key = "fc_type", .offset = offsetof(struct mgos_config, rpc.uart.fc_type)},
+  {.type = CONF_TYPE_STRING, .key = "dst", .offset = offsetof(struct mgos_config, rpc.uart.dst)},
+  {.type = CONF_TYPE_OBJECT, .key = "dash", .offset = offsetof(struct mgos_config, dash), .num_desc = 7},
+  {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, dash.enable)},
+  {.type = CONF_TYPE_STRING, .key = "token", .offset = offsetof(struct mgos_config, dash.token)},
+  {.type = CONF_TYPE_STRING, .key = "server", .offset = offsetof(struct mgos_config, dash.server)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_cert", .offset = offsetof(struct mgos_config, dash.ssl_cert)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_key", .offset = offsetof(struct mgos_config, dash.ssl_key)},
+  {.type = CONF_TYPE_STRING, .key = "ssl_ca_cert", .offset = offsetof(struct mgos_config, dash.ssl_ca_cert)},
+  {.type = CONF_TYPE_BOOL, .key = "send_logs", .offset = offsetof(struct mgos_config, dash.send_logs)},
   {.type = CONF_TYPE_OBJECT, .key = "mqtt", .offset = offsetof(struct mgos_config, mqtt), .num_desc = 22},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, mqtt.enable)},
   {.type = CONF_TYPE_STRING, .key = "server", .offset = offsetof(struct mgos_config, mqtt.server)},
@@ -130,6 +181,7 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, http.auth_file)},
   {.type = CONF_TYPE_OBJECT, .key = "mjs", .offset = offsetof(struct mgos_config, mjs), .num_desc = 1},
   {.type = CONF_TYPE_BOOL, .key = "generate_jsc", .offset = offsetof(struct mgos_config, mjs.generate_jsc)},
+<<<<<<< HEAD
   {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 8},
   {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
   {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
@@ -154,6 +206,10 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "dst", .offset = offsetof(struct mgos_config, rpc.uart.dst)},
   {.type = CONF_TYPE_OBJECT, .key = "wifi", .offset = offsetof(struct mgos_config, wifi), .num_desc = 60},
   {.type = CONF_TYPE_OBJECT, .key = "ap", .offset = offsetof(struct mgos_config, wifi.ap), .num_desc = 15},
+=======
+  {.type = CONF_TYPE_OBJECT, .key = "wifi", .offset = offsetof(struct mgos_config, wifi), .num_desc = 67},
+  {.type = CONF_TYPE_OBJECT, .key = "ap", .offset = offsetof(struct mgos_config, wifi.ap), .num_desc = 17},
+>>>>>>> f/mdash
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, wifi.ap.enable)},
   {.type = CONF_TYPE_STRING, .key = "ssid", .offset = offsetof(struct mgos_config, wifi.ap.ssid)},
   {.type = CONF_TYPE_STRING, .key = "pass", .offset = offsetof(struct mgos_config, wifi.ap.pass)},
@@ -169,7 +225,9 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_INT, .key = "disable_after", .offset = offsetof(struct mgos_config, wifi.ap.disable_after)},
   {.type = CONF_TYPE_STRING, .key = "hostname", .offset = offsetof(struct mgos_config, wifi.ap.hostname)},
   {.type = CONF_TYPE_BOOL, .key = "keep_enabled", .offset = offsetof(struct mgos_config, wifi.ap.keep_enabled)},
-  {.type = CONF_TYPE_OBJECT, .key = "sta", .offset = offsetof(struct mgos_config, wifi.sta), .num_desc = 13},
+  {.type = CONF_TYPE_BOOL, .key = "bandwidth_20mhz", .offset = offsetof(struct mgos_config, wifi.ap.bandwidth_20mhz)},
+  {.type = CONF_TYPE_STRING, .key = "protocol", .offset = offsetof(struct mgos_config, wifi.ap.protocol)},
+  {.type = CONF_TYPE_OBJECT, .key = "sta", .offset = offsetof(struct mgos_config, wifi.sta), .num_desc = 14},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, wifi.sta.enable)},
   {.type = CONF_TYPE_STRING, .key = "ssid", .offset = offsetof(struct mgos_config, wifi.sta.ssid)},
   {.type = CONF_TYPE_STRING, .key = "pass", .offset = offsetof(struct mgos_config, wifi.sta.pass)},
@@ -183,7 +241,8 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "gw", .offset = offsetof(struct mgos_config, wifi.sta.gw)},
   {.type = CONF_TYPE_STRING, .key = "nameserver", .offset = offsetof(struct mgos_config, wifi.sta.nameserver)},
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta.dhcp_hostname)},
-  {.type = CONF_TYPE_OBJECT, .key = "sta1", .offset = offsetof(struct mgos_config, wifi.sta1), .num_desc = 13},
+  {.type = CONF_TYPE_STRING, .key = "protocol", .offset = offsetof(struct mgos_config, wifi.sta.protocol)},
+  {.type = CONF_TYPE_OBJECT, .key = "sta1", .offset = offsetof(struct mgos_config, wifi.sta1), .num_desc = 14},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, wifi.sta1.enable)},
   {.type = CONF_TYPE_STRING, .key = "ssid", .offset = offsetof(struct mgos_config, wifi.sta1.ssid)},
   {.type = CONF_TYPE_STRING, .key = "pass", .offset = offsetof(struct mgos_config, wifi.sta1.pass)},
@@ -197,7 +256,8 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "gw", .offset = offsetof(struct mgos_config, wifi.sta1.gw)},
   {.type = CONF_TYPE_STRING, .key = "nameserver", .offset = offsetof(struct mgos_config, wifi.sta1.nameserver)},
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta1.dhcp_hostname)},
-  {.type = CONF_TYPE_OBJECT, .key = "sta2", .offset = offsetof(struct mgos_config, wifi.sta2), .num_desc = 13},
+  {.type = CONF_TYPE_STRING, .key = "protocol", .offset = offsetof(struct mgos_config, wifi.sta1.protocol)},
+  {.type = CONF_TYPE_OBJECT, .key = "sta2", .offset = offsetof(struct mgos_config, wifi.sta2), .num_desc = 14},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, wifi.sta2.enable)},
   {.type = CONF_TYPE_STRING, .key = "ssid", .offset = offsetof(struct mgos_config, wifi.sta2.ssid)},
   {.type = CONF_TYPE_STRING, .key = "pass", .offset = offsetof(struct mgos_config, wifi.sta2.pass)},
@@ -211,8 +271,11 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "gw", .offset = offsetof(struct mgos_config, wifi.sta2.gw)},
   {.type = CONF_TYPE_STRING, .key = "nameserver", .offset = offsetof(struct mgos_config, wifi.sta2.nameserver)},
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta2.dhcp_hostname)},
+  {.type = CONF_TYPE_STRING, .key = "protocol", .offset = offsetof(struct mgos_config, wifi.sta2.protocol)},
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
+  {.type = CONF_TYPE_INT, .key = "sta_ps_mode", .offset = offsetof(struct mgos_config, wifi.sta_ps_mode)},
+  {.type = CONF_TYPE_BOOL, .key = "sta_all_chan_scan", .offset = offsetof(struct mgos_config, wifi.sta_all_chan_scan)},
   {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 33},
   {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
@@ -247,8 +310,6 @@ const struct mgos_conf_entry mgos_config_schema_[238] = {
   {.type = CONF_TYPE_STRING, .key = "timerOn", .offset = offsetof(struct mgos_config, board.timer.timerOn)},
   {.type = CONF_TYPE_STRING, .key = "timerOff", .offset = offsetof(struct mgos_config, board.timer.timerOff)},
   {.type = CONF_TYPE_BOOL, .key = "timerState", .offset = offsetof(struct mgos_config, board.timer.timerState)},
-  {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
-  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -269,16 +330,18 @@ const struct mgos_config mgos_config_defaults = {
   .debug.mg_mgr_hexdump_file = NULL,
   .debug.stdout_topic = NULL,
   .debug.stderr_topic = NULL,
+  .i2c.unit_no = 0,
   .i2c.enable = 1,
   .i2c.freq = 100000,
   .i2c.debug = 0,
   .i2c.sda_gpio = 5,
   .i2c.scl_gpio = 4,
+  .i2c1.unit_no = 1,
   .i2c1.enable = 0,
   .i2c1.freq = 100000,
   .i2c1.debug = 0,
-  .i2c1.sda_gpio = 4,
-  .i2c1.scl_gpio = 5,
+  .i2c1.sda_gpio = 22,
+  .i2c1.scl_gpio = 23,
   .sys.atca.enable = 0,
   .sys.atca.i2c_bus = 0,
   .sys.atca.i2c_addr = 96,
@@ -286,7 +349,7 @@ const struct mgos_config mgos_config_defaults = {
   .sys.tz_spec = "CLST3",
   .sys.wdt_timeout = 30,
   .sys.pref_ota_lib = NULL,
-  .device.id = "esp8266_??????",
+  .device.id = "esp32_??????",
   .device.license = NULL,
   .device.mac = NULL,
   .device.public_key = NULL,
@@ -298,6 +361,45 @@ const struct mgos_config mgos_config_defaults = {
   .sntp.retry_min = 1,
   .sntp.retry_max = 30,
   .sntp.update_interval = 7200,
+  .update.timeout = 6000000,
+  .update.commit_timeout = 60,
+  .update.url = NULL,
+  .update.interval = 0,
+  .update.extra_http_headers = NULL,
+  .update.ssl_ca_file = "ca.pem",
+  .update.ssl_client_cert_file = NULL,
+  .update.ssl_server_name = NULL,
+  .update.enable_post = 1,
+  .shadow.enable = 1,
+  .shadow.lib = NULL,
+  .shadow.ota_enable = 1,
+  .shadow.autocommit = 0,
+  .rpc.enable = 1,
+  .rpc.max_frame_size = 4096,
+  .rpc.max_queue_length = 25,
+  .rpc.default_out_channel_idle_close_timeout = 10,
+  .rpc.acl_file = NULL,
+  .rpc.auth_domain = NULL,
+  .rpc.auth_file = NULL,
+  .rpc.ws.enable = 1,
+  .rpc.ws.server_address = NULL,
+  .rpc.ws.reconnect_interval_min = 1,
+  .rpc.ws.reconnect_interval_max = 60,
+  .rpc.ws.ssl_server_name = NULL,
+  .rpc.ws.ssl_cert = NULL,
+  .rpc.ws.ssl_key = NULL,
+  .rpc.ws.ssl_ca_cert = NULL,
+  .rpc.uart.uart_no = 0,
+  .rpc.uart.baud_rate = 115200,
+  .rpc.uart.fc_type = 2,
+  .rpc.uart.dst = NULL,
+  .dash.enable = 0,
+  .dash.token = NULL,
+  .dash.server = "wss://mdash.net/api/v2/rpc",
+  .dash.ssl_cert = NULL,
+  .dash.ssl_key = NULL,
+  .dash.ssl_ca_cert = "ca.pem",
+  .dash.send_logs = 0,
   .mqtt.enable = 0,
   .mqtt.server = "iot.eclipse.org:1883",
   .mqtt.client_id = NULL,
@@ -363,6 +465,7 @@ const struct mgos_config mgos_config_defaults = {
   .http.auth_domain = NULL,
   .http.auth_file = NULL,
   .mjs.generate_jsc = 1,
+<<<<<<< HEAD
   .update.timeout = 600,
   .update.commit_timeout = 0,
   .update.url = NULL,
@@ -382,6 +485,8 @@ const struct mgos_config mgos_config_defaults = {
   .rpc.uart.baud_rate = 115200,
   .rpc.uart.fc_type = 2,
   .rpc.uart.dst = NULL,
+=======
+>>>>>>> f/mdash
   .wifi.ap.enable = 1,
   .wifi.ap.ssid = "esp8266.config",
   .wifi.ap.pass = NULL,
@@ -397,6 +502,8 @@ const struct mgos_config mgos_config_defaults = {
   .wifi.ap.disable_after = 0,
   .wifi.ap.hostname = NULL,
   .wifi.ap.keep_enabled = 1,
+  .wifi.ap.bandwidth_20mhz = 0,
+  .wifi.ap.protocol = "BGN",
   .wifi.sta.enable = 0,
   .wifi.sta.ssid = NULL,
   .wifi.sta.pass = NULL,
@@ -410,6 +517,7 @@ const struct mgos_config mgos_config_defaults = {
   .wifi.sta.gw = NULL,
   .wifi.sta.nameserver = NULL,
   .wifi.sta.dhcp_hostname = NULL,
+  .wifi.sta.protocol = "BGN",
   .wifi.sta1.enable = 0,
   .wifi.sta1.ssid = NULL,
   .wifi.sta1.pass = NULL,
@@ -423,6 +531,7 @@ const struct mgos_config mgos_config_defaults = {
   .wifi.sta1.gw = NULL,
   .wifi.sta1.nameserver = NULL,
   .wifi.sta1.dhcp_hostname = NULL,
+  .wifi.sta1.protocol = "BGN",
   .wifi.sta2.enable = 0,
   .wifi.sta2.ssid = NULL,
   .wifi.sta2.pass = NULL,
@@ -436,10 +545,13 @@ const struct mgos_config mgos_config_defaults = {
   .wifi.sta2.gw = NULL,
   .wifi.sta2.nameserver = NULL,
   .wifi.sta2.dhcp_hostname = NULL,
+  .wifi.sta2.protocol = "BGN",
   .wifi.sta_cfg_idx = 0,
   .wifi.sta_connect_timeout = 30,
-  .board.led1.pin = 2,
-  .board.led1.active_high = 0,
+  .wifi.sta_ps_mode = 0,
+  .wifi.sta_all_chan_scan = 0,
+  .board.led1.pin = 13,
+  .board.led1.active_high = 1,
   .board.led1.duty = 0.5,
   .board.led1.freq = 500,
   .board.led1.state = 1,
@@ -463,7 +575,6 @@ const struct mgos_config mgos_config_defaults = {
   .board.timer.timerOn = "00:00",
   .board.timer.timerOff = "00:00",
   .board.timer.timerState = 0,
-  .Update.timeout = 60000,
 };
 
 /* debug */
@@ -590,6 +701,16 @@ const struct mgos_config_i2c * mgos_config_get_i2c(struct mgos_config *cfg) {
   return &cfg->i2c;
 }
 
+/* i2c.unit_no */
+#define MGOS_CONFIG_HAVE_I2C_UNIT_NO
+#define MGOS_SYS_CONFIG_HAVE_I2C_UNIT_NO
+int mgos_config_get_i2c_unit_no(struct mgos_config *cfg) {
+  return cfg->i2c.unit_no;
+}
+void mgos_config_set_i2c_unit_no(struct mgos_config *cfg, int v) {
+  cfg->i2c.unit_no = v;
+}
+
 /* i2c.enable */
 #define MGOS_CONFIG_HAVE_I2C_ENABLE
 #define MGOS_SYS_CONFIG_HAVE_I2C_ENABLE
@@ -645,6 +766,16 @@ void mgos_config_set_i2c_scl_gpio(struct mgos_config *cfg, int v) {
 #define MGOS_SYS_CONFIG_HAVE_I2C1
 const struct mgos_config_i2c * mgos_config_get_i2c1(struct mgos_config *cfg) {
   return &cfg->i2c1;
+}
+
+/* i2c1.unit_no */
+#define MGOS_CONFIG_HAVE_I2C1_UNIT_NO
+#define MGOS_SYS_CONFIG_HAVE_I2C1_UNIT_NO
+int mgos_config_get_i2c1_unit_no(struct mgos_config *cfg) {
+  return cfg->i2c1.unit_no;
+}
+void mgos_config_set_i2c1_unit_no(struct mgos_config *cfg, int v) {
+  cfg->i2c1.unit_no = v;
 }
 
 /* i2c1.enable */
@@ -920,6 +1051,438 @@ int mgos_config_get_sntp_update_interval(struct mgos_config *cfg) {
 }
 void mgos_config_set_sntp_update_interval(struct mgos_config *cfg, int v) {
   cfg->sntp.update_interval = v;
+}
+
+/* update */
+#define MGOS_CONFIG_HAVE_UPDATE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE
+const struct mgos_config_update * mgos_config_get_update(struct mgos_config *cfg) {
+  return &cfg->update;
+}
+
+/* update.timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
+int mgos_config_get_update_timeout(struct mgos_config *cfg) {
+  return cfg->update.timeout;
+}
+void mgos_config_set_update_timeout(struct mgos_config *cfg, int v) {
+  cfg->update.timeout = v;
+}
+
+/* update.commit_timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
+int mgos_config_get_update_commit_timeout(struct mgos_config *cfg) {
+  return cfg->update.commit_timeout;
+}
+void mgos_config_set_update_commit_timeout(struct mgos_config *cfg, int v) {
+  cfg->update.commit_timeout = v;
+}
+
+/* update.url */
+#define MGOS_CONFIG_HAVE_UPDATE_URL
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_URL
+const char * mgos_config_get_update_url(struct mgos_config *cfg) {
+  return cfg->update.url;
+}
+void mgos_config_set_update_url(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.url, v);
+}
+
+/* update.interval */
+#define MGOS_CONFIG_HAVE_UPDATE_INTERVAL
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_INTERVAL
+int mgos_config_get_update_interval(struct mgos_config *cfg) {
+  return cfg->update.interval;
+}
+void mgos_config_set_update_interval(struct mgos_config *cfg, int v) {
+  cfg->update.interval = v;
+}
+
+/* update.extra_http_headers */
+#define MGOS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
+const char * mgos_config_get_update_extra_http_headers(struct mgos_config *cfg) {
+  return cfg->update.extra_http_headers;
+}
+void mgos_config_set_update_extra_http_headers(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.extra_http_headers, v);
+}
+
+/* update.ssl_ca_file */
+#define MGOS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
+const char * mgos_config_get_update_ssl_ca_file(struct mgos_config *cfg) {
+  return cfg->update.ssl_ca_file;
+}
+void mgos_config_set_update_ssl_ca_file(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.ssl_ca_file, v);
+}
+
+/* update.ssl_client_cert_file */
+#define MGOS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
+const char * mgos_config_get_update_ssl_client_cert_file(struct mgos_config *cfg) {
+  return cfg->update.ssl_client_cert_file;
+}
+void mgos_config_set_update_ssl_client_cert_file(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.ssl_client_cert_file, v);
+}
+
+/* update.ssl_server_name */
+#define MGOS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
+const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg) {
+  return cfg->update.ssl_server_name;
+}
+void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->update.ssl_server_name, v);
+}
+
+/* update.enable_post */
+#define MGOS_CONFIG_HAVE_UPDATE_ENABLE_POST
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_ENABLE_POST
+int mgos_config_get_update_enable_post(struct mgos_config *cfg) {
+  return cfg->update.enable_post;
+}
+void mgos_config_set_update_enable_post(struct mgos_config *cfg, int v) {
+  cfg->update.enable_post = v;
+}
+
+/* shadow */
+#define MGOS_CONFIG_HAVE_SHADOW
+#define MGOS_SYS_CONFIG_HAVE_SHADOW
+const struct mgos_config_shadow * mgos_config_get_shadow(struct mgos_config *cfg) {
+  return &cfg->shadow;
+}
+
+/* shadow.enable */
+#define MGOS_CONFIG_HAVE_SHADOW_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_SHADOW_ENABLE
+int mgos_config_get_shadow_enable(struct mgos_config *cfg) {
+  return cfg->shadow.enable;
+}
+void mgos_config_set_shadow_enable(struct mgos_config *cfg, int v) {
+  cfg->shadow.enable = v;
+}
+
+/* shadow.lib */
+#define MGOS_CONFIG_HAVE_SHADOW_LIB
+#define MGOS_SYS_CONFIG_HAVE_SHADOW_LIB
+const char * mgos_config_get_shadow_lib(struct mgos_config *cfg) {
+  return cfg->shadow.lib;
+}
+void mgos_config_set_shadow_lib(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->shadow.lib, v);
+}
+
+/* shadow.ota_enable */
+#define MGOS_CONFIG_HAVE_SHADOW_OTA_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_SHADOW_OTA_ENABLE
+int mgos_config_get_shadow_ota_enable(struct mgos_config *cfg) {
+  return cfg->shadow.ota_enable;
+}
+void mgos_config_set_shadow_ota_enable(struct mgos_config *cfg, int v) {
+  cfg->shadow.ota_enable = v;
+}
+
+/* shadow.autocommit */
+#define MGOS_CONFIG_HAVE_SHADOW_AUTOCOMMIT
+#define MGOS_SYS_CONFIG_HAVE_SHADOW_AUTOCOMMIT
+int mgos_config_get_shadow_autocommit(struct mgos_config *cfg) {
+  return cfg->shadow.autocommit;
+}
+void mgos_config_set_shadow_autocommit(struct mgos_config *cfg, int v) {
+  cfg->shadow.autocommit = v;
+}
+
+/* rpc */
+#define MGOS_CONFIG_HAVE_RPC
+#define MGOS_SYS_CONFIG_HAVE_RPC
+const struct mgos_config_rpc * mgos_config_get_rpc(struct mgos_config *cfg) {
+  return &cfg->rpc;
+}
+
+/* rpc.enable */
+#define MGOS_CONFIG_HAVE_RPC_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_RPC_ENABLE
+int mgos_config_get_rpc_enable(struct mgos_config *cfg) {
+  return cfg->rpc.enable;
+}
+void mgos_config_set_rpc_enable(struct mgos_config *cfg, int v) {
+  cfg->rpc.enable = v;
+}
+
+/* rpc.max_frame_size */
+#define MGOS_CONFIG_HAVE_RPC_MAX_FRAME_SIZE
+#define MGOS_SYS_CONFIG_HAVE_RPC_MAX_FRAME_SIZE
+int mgos_config_get_rpc_max_frame_size(struct mgos_config *cfg) {
+  return cfg->rpc.max_frame_size;
+}
+void mgos_config_set_rpc_max_frame_size(struct mgos_config *cfg, int v) {
+  cfg->rpc.max_frame_size = v;
+}
+
+/* rpc.max_queue_length */
+#define MGOS_CONFIG_HAVE_RPC_MAX_QUEUE_LENGTH
+#define MGOS_SYS_CONFIG_HAVE_RPC_MAX_QUEUE_LENGTH
+int mgos_config_get_rpc_max_queue_length(struct mgos_config *cfg) {
+  return cfg->rpc.max_queue_length;
+}
+void mgos_config_set_rpc_max_queue_length(struct mgos_config *cfg, int v) {
+  cfg->rpc.max_queue_length = v;
+}
+
+/* rpc.default_out_channel_idle_close_timeout */
+#define MGOS_CONFIG_HAVE_RPC_DEFAULT_OUT_CHANNEL_IDLE_CLOSE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_RPC_DEFAULT_OUT_CHANNEL_IDLE_CLOSE_TIMEOUT
+int mgos_config_get_rpc_default_out_channel_idle_close_timeout(struct mgos_config *cfg) {
+  return cfg->rpc.default_out_channel_idle_close_timeout;
+}
+void mgos_config_set_rpc_default_out_channel_idle_close_timeout(struct mgos_config *cfg, int v) {
+  cfg->rpc.default_out_channel_idle_close_timeout = v;
+}
+
+/* rpc.acl_file */
+#define MGOS_CONFIG_HAVE_RPC_ACL_FILE
+#define MGOS_SYS_CONFIG_HAVE_RPC_ACL_FILE
+const char * mgos_config_get_rpc_acl_file(struct mgos_config *cfg) {
+  return cfg->rpc.acl_file;
+}
+void mgos_config_set_rpc_acl_file(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.acl_file, v);
+}
+
+/* rpc.auth_domain */
+#define MGOS_CONFIG_HAVE_RPC_AUTH_DOMAIN
+#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_DOMAIN
+const char * mgos_config_get_rpc_auth_domain(struct mgos_config *cfg) {
+  return cfg->rpc.auth_domain;
+}
+void mgos_config_set_rpc_auth_domain(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.auth_domain, v);
+}
+
+/* rpc.auth_file */
+#define MGOS_CONFIG_HAVE_RPC_AUTH_FILE
+#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_FILE
+const char * mgos_config_get_rpc_auth_file(struct mgos_config *cfg) {
+  return cfg->rpc.auth_file;
+}
+void mgos_config_set_rpc_auth_file(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.auth_file, v);
+}
+
+/* rpc.ws */
+#define MGOS_CONFIG_HAVE_RPC_WS
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS
+const struct mgos_config_rpc_ws * mgos_config_get_rpc_ws(struct mgos_config *cfg) {
+  return &cfg->rpc.ws;
+}
+
+/* rpc.ws.enable */
+#define MGOS_CONFIG_HAVE_RPC_WS_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_ENABLE
+int mgos_config_get_rpc_ws_enable(struct mgos_config *cfg) {
+  return cfg->rpc.ws.enable;
+}
+void mgos_config_set_rpc_ws_enable(struct mgos_config *cfg, int v) {
+  cfg->rpc.ws.enable = v;
+}
+
+/* rpc.ws.server_address */
+#define MGOS_CONFIG_HAVE_RPC_WS_SERVER_ADDRESS
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_SERVER_ADDRESS
+const char * mgos_config_get_rpc_ws_server_address(struct mgos_config *cfg) {
+  return cfg->rpc.ws.server_address;
+}
+void mgos_config_set_rpc_ws_server_address(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.ws.server_address, v);
+}
+
+/* rpc.ws.reconnect_interval_min */
+#define MGOS_CONFIG_HAVE_RPC_WS_RECONNECT_INTERVAL_MIN
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_RECONNECT_INTERVAL_MIN
+int mgos_config_get_rpc_ws_reconnect_interval_min(struct mgos_config *cfg) {
+  return cfg->rpc.ws.reconnect_interval_min;
+}
+void mgos_config_set_rpc_ws_reconnect_interval_min(struct mgos_config *cfg, int v) {
+  cfg->rpc.ws.reconnect_interval_min = v;
+}
+
+/* rpc.ws.reconnect_interval_max */
+#define MGOS_CONFIG_HAVE_RPC_WS_RECONNECT_INTERVAL_MAX
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_RECONNECT_INTERVAL_MAX
+int mgos_config_get_rpc_ws_reconnect_interval_max(struct mgos_config *cfg) {
+  return cfg->rpc.ws.reconnect_interval_max;
+}
+void mgos_config_set_rpc_ws_reconnect_interval_max(struct mgos_config *cfg, int v) {
+  cfg->rpc.ws.reconnect_interval_max = v;
+}
+
+/* rpc.ws.ssl_server_name */
+#define MGOS_CONFIG_HAVE_RPC_WS_SSL_SERVER_NAME
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_SSL_SERVER_NAME
+const char * mgos_config_get_rpc_ws_ssl_server_name(struct mgos_config *cfg) {
+  return cfg->rpc.ws.ssl_server_name;
+}
+void mgos_config_set_rpc_ws_ssl_server_name(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.ws.ssl_server_name, v);
+}
+
+/* rpc.ws.ssl_cert */
+#define MGOS_CONFIG_HAVE_RPC_WS_SSL_CERT
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_SSL_CERT
+const char * mgos_config_get_rpc_ws_ssl_cert(struct mgos_config *cfg) {
+  return cfg->rpc.ws.ssl_cert;
+}
+void mgos_config_set_rpc_ws_ssl_cert(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.ws.ssl_cert, v);
+}
+
+/* rpc.ws.ssl_key */
+#define MGOS_CONFIG_HAVE_RPC_WS_SSL_KEY
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_SSL_KEY
+const char * mgos_config_get_rpc_ws_ssl_key(struct mgos_config *cfg) {
+  return cfg->rpc.ws.ssl_key;
+}
+void mgos_config_set_rpc_ws_ssl_key(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.ws.ssl_key, v);
+}
+
+/* rpc.ws.ssl_ca_cert */
+#define MGOS_CONFIG_HAVE_RPC_WS_SSL_CA_CERT
+#define MGOS_SYS_CONFIG_HAVE_RPC_WS_SSL_CA_CERT
+const char * mgos_config_get_rpc_ws_ssl_ca_cert(struct mgos_config *cfg) {
+  return cfg->rpc.ws.ssl_ca_cert;
+}
+void mgos_config_set_rpc_ws_ssl_ca_cert(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.ws.ssl_ca_cert, v);
+}
+
+/* rpc.uart */
+#define MGOS_CONFIG_HAVE_RPC_UART
+#define MGOS_SYS_CONFIG_HAVE_RPC_UART
+const struct mgos_config_rpc_uart * mgos_config_get_rpc_uart(struct mgos_config *cfg) {
+  return &cfg->rpc.uart;
+}
+
+/* rpc.uart.uart_no */
+#define MGOS_CONFIG_HAVE_RPC_UART_UART_NO
+#define MGOS_SYS_CONFIG_HAVE_RPC_UART_UART_NO
+int mgos_config_get_rpc_uart_uart_no(struct mgos_config *cfg) {
+  return cfg->rpc.uart.uart_no;
+}
+void mgos_config_set_rpc_uart_uart_no(struct mgos_config *cfg, int v) {
+  cfg->rpc.uart.uart_no = v;
+}
+
+/* rpc.uart.baud_rate */
+#define MGOS_CONFIG_HAVE_RPC_UART_BAUD_RATE
+#define MGOS_SYS_CONFIG_HAVE_RPC_UART_BAUD_RATE
+int mgos_config_get_rpc_uart_baud_rate(struct mgos_config *cfg) {
+  return cfg->rpc.uart.baud_rate;
+}
+void mgos_config_set_rpc_uart_baud_rate(struct mgos_config *cfg, int v) {
+  cfg->rpc.uart.baud_rate = v;
+}
+
+/* rpc.uart.fc_type */
+#define MGOS_CONFIG_HAVE_RPC_UART_FC_TYPE
+#define MGOS_SYS_CONFIG_HAVE_RPC_UART_FC_TYPE
+int mgos_config_get_rpc_uart_fc_type(struct mgos_config *cfg) {
+  return cfg->rpc.uart.fc_type;
+}
+void mgos_config_set_rpc_uart_fc_type(struct mgos_config *cfg, int v) {
+  cfg->rpc.uart.fc_type = v;
+}
+
+/* rpc.uart.dst */
+#define MGOS_CONFIG_HAVE_RPC_UART_DST
+#define MGOS_SYS_CONFIG_HAVE_RPC_UART_DST
+const char * mgos_config_get_rpc_uart_dst(struct mgos_config *cfg) {
+  return cfg->rpc.uart.dst;
+}
+void mgos_config_set_rpc_uart_dst(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->rpc.uart.dst, v);
+}
+
+/* dash */
+#define MGOS_CONFIG_HAVE_DASH
+#define MGOS_SYS_CONFIG_HAVE_DASH
+const struct mgos_config_dash * mgos_config_get_dash(struct mgos_config *cfg) {
+  return &cfg->dash;
+}
+
+/* dash.enable */
+#define MGOS_CONFIG_HAVE_DASH_ENABLE
+#define MGOS_SYS_CONFIG_HAVE_DASH_ENABLE
+int mgos_config_get_dash_enable(struct mgos_config *cfg) {
+  return cfg->dash.enable;
+}
+void mgos_config_set_dash_enable(struct mgos_config *cfg, int v) {
+  cfg->dash.enable = v;
+}
+
+/* dash.token */
+#define MGOS_CONFIG_HAVE_DASH_TOKEN
+#define MGOS_SYS_CONFIG_HAVE_DASH_TOKEN
+const char * mgos_config_get_dash_token(struct mgos_config *cfg) {
+  return cfg->dash.token;
+}
+void mgos_config_set_dash_token(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->dash.token, v);
+}
+
+/* dash.server */
+#define MGOS_CONFIG_HAVE_DASH_SERVER
+#define MGOS_SYS_CONFIG_HAVE_DASH_SERVER
+const char * mgos_config_get_dash_server(struct mgos_config *cfg) {
+  return cfg->dash.server;
+}
+void mgos_config_set_dash_server(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->dash.server, v);
+}
+
+/* dash.ssl_cert */
+#define MGOS_CONFIG_HAVE_DASH_SSL_CERT
+#define MGOS_SYS_CONFIG_HAVE_DASH_SSL_CERT
+const char * mgos_config_get_dash_ssl_cert(struct mgos_config *cfg) {
+  return cfg->dash.ssl_cert;
+}
+void mgos_config_set_dash_ssl_cert(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->dash.ssl_cert, v);
+}
+
+/* dash.ssl_key */
+#define MGOS_CONFIG_HAVE_DASH_SSL_KEY
+#define MGOS_SYS_CONFIG_HAVE_DASH_SSL_KEY
+const char * mgos_config_get_dash_ssl_key(struct mgos_config *cfg) {
+  return cfg->dash.ssl_key;
+}
+void mgos_config_set_dash_ssl_key(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->dash.ssl_key, v);
+}
+
+/* dash.ssl_ca_cert */
+#define MGOS_CONFIG_HAVE_DASH_SSL_CA_CERT
+#define MGOS_SYS_CONFIG_HAVE_DASH_SSL_CA_CERT
+const char * mgos_config_get_dash_ssl_ca_cert(struct mgos_config *cfg) {
+  return cfg->dash.ssl_ca_cert;
+}
+void mgos_config_set_dash_ssl_ca_cert(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->dash.ssl_ca_cert, v);
+}
+
+/* dash.send_logs */
+#define MGOS_CONFIG_HAVE_DASH_SEND_LOGS
+#define MGOS_SYS_CONFIG_HAVE_DASH_SEND_LOGS
+int mgos_config_get_dash_send_logs(struct mgos_config *cfg) {
+  return cfg->dash.send_logs;
+}
+void mgos_config_set_dash_send_logs(struct mgos_config *cfg, int v) {
+  cfg->dash.send_logs = v;
 }
 
 /* mqtt */
@@ -1607,6 +2170,7 @@ void mgos_config_set_mjs_generate_jsc(struct mgos_config *cfg, int v) {
   cfg->mjs.generate_jsc = v;
 }
 
+<<<<<<< HEAD
 /* update */
 #define MGOS_CONFIG_HAVE_UPDATE
 #define MGOS_SYS_CONFIG_HAVE_UPDATE
@@ -1818,6 +2382,8 @@ void mgos_config_set_rpc_uart_dst(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->rpc.uart.dst, v);
 }
 
+=======
+>>>>>>> f/mdash
 /* wifi */
 #define MGOS_CONFIG_HAVE_WIFI
 #define MGOS_SYS_CONFIG_HAVE_WIFI
@@ -1982,6 +2548,26 @@ void mgos_config_set_wifi_ap_keep_enabled(struct mgos_config *cfg, int v) {
   cfg->wifi.ap.keep_enabled = v;
 }
 
+/* wifi.ap.bandwidth_20mhz */
+#define MGOS_CONFIG_HAVE_WIFI_AP_BANDWIDTH_20MHZ
+#define MGOS_SYS_CONFIG_HAVE_WIFI_AP_BANDWIDTH_20MHZ
+int mgos_config_get_wifi_ap_bandwidth_20mhz(struct mgos_config *cfg) {
+  return cfg->wifi.ap.bandwidth_20mhz;
+}
+void mgos_config_set_wifi_ap_bandwidth_20mhz(struct mgos_config *cfg, int v) {
+  cfg->wifi.ap.bandwidth_20mhz = v;
+}
+
+/* wifi.ap.protocol */
+#define MGOS_CONFIG_HAVE_WIFI_AP_PROTOCOL
+#define MGOS_SYS_CONFIG_HAVE_WIFI_AP_PROTOCOL
+const char * mgos_config_get_wifi_ap_protocol(struct mgos_config *cfg) {
+  return cfg->wifi.ap.protocol;
+}
+void mgos_config_set_wifi_ap_protocol(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->wifi.ap.protocol, v);
+}
+
 /* wifi.sta */
 #define MGOS_CONFIG_HAVE_WIFI_STA
 #define MGOS_SYS_CONFIG_HAVE_WIFI_STA
@@ -2117,6 +2703,16 @@ const char * mgos_config_get_wifi_sta_dhcp_hostname(struct mgos_config *cfg) {
 }
 void mgos_config_set_wifi_sta_dhcp_hostname(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->wifi.sta.dhcp_hostname, v);
+}
+
+/* wifi.sta.protocol */
+#define MGOS_CONFIG_HAVE_WIFI_STA_PROTOCOL
+#define MGOS_SYS_CONFIG_HAVE_WIFI_STA_PROTOCOL
+const char * mgos_config_get_wifi_sta_protocol(struct mgos_config *cfg) {
+  return cfg->wifi.sta.protocol;
+}
+void mgos_config_set_wifi_sta_protocol(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->wifi.sta.protocol, v);
 }
 
 /* wifi.sta1 */
@@ -2256,6 +2852,16 @@ void mgos_config_set_wifi_sta1_dhcp_hostname(struct mgos_config *cfg, const char
   mgos_conf_set_str(&cfg->wifi.sta1.dhcp_hostname, v);
 }
 
+/* wifi.sta1.protocol */
+#define MGOS_CONFIG_HAVE_WIFI_STA1_PROTOCOL
+#define MGOS_SYS_CONFIG_HAVE_WIFI_STA1_PROTOCOL
+const char * mgos_config_get_wifi_sta1_protocol(struct mgos_config *cfg) {
+  return cfg->wifi.sta1.protocol;
+}
+void mgos_config_set_wifi_sta1_protocol(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->wifi.sta1.protocol, v);
+}
+
 /* wifi.sta2 */
 #define MGOS_CONFIG_HAVE_WIFI_STA2
 #define MGOS_SYS_CONFIG_HAVE_WIFI_STA2
@@ -2393,6 +2999,16 @@ void mgos_config_set_wifi_sta2_dhcp_hostname(struct mgos_config *cfg, const char
   mgos_conf_set_str(&cfg->wifi.sta2.dhcp_hostname, v);
 }
 
+/* wifi.sta2.protocol */
+#define MGOS_CONFIG_HAVE_WIFI_STA2_PROTOCOL
+#define MGOS_SYS_CONFIG_HAVE_WIFI_STA2_PROTOCOL
+const char * mgos_config_get_wifi_sta2_protocol(struct mgos_config *cfg) {
+  return cfg->wifi.sta2.protocol;
+}
+void mgos_config_set_wifi_sta2_protocol(struct mgos_config *cfg, const char * v) {
+  mgos_conf_set_str(&cfg->wifi.sta2.protocol, v);
+}
+
 /* wifi.sta_cfg_idx */
 #define MGOS_CONFIG_HAVE_WIFI_STA_CFG_IDX
 #define MGOS_SYS_CONFIG_HAVE_WIFI_STA_CFG_IDX
@@ -2411,6 +3027,26 @@ int mgos_config_get_wifi_sta_connect_timeout(struct mgos_config *cfg) {
 }
 void mgos_config_set_wifi_sta_connect_timeout(struct mgos_config *cfg, int v) {
   cfg->wifi.sta_connect_timeout = v;
+}
+
+/* wifi.sta_ps_mode */
+#define MGOS_CONFIG_HAVE_WIFI_STA_PS_MODE
+#define MGOS_SYS_CONFIG_HAVE_WIFI_STA_PS_MODE
+int mgos_config_get_wifi_sta_ps_mode(struct mgos_config *cfg) {
+  return cfg->wifi.sta_ps_mode;
+}
+void mgos_config_set_wifi_sta_ps_mode(struct mgos_config *cfg, int v) {
+  cfg->wifi.sta_ps_mode = v;
+}
+
+/* wifi.sta_all_chan_scan */
+#define MGOS_CONFIG_HAVE_WIFI_STA_ALL_CHAN_SCAN
+#define MGOS_SYS_CONFIG_HAVE_WIFI_STA_ALL_CHAN_SCAN
+int mgos_config_get_wifi_sta_all_chan_scan(struct mgos_config *cfg) {
+  return cfg->wifi.sta_all_chan_scan;
+}
+void mgos_config_set_wifi_sta_all_chan_scan(struct mgos_config *cfg, int v) {
+  cfg->wifi.sta_all_chan_scan = v;
 }
 
 /* board */
@@ -2724,23 +3360,6 @@ int mgos_config_get_board_timer_timerState(struct mgos_config *cfg) {
 }
 void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v) {
   cfg->board.timer.timerState = v;
-}
-
-/* Update */
-#define MGOS_CONFIG_HAVE_UPDATE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE
-const struct mgos_config_Update * mgos_config_get_Update(struct mgos_config *cfg) {
-  return &cfg->Update;
-}
-
-/* Update.timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
-int mgos_config_get_Update_timeout(struct mgos_config *cfg) {
-  return cfg->Update.timeout;
-}
-void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v) {
-  cfg->Update.timeout = v;
 }
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value) {
   return mgos_config_get(key, value, &mgos_sys_config, mgos_config_schema());

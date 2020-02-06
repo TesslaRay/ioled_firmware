@@ -15,6 +15,7 @@ let stateTopic = '/devices/' + Cfg.get('device.id') + '/state';
 let connectMqtt = function() {
   print('Connecting to Mqtt topic: ', configTopic);
   MQTT.sub(configTopic, function(conn, topic, msg) {
+    // print('[CHUPALO MONGOOSE QL]');
     print('Topic:', topic, 'message:', msg);
     let obj = getConfigFromCloud(msg);
     applyBoardConfig();
@@ -38,7 +39,11 @@ let commandsMqtt = function() {
       // setAllPixels(red);
       RPC.call(
         RPC.LOCAL,
+<<<<<<< HEAD
         'OTA.Update',
+=======
+        'OTA.update',
+>>>>>>> f/mdash
         '{"url":"https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true"}',
         function(resp, ud) {},
         null,

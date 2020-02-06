@@ -1,12 +1,17 @@
 mos --port /dev/cu.usbserial-1430 console
 
+<<<<<<< HEAD
 mos --port /dev/cu.usbserial-1430 license
 
 mos license-save-key 6a76944ccefe949eae1fce12cd81ab28
 
 
 mos dash.token=iAIe7HlWs91A5UHEGb6nc0A --port /dev/cu.usbserial-1430
+=======
+mos --port /dev/cu.SLAB_USBtoUART  console
+>>>>>>> f/mdash
 
+mos --port /dev/cu.usbserial-1430 call OTA.Update '{"url":"https://github.com/TesslaRay/ioled_firmware/raw/master/build/fw.zip"}'
 
 mos --port /dev/cu.usbserial-1430 call OTA.Update ' {"url":"https://github.com/TesslaRay/ioled_firmware/raw/master/build/fw.zip"}'
 
@@ -17,17 +22,20 @@ mos --port /dev/cu.usbserial-1430 call OTA.Update ' {"url":"https://github.com/T
 mos --port /dev/cu.usbserial-1430 ota https://github.com/TesslaRay/ioled_firmware/raw/master/build/fw.zip
 
 // Desarrollo
-mos --port /dev/cu.usbserial-1430 gcp-iot-setup --gcp-project ioled-dev-248517 --gcp-region us-central1 --gcp-registry ioled-devices
+mos --port /dev/cu.SLAB_USBtoUART gcp-iot-setup --gcp-project ioled-dev-262215 --gcp-region us-central1 --gcp-registry ioled-devices
 
 // Producción
 mos --port /dev/cu.usbserial-1430 gcp-iot-setup --gcp-project ioled-production --gcp-region us-central1 --gcp-registry ioled-devices
 
+<<<<<<< HEAD
 mos --port /dev/cu.usbserial-14320 ota /Users/cristian/Documents/Development/iOLED_firmware/ioled-esp8266-firmware/build/fw.zip
 
 mos --port /dev/cu.usbserial-1430 mdash-setup device17 iAIe7HlWs91A5UHEGb6nc0A
 
 
 
+=======
+>>>>>>> f/mdash
 // Wifi Oficina iOLED
 mos --port /dev/cu.usbserial-1430 wifi VTR-4224955 km8Jnhbyc5qp
 
@@ -43,7 +51,7 @@ mos --port /dev/cu.usbserial-1430 wifi zapalloconhielo 98765432
 
 mos --port /dev/cu.usbserial-1430 wifi AndroidAP25E7 123456789
 
-
+mos wifi 'Valentina Munoz' vale3006
 
 
 // PUT
@@ -58,8 +66,6 @@ mos --port /dev/cu.usbserial-1430 put fs/board.js
 mos --port /dev/cu.usbserial-1430 put fs/sensors.js
 
 mos --port /dev/cu.usbserial-1430 call I2C.Read '{"addr": 64, "len": 2}'
-
-
 
 
 // BUILD
@@ -83,6 +89,7 @@ mos --port /dev/cu.usbserial-1430 call RPC.list
 
 mos --port /dev/cu.usbserial-14120 get conf9.json
 
+<<<<<<< HEAD
 
 
 
@@ -98,3 +105,38 @@ mos flash https://mdash.net/downloads/ccm/ccm.esp8266.zip --port /dev/cu.usbseri
 
 
 
+=======
+mos --port /dev/cu.usbserial-1430 call OTA.Update '{"url": "https://github.com/TesslaRay/ioled_firmware/blob/master/build/fw.zip?raw=true", "commit_timeout": 300}'
+
+
+// MDASH
+mos --port /dev/cu.usbserial-1430 config-set dash.enable=true dash.token=iAIe7HlWs91A5UHEGb6nc0A
+
+mos config-set dash.enable=true dash.token=iAIe7HlWs91A5UHEGb6nc0A
+
+
+curl https://mdash.net/api/v2/devices/device17/rpc/OTA.Commit?access_token=6dkD35jCX91QTykAtlfnpew
+
+https://mdash.net/api/v2/devices?access_token=6dkD35jCX91QTykAtlfnpew
+
+
+mos --port /dev/cu.usbserial-1430 config-set debug.level=2
+
+
+mos --port /dev/cu.usbserial-1430 call OTA.Commit
+
+mos --port /dev/cu.usbserial-1430 call RPC.list
+
+mos --port /dev/cu.usbserial-1430 call OTA.CreateSnapshot
+
+mos --port /dev/cu.usbserial-1430 call OTA.Revert
+
+
+
+
+mos --port /dev/cu.usbserial-1430 call OTA.SetBootState '{"revert_slot": 1}'
+
+
+
+mos  gcp-iot-setup --gcp-project ioled-dev-262215 --gcp-region us-central1 --gcp-registry ioled-devices
+>>>>>>> f/mdash
