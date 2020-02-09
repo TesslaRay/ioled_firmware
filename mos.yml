@@ -1,55 +1,28 @@
+arch: esp32
 mos author: Cristian Valdivia
 description: iOLED Firmware
-version: 1.0.3
+version: 1.0.4
 manifest_version: 2018-05-18
 libs_version: ${mos.version}
 modules_version: ${mos.version}
 mongoose_os_version: ${mos.version}
 
 config_schema:
-  # Button control
-  - ['board.btn1.control', 's', 'led1', {title: 'Name of the led that controls'}]
-
   # Integrated led config
-<<<<<<< HEAD
   - ['board.led1.active_high', 'b', true, {title: 'True if LED is on when output is high (1)'}]
-  - ['board.led1.duty', 'd', 0.5, {title: 'Integrated Led duty cycle'}]
+  - ['board.led1.duty', 'd', 1.0, {title: 'Integrated Led duty cycle'}]
   - ['board.led1.freq', 'i', 500, {title: 'Integrated Led frequency'}]
-  - ['board.led1.pin', 'i', 2, {title: 'Led pin for PWM'}]
-=======
-  - ['board.led1.duty', 'd', 0.5, {title: 'Integrated Led duty cycle'}]
-  - ['board.led1.freq', 'i', 500, {title: 'Integrated Led frequency'}]
->>>>>>> f/mdash
+  - ['board.led1.pin', 13]
   - ['board.led1.state', 'b', true, {title: 'Integrated Led current state'}]
-
-  # Prototype led2 config
-  - ['board.led2.active_high', 'b', true, {title: 'True if LED is on when output is high (1)'}]
-  - ['board.led2.duty', 'd', 1.0, {title: 'Led duty cycle'}]
-  - ['board.led2.freq', 'i', 500, {title: 'Led frequency'}]
-  - ['board.led2.pin', 'i', 14, {title: 'Led pin for PWM'}]
-  - ['board.led2.state', 'b', true, {title: 'Led current state'}]
 
   # Neopixel config
   - ['board.neopixel.state', 'b', true, {title: 'Led current state'}]
-  - ['board.neopixel.pin', 'i', 13, {title: 'Neopixel pin'}]
+  - ['board.neopixel.pin', 'i', 19, {title: 'Neopixel pin'}]
   - ['board.neopixel.pixels', 'i', 3, {title: 'Neopixel number of pixels'}]
 
-  # Enable access point
-  - ['wifi.ap.enable', 'b', true, {title: 'Disable Access Point'}]
-  - ['wifi.ap.ssid', 's', 'esp8266.config', {title: 'Access Point Name'}]
-  - ['wifi.ap.pass', 's', '', {title: 'Access Point Password'}]
-<<<<<<< HEAD
   # OTA URL
   - ['Update', 'o', {title: 'Firmware updater'}]
   - ['Update.timeout', 'i', 60000, {title: 'Update will be aborted if it does not finish within this time'}]
-=======
-
-  # OTA URL
-  - ['update', 'o', {title: 'Firmware updater'}]
-  - ['update.timeout', 'i', 6000000, {title: 'Update will be aborted if it does not finish within this time'}]
-  - ['update.commit_timeout', 'i', 60, {title: 'After applying update, wait for commit up to this long'}]
-  - ['update.enable_post', 'b', true, {title: 'Enable POST updates'}]
->>>>>>> f/mdash
 
   # Timer
   - ['board.timer.timerOn', 's', '00:00', {title: 'Turn on time'}]
@@ -59,12 +32,12 @@ config_schema:
   # Time zone
   - ['sys.tz_spec', 's', 'CLST3', {title: 'CHile Summer Timer'}]
 
-  # I2C
-  - ['i2c.enable', true]
-  - ['i2c.sda_gpio', 5]
-  - ['i2c.scl_gpio', 4]
-<<<<<<< HEAD
-=======
+  # Enable I2C
+  - ['i2c.enable', 'b', true, {title: 'Enable I2C'}]
+  - ['i2c.freq', 'i', 100000, {title: 'I2C bus speed'}]
+  - ['i2c.unit_no', 'i', 0, {title: 'Which hardware unit ot use, 0 or 1'}]
+  - ['i2c.sda_gpio', 'i', 18, {title: 'GPIO to use for SDA'}]
+  - ['i2c.scl_gpio', 'i', 5, {title: 'GPIO to use for SCL'}]
 
   # Config for mDash
   - ['dash.enable', 'b', false, {'title': 'Enable'}]
@@ -74,7 +47,6 @@ config_schema:
   - ['dash.ssl_key', 's', '', {title: 'Private key corresponding to the certificate'}]
   - ['dash.ssl_ca_cert', 's', 'ca.pem', {'title': 'Verify server certificate using this CA bundle'}]
   - ['dash.send_logs', 'b', false, {'title': 'Send logs'}]
->>>>>>> f/mdash
 
 tags:
   - js
@@ -100,11 +72,8 @@ libs:
   # ota rpc
   - origin: https://github.com/mongoose-os-libs/ota-common
   - origin: https://github.com/mongoose-os-libs/rpc-service-ota
-<<<<<<< HEAD
-=======
   - origin: https://github.com/mongoose-os-libs/http-server
   - origin: https://github.com/mongoose-os-libs/ota-common
->>>>>>> f/mdash
   - origin: https://github.com/mongoose-os-libs/ota-http-client
   # gcp include mqtt and ca-bundle (certificates).
   - origin: https://github.com/mongoose-os-libs/gcp

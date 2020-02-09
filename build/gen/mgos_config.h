@@ -1,11 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
-<<<<<<< HEAD
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/mos_conf_schema.yml
-=======
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/mos_conf_schema.yml
->>>>>>> f/mdash
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_250344971/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_250344971/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -84,7 +80,6 @@ struct mgos_config_update {
   const char * ssl_ca_file;
   const char * ssl_client_cert_file;
   const char * ssl_server_name;
-  int enable_post;
 };
 
 struct mgos_config_shadow {
@@ -189,38 +184,6 @@ struct mgos_config_mjs {
   int generate_jsc;
 };
 
-<<<<<<< HEAD
-struct mgos_config_update {
-  int timeout;
-  int commit_timeout;
-  const char * url;
-  int interval;
-  const char * extra_http_headers;
-  const char * ssl_ca_file;
-  const char * ssl_client_cert_file;
-  const char * ssl_server_name;
-};
-
-struct mgos_config_rpc_uart {
-  int uart_no;
-  int baud_rate;
-  int fc_type;
-  const char * dst;
-};
-
-struct mgos_config_rpc {
-  int enable;
-  int max_frame_size;
-  int max_queue_length;
-  int default_out_channel_idle_close_timeout;
-  const char * acl_file;
-  const char * auth_domain;
-  const char * auth_file;
-  struct mgos_config_rpc_uart uart;
-};
-
-=======
->>>>>>> f/mdash
 struct mgos_config_wifi_ap {
   int enable;
   const char * ssid;
@@ -280,9 +243,6 @@ struct mgos_config_board_led1 {
 struct mgos_config_board_led2 {
   int pin;
   int active_high;
-  double duty;
-  int freq;
-  int state;
 };
 
 struct mgos_config_board_led3 {
@@ -293,7 +253,6 @@ struct mgos_config_board_led3 {
 struct mgos_config_board_btn1 {
   int pin;
   int pull_up;
-  const char * control;
 };
 
 struct mgos_config_board_btn2 {
@@ -329,6 +288,10 @@ struct mgos_config_board {
   struct mgos_config_board_timer timer;
 };
 
+struct mgos_config_Update {
+  int timeout;
+};
+
 struct mgos_config {
   struct mgos_config_debug debug;
   struct mgos_config_i2c i2c;
@@ -346,13 +309,9 @@ struct mgos_config {
   struct mgos_config_gcp gcp;
   struct mgos_config_http http;
   struct mgos_config_mjs mjs;
-<<<<<<< HEAD
-  struct mgos_config_update update;
-  struct mgos_config_rpc rpc;
-=======
->>>>>>> f/mdash
   struct mgos_config_wifi wifi;
   struct mgos_config_board board;
+  struct mgos_config_Update Update;
 };
 
 
@@ -814,14 +773,6 @@ const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg);
 static inline const char * mgos_sys_config_get_update_ssl_server_name(void) { return mgos_config_get_update_ssl_server_name(&mgos_sys_config); }
 void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_update_ssl_server_name(const char * v) { mgos_config_set_update_ssl_server_name(&mgos_sys_config, v); }
-
-/* update.enable_post */
-#define MGOS_CONFIG_HAVE_UPDATE_ENABLE_POST
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_ENABLE_POST
-int mgos_config_get_update_enable_post(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_update_enable_post(void) { return mgos_config_get_update_enable_post(&mgos_sys_config); }
-void mgos_config_set_update_enable_post(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_update_enable_post(int v) { mgos_config_set_update_enable_post(&mgos_sys_config, v); }
 
 /* shadow */
 #define MGOS_CONFIG_HAVE_SHADOW
@@ -1643,179 +1594,6 @@ static inline int mgos_sys_config_get_mjs_generate_jsc(void) { return mgos_confi
 void mgos_config_set_mjs_generate_jsc(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_mjs_generate_jsc(int v) { mgos_config_set_mjs_generate_jsc(&mgos_sys_config, v); }
 
-<<<<<<< HEAD
-/* update */
-#define MGOS_CONFIG_HAVE_UPDATE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE
-const struct mgos_config_update * mgos_config_get_update(struct mgos_config *cfg);
-static inline const struct mgos_config_update * mgos_sys_config_get_update(void) { return mgos_config_get_update(&mgos_sys_config); }
-
-/* update.timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
-int mgos_config_get_update_timeout(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_update_timeout(void) { return mgos_config_get_update_timeout(&mgos_sys_config); }
-void mgos_config_set_update_timeout(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_update_timeout(int v) { mgos_config_set_update_timeout(&mgos_sys_config, v); }
-
-/* update.commit_timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
-int mgos_config_get_update_commit_timeout(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_update_commit_timeout(void) { return mgos_config_get_update_commit_timeout(&mgos_sys_config); }
-void mgos_config_set_update_commit_timeout(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_update_commit_timeout(int v) { mgos_config_set_update_commit_timeout(&mgos_sys_config, v); }
-
-/* update.url */
-#define MGOS_CONFIG_HAVE_UPDATE_URL
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_URL
-const char * mgos_config_get_update_url(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_update_url(void) { return mgos_config_get_update_url(&mgos_sys_config); }
-void mgos_config_set_update_url(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_update_url(const char * v) { mgos_config_set_update_url(&mgos_sys_config, v); }
-
-/* update.interval */
-#define MGOS_CONFIG_HAVE_UPDATE_INTERVAL
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_INTERVAL
-int mgos_config_get_update_interval(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_update_interval(void) { return mgos_config_get_update_interval(&mgos_sys_config); }
-void mgos_config_set_update_interval(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_update_interval(int v) { mgos_config_set_update_interval(&mgos_sys_config, v); }
-
-/* update.extra_http_headers */
-#define MGOS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
-const char * mgos_config_get_update_extra_http_headers(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_update_extra_http_headers(void) { return mgos_config_get_update_extra_http_headers(&mgos_sys_config); }
-void mgos_config_set_update_extra_http_headers(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_update_extra_http_headers(const char * v) { mgos_config_set_update_extra_http_headers(&mgos_sys_config, v); }
-
-/* update.ssl_ca_file */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
-const char * mgos_config_get_update_ssl_ca_file(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_update_ssl_ca_file(void) { return mgos_config_get_update_ssl_ca_file(&mgos_sys_config); }
-void mgos_config_set_update_ssl_ca_file(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_update_ssl_ca_file(const char * v) { mgos_config_set_update_ssl_ca_file(&mgos_sys_config, v); }
-
-/* update.ssl_client_cert_file */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
-const char * mgos_config_get_update_ssl_client_cert_file(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_update_ssl_client_cert_file(void) { return mgos_config_get_update_ssl_client_cert_file(&mgos_sys_config); }
-void mgos_config_set_update_ssl_client_cert_file(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_update_ssl_client_cert_file(const char * v) { mgos_config_set_update_ssl_client_cert_file(&mgos_sys_config, v); }
-
-/* update.ssl_server_name */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
-const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_update_ssl_server_name(void) { return mgos_config_get_update_ssl_server_name(&mgos_sys_config); }
-void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_update_ssl_server_name(const char * v) { mgos_config_set_update_ssl_server_name(&mgos_sys_config, v); }
-
-/* rpc */
-#define MGOS_CONFIG_HAVE_RPC
-#define MGOS_SYS_CONFIG_HAVE_RPC
-const struct mgos_config_rpc * mgos_config_get_rpc(struct mgos_config *cfg);
-static inline const struct mgos_config_rpc * mgos_sys_config_get_rpc(void) { return mgos_config_get_rpc(&mgos_sys_config); }
-
-/* rpc.enable */
-#define MGOS_CONFIG_HAVE_RPC_ENABLE
-#define MGOS_SYS_CONFIG_HAVE_RPC_ENABLE
-int mgos_config_get_rpc_enable(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_enable(void) { return mgos_config_get_rpc_enable(&mgos_sys_config); }
-void mgos_config_set_rpc_enable(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_enable(int v) { mgos_config_set_rpc_enable(&mgos_sys_config, v); }
-
-/* rpc.max_frame_size */
-#define MGOS_CONFIG_HAVE_RPC_MAX_FRAME_SIZE
-#define MGOS_SYS_CONFIG_HAVE_RPC_MAX_FRAME_SIZE
-int mgos_config_get_rpc_max_frame_size(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_max_frame_size(void) { return mgos_config_get_rpc_max_frame_size(&mgos_sys_config); }
-void mgos_config_set_rpc_max_frame_size(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_max_frame_size(int v) { mgos_config_set_rpc_max_frame_size(&mgos_sys_config, v); }
-
-/* rpc.max_queue_length */
-#define MGOS_CONFIG_HAVE_RPC_MAX_QUEUE_LENGTH
-#define MGOS_SYS_CONFIG_HAVE_RPC_MAX_QUEUE_LENGTH
-int mgos_config_get_rpc_max_queue_length(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_max_queue_length(void) { return mgos_config_get_rpc_max_queue_length(&mgos_sys_config); }
-void mgos_config_set_rpc_max_queue_length(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_max_queue_length(int v) { mgos_config_set_rpc_max_queue_length(&mgos_sys_config, v); }
-
-/* rpc.default_out_channel_idle_close_timeout */
-#define MGOS_CONFIG_HAVE_RPC_DEFAULT_OUT_CHANNEL_IDLE_CLOSE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_RPC_DEFAULT_OUT_CHANNEL_IDLE_CLOSE_TIMEOUT
-int mgos_config_get_rpc_default_out_channel_idle_close_timeout(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_default_out_channel_idle_close_timeout(void) { return mgos_config_get_rpc_default_out_channel_idle_close_timeout(&mgos_sys_config); }
-void mgos_config_set_rpc_default_out_channel_idle_close_timeout(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_default_out_channel_idle_close_timeout(int v) { mgos_config_set_rpc_default_out_channel_idle_close_timeout(&mgos_sys_config, v); }
-
-/* rpc.acl_file */
-#define MGOS_CONFIG_HAVE_RPC_ACL_FILE
-#define MGOS_SYS_CONFIG_HAVE_RPC_ACL_FILE
-const char * mgos_config_get_rpc_acl_file(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_rpc_acl_file(void) { return mgos_config_get_rpc_acl_file(&mgos_sys_config); }
-void mgos_config_set_rpc_acl_file(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_rpc_acl_file(const char * v) { mgos_config_set_rpc_acl_file(&mgos_sys_config, v); }
-
-/* rpc.auth_domain */
-#define MGOS_CONFIG_HAVE_RPC_AUTH_DOMAIN
-#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_DOMAIN
-const char * mgos_config_get_rpc_auth_domain(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_rpc_auth_domain(void) { return mgos_config_get_rpc_auth_domain(&mgos_sys_config); }
-void mgos_config_set_rpc_auth_domain(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_rpc_auth_domain(const char * v) { mgos_config_set_rpc_auth_domain(&mgos_sys_config, v); }
-
-/* rpc.auth_file */
-#define MGOS_CONFIG_HAVE_RPC_AUTH_FILE
-#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_FILE
-const char * mgos_config_get_rpc_auth_file(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_rpc_auth_file(void) { return mgos_config_get_rpc_auth_file(&mgos_sys_config); }
-void mgos_config_set_rpc_auth_file(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_rpc_auth_file(const char * v) { mgos_config_set_rpc_auth_file(&mgos_sys_config, v); }
-
-/* rpc.uart */
-#define MGOS_CONFIG_HAVE_RPC_UART
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART
-const struct mgos_config_rpc_uart * mgos_config_get_rpc_uart(struct mgos_config *cfg);
-static inline const struct mgos_config_rpc_uart * mgos_sys_config_get_rpc_uart(void) { return mgos_config_get_rpc_uart(&mgos_sys_config); }
-
-/* rpc.uart.uart_no */
-#define MGOS_CONFIG_HAVE_RPC_UART_UART_NO
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_UART_NO
-int mgos_config_get_rpc_uart_uart_no(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_uart_uart_no(void) { return mgos_config_get_rpc_uart_uart_no(&mgos_sys_config); }
-void mgos_config_set_rpc_uart_uart_no(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_uart_uart_no(int v) { mgos_config_set_rpc_uart_uart_no(&mgos_sys_config, v); }
-
-/* rpc.uart.baud_rate */
-#define MGOS_CONFIG_HAVE_RPC_UART_BAUD_RATE
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_BAUD_RATE
-int mgos_config_get_rpc_uart_baud_rate(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_uart_baud_rate(void) { return mgos_config_get_rpc_uart_baud_rate(&mgos_sys_config); }
-void mgos_config_set_rpc_uart_baud_rate(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_uart_baud_rate(int v) { mgos_config_set_rpc_uart_baud_rate(&mgos_sys_config, v); }
-
-/* rpc.uart.fc_type */
-#define MGOS_CONFIG_HAVE_RPC_UART_FC_TYPE
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_FC_TYPE
-int mgos_config_get_rpc_uart_fc_type(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_rpc_uart_fc_type(void) { return mgos_config_get_rpc_uart_fc_type(&mgos_sys_config); }
-void mgos_config_set_rpc_uart_fc_type(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_rpc_uart_fc_type(int v) { mgos_config_set_rpc_uart_fc_type(&mgos_sys_config, v); }
-
-/* rpc.uart.dst */
-#define MGOS_CONFIG_HAVE_RPC_UART_DST
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_DST
-const char * mgos_config_get_rpc_uart_dst(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_rpc_uart_dst(void) { return mgos_config_get_rpc_uart_dst(&mgos_sys_config); }
-void mgos_config_set_rpc_uart_dst(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_rpc_uart_dst(const char * v) { mgos_config_set_rpc_uart_dst(&mgos_sys_config, v); }
-
-=======
->>>>>>> f/mdash
 /* wifi */
 #define MGOS_CONFIG_HAVE_WIFI
 #define MGOS_SYS_CONFIG_HAVE_WIFI
@@ -2424,30 +2202,6 @@ static inline int mgos_sys_config_get_board_led2_active_high(void) { return mgos
 void mgos_config_set_board_led2_active_high(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_led2_active_high(int v) { mgos_config_set_board_led2_active_high(&mgos_sys_config, v); }
 
-/* board.led2.duty */
-#define MGOS_CONFIG_HAVE_BOARD_LED2_DUTY
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_DUTY
-double mgos_config_get_board_led2_duty(struct mgos_config *cfg);
-static inline double mgos_sys_config_get_board_led2_duty(void) { return mgos_config_get_board_led2_duty(&mgos_sys_config); }
-void mgos_config_set_board_led2_duty(struct mgos_config *cfg, double v);
-static inline void mgos_sys_config_set_board_led2_duty(double v) { mgos_config_set_board_led2_duty(&mgos_sys_config, v); }
-
-/* board.led2.freq */
-#define MGOS_CONFIG_HAVE_BOARD_LED2_FREQ
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_FREQ
-int mgos_config_get_board_led2_freq(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_board_led2_freq(void) { return mgos_config_get_board_led2_freq(&mgos_sys_config); }
-void mgos_config_set_board_led2_freq(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_board_led2_freq(int v) { mgos_config_set_board_led2_freq(&mgos_sys_config, v); }
-
-/* board.led2.state */
-#define MGOS_CONFIG_HAVE_BOARD_LED2_STATE
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_STATE
-int mgos_config_get_board_led2_state(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_board_led2_state(void) { return mgos_config_get_board_led2_state(&mgos_sys_config); }
-void mgos_config_set_board_led2_state(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_board_led2_state(int v) { mgos_config_set_board_led2_state(&mgos_sys_config, v); }
-
 /* board.led3 */
 #define MGOS_CONFIG_HAVE_BOARD_LED3
 #define MGOS_SYS_CONFIG_HAVE_BOARD_LED3
@@ -2491,14 +2245,6 @@ int mgos_config_get_board_btn1_pull_up(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_board_btn1_pull_up(void) { return mgos_config_get_board_btn1_pull_up(&mgos_sys_config); }
 void mgos_config_set_board_btn1_pull_up(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_btn1_pull_up(int v) { mgos_config_set_board_btn1_pull_up(&mgos_sys_config, v); }
-
-/* board.btn1.control */
-#define MGOS_CONFIG_HAVE_BOARD_BTN1_CONTROL
-#define MGOS_SYS_CONFIG_HAVE_BOARD_BTN1_CONTROL
-const char * mgos_config_get_board_btn1_control(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_board_btn1_control(void) { return mgos_config_get_board_btn1_control(&mgos_sys_config); }
-void mgos_config_set_board_btn1_control(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_board_btn1_control(const char * v) { mgos_config_set_board_btn1_control(&mgos_sys_config, v); }
 
 /* board.btn2 */
 #define MGOS_CONFIG_HAVE_BOARD_BTN2
@@ -2603,6 +2349,20 @@ int mgos_config_get_board_timer_timerState(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_board_timer_timerState(void) { return mgos_config_get_board_timer_timerState(&mgos_sys_config); }
 void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_timer_timerState(int v) { mgos_config_set_board_timer_timerState(&mgos_sys_config, v); }
+
+/* Update */
+#define MGOS_CONFIG_HAVE_UPDATE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE
+const struct mgos_config_Update * mgos_config_get_Update(struct mgos_config *cfg);
+static inline const struct mgos_config_Update * mgos_sys_config_get_Update(void) { return mgos_config_get_Update(&mgos_sys_config); }
+
+/* Update.timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
+int mgos_config_get_Update_timeout(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_Update_timeout(void) { return mgos_config_get_Update_timeout(&mgos_sys_config); }
+void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_Update_timeout(int v) { mgos_config_set_Update_timeout(&mgos_sys_config, v); }
 
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value);
 bool mgos_sys_config_set(const struct mg_str key, const struct mg_str value, bool free_strings);

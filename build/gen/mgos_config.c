@@ -1,11 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
-<<<<<<< HEAD
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_597132044/build/gen/mos_conf_schema.yml
-=======
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_429515418/build/gen/mos_conf_schema.yml
->>>>>>> f/mdash
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_250344971/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_250344971/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -14,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[268] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 267},
+const struct mgos_conf_entry mgos_config_schema_[265] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 264},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 11},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
@@ -66,7 +62,7 @@ const struct mgos_conf_entry mgos_config_schema_[268] = {
   {.type = CONF_TYPE_INT, .key = "retry_min", .offset = offsetof(struct mgos_config, sntp.retry_min)},
   {.type = CONF_TYPE_INT, .key = "retry_max", .offset = offsetof(struct mgos_config, sntp.retry_max)},
   {.type = CONF_TYPE_INT, .key = "update_interval", .offset = offsetof(struct mgos_config, sntp.update_interval)},
-  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 9},
+  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 8},
   {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
   {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
   {.type = CONF_TYPE_STRING, .key = "url", .offset = offsetof(struct mgos_config, update.url)},
@@ -75,7 +71,6 @@ const struct mgos_conf_entry mgos_config_schema_[268] = {
   {.type = CONF_TYPE_STRING, .key = "ssl_ca_file", .offset = offsetof(struct mgos_config, update.ssl_ca_file)},
   {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
   {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
-  {.type = CONF_TYPE_BOOL, .key = "enable_post", .offset = offsetof(struct mgos_config, update.enable_post)},
   {.type = CONF_TYPE_OBJECT, .key = "shadow", .offset = offsetof(struct mgos_config, shadow), .num_desc = 4},
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, shadow.enable)},
   {.type = CONF_TYPE_STRING, .key = "lib", .offset = offsetof(struct mgos_config, shadow.lib)},
@@ -181,35 +176,8 @@ const struct mgos_conf_entry mgos_config_schema_[268] = {
   {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, http.auth_file)},
   {.type = CONF_TYPE_OBJECT, .key = "mjs", .offset = offsetof(struct mgos_config, mjs), .num_desc = 1},
   {.type = CONF_TYPE_BOOL, .key = "generate_jsc", .offset = offsetof(struct mgos_config, mjs.generate_jsc)},
-<<<<<<< HEAD
-  {.type = CONF_TYPE_OBJECT, .key = "update", .offset = offsetof(struct mgos_config, update), .num_desc = 8},
-  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, update.timeout)},
-  {.type = CONF_TYPE_INT, .key = "commit_timeout", .offset = offsetof(struct mgos_config, update.commit_timeout)},
-  {.type = CONF_TYPE_STRING, .key = "url", .offset = offsetof(struct mgos_config, update.url)},
-  {.type = CONF_TYPE_INT, .key = "interval", .offset = offsetof(struct mgos_config, update.interval)},
-  {.type = CONF_TYPE_STRING, .key = "extra_http_headers", .offset = offsetof(struct mgos_config, update.extra_http_headers)},
-  {.type = CONF_TYPE_STRING, .key = "ssl_ca_file", .offset = offsetof(struct mgos_config, update.ssl_ca_file)},
-  {.type = CONF_TYPE_STRING, .key = "ssl_client_cert_file", .offset = offsetof(struct mgos_config, update.ssl_client_cert_file)},
-  {.type = CONF_TYPE_STRING, .key = "ssl_server_name", .offset = offsetof(struct mgos_config, update.ssl_server_name)},
-  {.type = CONF_TYPE_OBJECT, .key = "rpc", .offset = offsetof(struct mgos_config, rpc), .num_desc = 12},
-  {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, rpc.enable)},
-  {.type = CONF_TYPE_INT, .key = "max_frame_size", .offset = offsetof(struct mgos_config, rpc.max_frame_size)},
-  {.type = CONF_TYPE_INT, .key = "max_queue_length", .offset = offsetof(struct mgos_config, rpc.max_queue_length)},
-  {.type = CONF_TYPE_INT, .key = "default_out_channel_idle_close_timeout", .offset = offsetof(struct mgos_config, rpc.default_out_channel_idle_close_timeout)},
-  {.type = CONF_TYPE_STRING, .key = "acl_file", .offset = offsetof(struct mgos_config, rpc.acl_file)},
-  {.type = CONF_TYPE_STRING, .key = "auth_domain", .offset = offsetof(struct mgos_config, rpc.auth_domain)},
-  {.type = CONF_TYPE_STRING, .key = "auth_file", .offset = offsetof(struct mgos_config, rpc.auth_file)},
-  {.type = CONF_TYPE_OBJECT, .key = "uart", .offset = offsetof(struct mgos_config, rpc.uart), .num_desc = 4},
-  {.type = CONF_TYPE_INT, .key = "uart_no", .offset = offsetof(struct mgos_config, rpc.uart.uart_no)},
-  {.type = CONF_TYPE_INT, .key = "baud_rate", .offset = offsetof(struct mgos_config, rpc.uart.baud_rate)},
-  {.type = CONF_TYPE_INT, .key = "fc_type", .offset = offsetof(struct mgos_config, rpc.uart.fc_type)},
-  {.type = CONF_TYPE_STRING, .key = "dst", .offset = offsetof(struct mgos_config, rpc.uart.dst)},
-  {.type = CONF_TYPE_OBJECT, .key = "wifi", .offset = offsetof(struct mgos_config, wifi), .num_desc = 60},
-  {.type = CONF_TYPE_OBJECT, .key = "ap", .offset = offsetof(struct mgos_config, wifi.ap), .num_desc = 15},
-=======
   {.type = CONF_TYPE_OBJECT, .key = "wifi", .offset = offsetof(struct mgos_config, wifi), .num_desc = 67},
   {.type = CONF_TYPE_OBJECT, .key = "ap", .offset = offsetof(struct mgos_config, wifi.ap), .num_desc = 17},
->>>>>>> f/mdash
   {.type = CONF_TYPE_BOOL, .key = "enable", .offset = offsetof(struct mgos_config, wifi.ap.enable)},
   {.type = CONF_TYPE_STRING, .key = "ssid", .offset = offsetof(struct mgos_config, wifi.ap.ssid)},
   {.type = CONF_TYPE_STRING, .key = "pass", .offset = offsetof(struct mgos_config, wifi.ap.pass)},
@@ -276,26 +244,22 @@ const struct mgos_conf_entry mgos_config_schema_[268] = {
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
   {.type = CONF_TYPE_INT, .key = "sta_ps_mode", .offset = offsetof(struct mgos_config, wifi.sta_ps_mode)},
   {.type = CONF_TYPE_BOOL, .key = "sta_all_chan_scan", .offset = offsetof(struct mgos_config, wifi.sta_all_chan_scan)},
-  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 33},
+  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 29},
   {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led1.active_high)},
   {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led1.duty)},
   {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led1.freq)},
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led1.state)},
-  {.type = CONF_TYPE_OBJECT, .key = "led2", .offset = offsetof(struct mgos_config, board.led2), .num_desc = 5},
+  {.type = CONF_TYPE_OBJECT, .key = "led2", .offset = offsetof(struct mgos_config, board.led2), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led2.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led2.active_high)},
-  {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led2.duty)},
-  {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led2.freq)},
-  {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led2.state)},
   {.type = CONF_TYPE_OBJECT, .key = "led3", .offset = offsetof(struct mgos_config, board.led3), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led3.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led3.active_high)},
-  {.type = CONF_TYPE_OBJECT, .key = "btn1", .offset = offsetof(struct mgos_config, board.btn1), .num_desc = 3},
+  {.type = CONF_TYPE_OBJECT, .key = "btn1", .offset = offsetof(struct mgos_config, board.btn1), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn1.pull_up)},
-  {.type = CONF_TYPE_STRING, .key = "control", .offset = offsetof(struct mgos_config, board.btn1.control)},
   {.type = CONF_TYPE_OBJECT, .key = "btn2", .offset = offsetof(struct mgos_config, board.btn2), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.btn2.pin)},
   {.type = CONF_TYPE_BOOL, .key = "pull_up", .offset = offsetof(struct mgos_config, board.btn2.pull_up)},
@@ -310,6 +274,8 @@ const struct mgos_conf_entry mgos_config_schema_[268] = {
   {.type = CONF_TYPE_STRING, .key = "timerOn", .offset = offsetof(struct mgos_config, board.timer.timerOn)},
   {.type = CONF_TYPE_STRING, .key = "timerOff", .offset = offsetof(struct mgos_config, board.timer.timerOff)},
   {.type = CONF_TYPE_BOOL, .key = "timerState", .offset = offsetof(struct mgos_config, board.timer.timerState)},
+  {.type = CONF_TYPE_OBJECT, .key = "Update", .offset = offsetof(struct mgos_config, Update), .num_desc = 1},
+  {.type = CONF_TYPE_INT, .key = "timeout", .offset = offsetof(struct mgos_config, Update.timeout)},
 };
 
 const struct mgos_conf_entry *mgos_config_schema() {
@@ -334,8 +300,8 @@ const struct mgos_config mgos_config_defaults = {
   .i2c.enable = 1,
   .i2c.freq = 100000,
   .i2c.debug = 0,
-  .i2c.sda_gpio = 5,
-  .i2c.scl_gpio = 4,
+  .i2c.sda_gpio = 18,
+  .i2c.scl_gpio = 5,
   .i2c1.unit_no = 1,
   .i2c1.enable = 0,
   .i2c1.freq = 100000,
@@ -361,15 +327,14 @@ const struct mgos_config mgos_config_defaults = {
   .sntp.retry_min = 1,
   .sntp.retry_max = 30,
   .sntp.update_interval = 7200,
-  .update.timeout = 6000000,
-  .update.commit_timeout = 60,
+  .update.timeout = 600,
+  .update.commit_timeout = 0,
   .update.url = NULL,
   .update.interval = 0,
   .update.extra_http_headers = NULL,
   .update.ssl_ca_file = "ca.pem",
   .update.ssl_client_cert_file = NULL,
   .update.ssl_server_name = NULL,
-  .update.enable_post = 1,
   .shadow.enable = 1,
   .shadow.lib = NULL,
   .shadow.ota_enable = 1,
@@ -465,31 +430,9 @@ const struct mgos_config mgos_config_defaults = {
   .http.auth_domain = NULL,
   .http.auth_file = NULL,
   .mjs.generate_jsc = 1,
-<<<<<<< HEAD
-  .update.timeout = 600,
-  .update.commit_timeout = 0,
-  .update.url = NULL,
-  .update.interval = 0,
-  .update.extra_http_headers = NULL,
-  .update.ssl_ca_file = "ca.pem",
-  .update.ssl_client_cert_file = NULL,
-  .update.ssl_server_name = NULL,
-  .rpc.enable = 1,
-  .rpc.max_frame_size = 4096,
-  .rpc.max_queue_length = 25,
-  .rpc.default_out_channel_idle_close_timeout = 10,
-  .rpc.acl_file = NULL,
-  .rpc.auth_domain = NULL,
-  .rpc.auth_file = NULL,
-  .rpc.uart.uart_no = 0,
-  .rpc.uart.baud_rate = 115200,
-  .rpc.uart.fc_type = 2,
-  .rpc.uart.dst = NULL,
-=======
->>>>>>> f/mdash
   .wifi.ap.enable = 1,
-  .wifi.ap.ssid = "esp8266.config",
-  .wifi.ap.pass = NULL,
+  .wifi.ap.ssid = "Mongoose_??????",
+  .wifi.ap.pass = "Mongoose",
   .wifi.ap.hidden = 0,
   .wifi.ap.channel = 6,
   .wifi.ap.max_connections = 10,
@@ -552,29 +495,26 @@ const struct mgos_config mgos_config_defaults = {
   .wifi.sta_all_chan_scan = 0,
   .board.led1.pin = 13,
   .board.led1.active_high = 1,
-  .board.led1.duty = 0.5,
+  .board.led1.duty = 1.0,
   .board.led1.freq = 500,
   .board.led1.state = 1,
-  .board.led2.pin = 14,
+  .board.led2.pin = -1,
   .board.led2.active_high = 1,
-  .board.led2.duty = 1.0,
-  .board.led2.freq = 500,
-  .board.led2.state = 1,
   .board.led3.pin = -1,
   .board.led3.active_high = 1,
   .board.btn1.pin = 0,
   .board.btn1.pull_up = 1,
-  .board.btn1.control = "led1",
   .board.btn2.pin = -1,
   .board.btn2.pull_up = 0,
   .board.btn3.pin = -1,
   .board.btn3.pull_up = 0,
   .board.neopixel.state = 1,
-  .board.neopixel.pin = 13,
+  .board.neopixel.pin = 19,
   .board.neopixel.pixels = 3,
   .board.timer.timerOn = "00:00",
   .board.timer.timerOff = "00:00",
   .board.timer.timerState = 0,
+  .Update.timeout = 60000,
 };
 
 /* debug */
@@ -1138,16 +1078,6 @@ const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg) {
 }
 void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v) {
   mgos_conf_set_str(&cfg->update.ssl_server_name, v);
-}
-
-/* update.enable_post */
-#define MGOS_CONFIG_HAVE_UPDATE_ENABLE_POST
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_ENABLE_POST
-int mgos_config_get_update_enable_post(struct mgos_config *cfg) {
-  return cfg->update.enable_post;
-}
-void mgos_config_set_update_enable_post(struct mgos_config *cfg, int v) {
-  cfg->update.enable_post = v;
 }
 
 /* shadow */
@@ -2170,220 +2100,6 @@ void mgos_config_set_mjs_generate_jsc(struct mgos_config *cfg, int v) {
   cfg->mjs.generate_jsc = v;
 }
 
-<<<<<<< HEAD
-/* update */
-#define MGOS_CONFIG_HAVE_UPDATE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE
-const struct mgos_config_update * mgos_config_get_update(struct mgos_config *cfg) {
-  return &cfg->update;
-}
-
-/* update.timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
-int mgos_config_get_update_timeout(struct mgos_config *cfg) {
-  return cfg->update.timeout;
-}
-void mgos_config_set_update_timeout(struct mgos_config *cfg, int v) {
-  cfg->update.timeout = v;
-}
-
-/* update.commit_timeout */
-#define MGOS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_COMMIT_TIMEOUT
-int mgos_config_get_update_commit_timeout(struct mgos_config *cfg) {
-  return cfg->update.commit_timeout;
-}
-void mgos_config_set_update_commit_timeout(struct mgos_config *cfg, int v) {
-  cfg->update.commit_timeout = v;
-}
-
-/* update.url */
-#define MGOS_CONFIG_HAVE_UPDATE_URL
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_URL
-const char * mgos_config_get_update_url(struct mgos_config *cfg) {
-  return cfg->update.url;
-}
-void mgos_config_set_update_url(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.url, v);
-}
-
-/* update.interval */
-#define MGOS_CONFIG_HAVE_UPDATE_INTERVAL
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_INTERVAL
-int mgos_config_get_update_interval(struct mgos_config *cfg) {
-  return cfg->update.interval;
-}
-void mgos_config_set_update_interval(struct mgos_config *cfg, int v) {
-  cfg->update.interval = v;
-}
-
-/* update.extra_http_headers */
-#define MGOS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_EXTRA_HTTP_HEADERS
-const char * mgos_config_get_update_extra_http_headers(struct mgos_config *cfg) {
-  return cfg->update.extra_http_headers;
-}
-void mgos_config_set_update_extra_http_headers(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.extra_http_headers, v);
-}
-
-/* update.ssl_ca_file */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CA_FILE
-const char * mgos_config_get_update_ssl_ca_file(struct mgos_config *cfg) {
-  return cfg->update.ssl_ca_file;
-}
-void mgos_config_set_update_ssl_ca_file(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.ssl_ca_file, v);
-}
-
-/* update.ssl_client_cert_file */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_CLIENT_CERT_FILE
-const char * mgos_config_get_update_ssl_client_cert_file(struct mgos_config *cfg) {
-  return cfg->update.ssl_client_cert_file;
-}
-void mgos_config_set_update_ssl_client_cert_file(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.ssl_client_cert_file, v);
-}
-
-/* update.ssl_server_name */
-#define MGOS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
-#define MGOS_SYS_CONFIG_HAVE_UPDATE_SSL_SERVER_NAME
-const char * mgos_config_get_update_ssl_server_name(struct mgos_config *cfg) {
-  return cfg->update.ssl_server_name;
-}
-void mgos_config_set_update_ssl_server_name(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->update.ssl_server_name, v);
-}
-
-/* rpc */
-#define MGOS_CONFIG_HAVE_RPC
-#define MGOS_SYS_CONFIG_HAVE_RPC
-const struct mgos_config_rpc * mgos_config_get_rpc(struct mgos_config *cfg) {
-  return &cfg->rpc;
-}
-
-/* rpc.enable */
-#define MGOS_CONFIG_HAVE_RPC_ENABLE
-#define MGOS_SYS_CONFIG_HAVE_RPC_ENABLE
-int mgos_config_get_rpc_enable(struct mgos_config *cfg) {
-  return cfg->rpc.enable;
-}
-void mgos_config_set_rpc_enable(struct mgos_config *cfg, int v) {
-  cfg->rpc.enable = v;
-}
-
-/* rpc.max_frame_size */
-#define MGOS_CONFIG_HAVE_RPC_MAX_FRAME_SIZE
-#define MGOS_SYS_CONFIG_HAVE_RPC_MAX_FRAME_SIZE
-int mgos_config_get_rpc_max_frame_size(struct mgos_config *cfg) {
-  return cfg->rpc.max_frame_size;
-}
-void mgos_config_set_rpc_max_frame_size(struct mgos_config *cfg, int v) {
-  cfg->rpc.max_frame_size = v;
-}
-
-/* rpc.max_queue_length */
-#define MGOS_CONFIG_HAVE_RPC_MAX_QUEUE_LENGTH
-#define MGOS_SYS_CONFIG_HAVE_RPC_MAX_QUEUE_LENGTH
-int mgos_config_get_rpc_max_queue_length(struct mgos_config *cfg) {
-  return cfg->rpc.max_queue_length;
-}
-void mgos_config_set_rpc_max_queue_length(struct mgos_config *cfg, int v) {
-  cfg->rpc.max_queue_length = v;
-}
-
-/* rpc.default_out_channel_idle_close_timeout */
-#define MGOS_CONFIG_HAVE_RPC_DEFAULT_OUT_CHANNEL_IDLE_CLOSE_TIMEOUT
-#define MGOS_SYS_CONFIG_HAVE_RPC_DEFAULT_OUT_CHANNEL_IDLE_CLOSE_TIMEOUT
-int mgos_config_get_rpc_default_out_channel_idle_close_timeout(struct mgos_config *cfg) {
-  return cfg->rpc.default_out_channel_idle_close_timeout;
-}
-void mgos_config_set_rpc_default_out_channel_idle_close_timeout(struct mgos_config *cfg, int v) {
-  cfg->rpc.default_out_channel_idle_close_timeout = v;
-}
-
-/* rpc.acl_file */
-#define MGOS_CONFIG_HAVE_RPC_ACL_FILE
-#define MGOS_SYS_CONFIG_HAVE_RPC_ACL_FILE
-const char * mgos_config_get_rpc_acl_file(struct mgos_config *cfg) {
-  return cfg->rpc.acl_file;
-}
-void mgos_config_set_rpc_acl_file(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->rpc.acl_file, v);
-}
-
-/* rpc.auth_domain */
-#define MGOS_CONFIG_HAVE_RPC_AUTH_DOMAIN
-#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_DOMAIN
-const char * mgos_config_get_rpc_auth_domain(struct mgos_config *cfg) {
-  return cfg->rpc.auth_domain;
-}
-void mgos_config_set_rpc_auth_domain(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->rpc.auth_domain, v);
-}
-
-/* rpc.auth_file */
-#define MGOS_CONFIG_HAVE_RPC_AUTH_FILE
-#define MGOS_SYS_CONFIG_HAVE_RPC_AUTH_FILE
-const char * mgos_config_get_rpc_auth_file(struct mgos_config *cfg) {
-  return cfg->rpc.auth_file;
-}
-void mgos_config_set_rpc_auth_file(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->rpc.auth_file, v);
-}
-
-/* rpc.uart */
-#define MGOS_CONFIG_HAVE_RPC_UART
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART
-const struct mgos_config_rpc_uart * mgos_config_get_rpc_uart(struct mgos_config *cfg) {
-  return &cfg->rpc.uart;
-}
-
-/* rpc.uart.uart_no */
-#define MGOS_CONFIG_HAVE_RPC_UART_UART_NO
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_UART_NO
-int mgos_config_get_rpc_uart_uart_no(struct mgos_config *cfg) {
-  return cfg->rpc.uart.uart_no;
-}
-void mgos_config_set_rpc_uart_uart_no(struct mgos_config *cfg, int v) {
-  cfg->rpc.uart.uart_no = v;
-}
-
-/* rpc.uart.baud_rate */
-#define MGOS_CONFIG_HAVE_RPC_UART_BAUD_RATE
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_BAUD_RATE
-int mgos_config_get_rpc_uart_baud_rate(struct mgos_config *cfg) {
-  return cfg->rpc.uart.baud_rate;
-}
-void mgos_config_set_rpc_uart_baud_rate(struct mgos_config *cfg, int v) {
-  cfg->rpc.uart.baud_rate = v;
-}
-
-/* rpc.uart.fc_type */
-#define MGOS_CONFIG_HAVE_RPC_UART_FC_TYPE
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_FC_TYPE
-int mgos_config_get_rpc_uart_fc_type(struct mgos_config *cfg) {
-  return cfg->rpc.uart.fc_type;
-}
-void mgos_config_set_rpc_uart_fc_type(struct mgos_config *cfg, int v) {
-  cfg->rpc.uart.fc_type = v;
-}
-
-/* rpc.uart.dst */
-#define MGOS_CONFIG_HAVE_RPC_UART_DST
-#define MGOS_SYS_CONFIG_HAVE_RPC_UART_DST
-const char * mgos_config_get_rpc_uart_dst(struct mgos_config *cfg) {
-  return cfg->rpc.uart.dst;
-}
-void mgos_config_set_rpc_uart_dst(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->rpc.uart.dst, v);
-}
-
-=======
->>>>>>> f/mdash
 /* wifi */
 #define MGOS_CONFIG_HAVE_WIFI
 #define MGOS_SYS_CONFIG_HAVE_WIFI
@@ -3140,36 +2856,6 @@ void mgos_config_set_board_led2_active_high(struct mgos_config *cfg, int v) {
   cfg->board.led2.active_high = v;
 }
 
-/* board.led2.duty */
-#define MGOS_CONFIG_HAVE_BOARD_LED2_DUTY
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_DUTY
-double mgos_config_get_board_led2_duty(struct mgos_config *cfg) {
-  return cfg->board.led2.duty;
-}
-void mgos_config_set_board_led2_duty(struct mgos_config *cfg, double v) {
-  cfg->board.led2.duty = v;
-}
-
-/* board.led2.freq */
-#define MGOS_CONFIG_HAVE_BOARD_LED2_FREQ
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_FREQ
-int mgos_config_get_board_led2_freq(struct mgos_config *cfg) {
-  return cfg->board.led2.freq;
-}
-void mgos_config_set_board_led2_freq(struct mgos_config *cfg, int v) {
-  cfg->board.led2.freq = v;
-}
-
-/* board.led2.state */
-#define MGOS_CONFIG_HAVE_BOARD_LED2_STATE
-#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_STATE
-int mgos_config_get_board_led2_state(struct mgos_config *cfg) {
-  return cfg->board.led2.state;
-}
-void mgos_config_set_board_led2_state(struct mgos_config *cfg, int v) {
-  cfg->board.led2.state = v;
-}
-
 /* board.led3 */
 #define MGOS_CONFIG_HAVE_BOARD_LED3
 #define MGOS_SYS_CONFIG_HAVE_BOARD_LED3
@@ -3222,16 +2908,6 @@ int mgos_config_get_board_btn1_pull_up(struct mgos_config *cfg) {
 }
 void mgos_config_set_board_btn1_pull_up(struct mgos_config *cfg, int v) {
   cfg->board.btn1.pull_up = v;
-}
-
-/* board.btn1.control */
-#define MGOS_CONFIG_HAVE_BOARD_BTN1_CONTROL
-#define MGOS_SYS_CONFIG_HAVE_BOARD_BTN1_CONTROL
-const char * mgos_config_get_board_btn1_control(struct mgos_config *cfg) {
-  return cfg->board.btn1.control;
-}
-void mgos_config_set_board_btn1_control(struct mgos_config *cfg, const char * v) {
-  mgos_conf_set_str(&cfg->board.btn1.control, v);
 }
 
 /* board.btn2 */
@@ -3360,6 +3036,23 @@ int mgos_config_get_board_timer_timerState(struct mgos_config *cfg) {
 }
 void mgos_config_set_board_timer_timerState(struct mgos_config *cfg, int v) {
   cfg->board.timer.timerState = v;
+}
+
+/* Update */
+#define MGOS_CONFIG_HAVE_UPDATE
+#define MGOS_SYS_CONFIG_HAVE_UPDATE
+const struct mgos_config_Update * mgos_config_get_Update(struct mgos_config *cfg) {
+  return &cfg->Update;
+}
+
+/* Update.timeout */
+#define MGOS_CONFIG_HAVE_UPDATE_TIMEOUT
+#define MGOS_SYS_CONFIG_HAVE_UPDATE_TIMEOUT
+int mgos_config_get_Update_timeout(struct mgos_config *cfg) {
+  return cfg->Update.timeout;
+}
+void mgos_config_set_Update_timeout(struct mgos_config *cfg, int v) {
+  cfg->Update.timeout = v;
 }
 bool mgos_sys_config_get(const struct mg_str key, struct mg_str *value) {
   return mgos_config_get(key, value, &mgos_sys_config, mgos_config_schema());

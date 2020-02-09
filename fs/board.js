@@ -4,68 +4,46 @@
  * with the one declared in the mos.yml file.
  */
 let board = {
-  btn1: {
-    pin: Cfg.get("board.btn1.pin"),
-    ctrl: Cfg.get("board.btn1.control")
-  },
   led1: {
-    onhi: Cfg.get("board.led1.active_high"),
-    duty: Cfg.get("board.led1.duty"),
-    freq: Cfg.get("board.led1.freq"),
-    pin: Cfg.get("board.led1.pin"),
-    state: Cfg.get("board.led1.state")
-  },
-  led2: {
-    onhi: Cfg.get("board.led2.active_high"),
-    duty: Cfg.get("board.led2.duty"),
-    freq: Cfg.get("board.led2.freq"),
-    pin: Cfg.get("board.led2.pin"),
-    state: Cfg.get("board.led2.state")
+    onhi: Cfg.get('board.led1.active_high'),
+    duty: Cfg.get('board.led1.duty'),
+    freq: Cfg.get('board.led1.freq'),
+    pin: Cfg.get('board.led1.pin'),
+    state: Cfg.get('board.led1.state'),
   },
   timer: {
-    timerOn: Cfg.get("board.timer.timerOn"),
-    timerOff: Cfg.get("board.timer.timerOff"),
-    timerState: Cfg.get("board.timer.timerState")
-  }
+    timerOn: Cfg.get('board.timer.timerOn'),
+    timerOff: Cfg.get('board.timer.timerOff'),
+    timerState: Cfg.get('board.timer.timerState'),
+  },
 };
 
 /** Initialize board.
  * @description Update all led values on board start and set GPIO modes.
  */
 let initBoard = function() {
-  print("Initializing board ...");
+  print('[iOLED-FIRMWARE][initBoard]');
+  print('Initializing board ...');
   GPIO.set_mode(board.led1.pin, GPIO.MODE_OUTPUT);
-  GPIO.set_mode(board.led2.pin, GPIO.MODE_OUTPUT);
+  print('led1 pin:', board.led1.pin);
   applyBoardConfig();
 };
 
 /**
  * Change the state of the led between PWM - off
  * @param {string} ledName The led name from the board object.
- * @param {boolean} turn True to change the actual led state. False just to refresh the pwm.
  * @see https://github.com/mongoose-os-libs/pwm/blob/master/mjs_fs/api_pwm.js
  */
-let switchLed = function(ledName, turn) {
+let switchLed = function(ledName) {
+  print('[iOLED-FIRMWARE][switchLED]', ledName);
+
   let led = board[ledName];
-  led.state = turn ? !led.state : led.state;
-  if (led.state) {
-    if (led.duty === 0 || led.duty === 1) {
-      PWM.set(led.pin, 0, led.duty);
-      GPIO.write(led.pin, led.duty ? !led.onhi : led.onhi);
-    } else {
-      PWM.set(led.pin, led.freq, led.duty);
-    }
-  } else {
-    PWM.set(led.pin, 0, led.duty);
-    // Only disabling the pin doesn't always turn it off. (case: onhi = false), so use GPIO.write.
-    GPIO.write(led.pin, !led.onhi);
-  }
-<<<<<<< HEAD
+
+  PWM.set(led.pin, led.freq, led.duty);
+  print('[iOLED-FIRMWARE][switchLED]', ledName, ':', led.duty);
+
   print(ledName, 'state:', led.state ? 'true' : 'false');
-  print(ledName,'intensity: ', led.duty);
-=======
-  print(ledName, "state:", led.state ? "true" : "false");
->>>>>>> f/mdash
+  print(ledName, 'intensity: ', led.duty);
 };
 
 /**
@@ -75,7 +53,9 @@ let switchLed = function(ledName, turn) {
  * // msg : {"board": {"led1":{"freq":20, "duty": 0.5, "state": true}, "led2":{"freq":20, "duty": 0.5, "state": true}}}
  */
 let getConfigFromCloud = function(msg) {
-  print("[MONGOOSE][GETCONFIGFROMCLOUD] MSG:", msg);
+  print('[iOLED-FIRMWARE]][getConfigFromCloud] MSG:');
+  print(msg);
+
   let obj = JSON.parse(msg);
   Cfg.set(obj);
   return obj;
@@ -87,7 +67,7 @@ let getConfigFromCloud = function(msg) {
  */
 let applyBoardConfig = function() {
   for (let ledName in board) {
-    if (ledName.indexOf("led") >= 0) {
+    if (ledName.indexOf('led') >= 0) {
       applyLedConfig(ledName);
     }
   }
@@ -100,13 +80,13 @@ let applyBoardConfig = function() {
  */
 let applyLedConfig = function(ledName) {
   let led = board[ledName];
-  let brd = "board." + ledName + ".";
-  led.onhi = Cfg.get(brd + "active_high");
-  led.duty = Cfg.get(brd + "duty");
-  led.freq = Cfg.get(brd + "freq");
-  led.state = Cfg.get(brd + "state");
+  let brd = 'board.' + ledName + '.';
+  led.onhi = Cfg.get(brd + 'active_high');
+  led.duty = Cfg.get(brd + 'duty');
+  led.freq = Cfg.get(brd + 'freq');
+  led.state = Cfg.get(brd + 'state');
   normDuty(ledName);
-  switchLed(ledName, false);
+  switchLed(ledName);
 };
 
 /**
@@ -116,12 +96,12 @@ let applyLedConfig = function(ledName) {
  */
 let turnOffLed = function(ledName) {
   for (let ledName in board) {
-    if (ledName.indexOf("led") >= 0) {
+    if (ledName.indexOf('led') >= 0) {
       let led = board[ledName];
-      let brd = "board." + ledName + ".";
+      let brd = 'board.' + ledName + '.';
       led.onhi = 1;
-      led.duty = Cfg.get(brd + "duty");
-      led.freq = Cfg.get(brd + "freq");
+      led.duty = Cfg.get(brd + 'duty');
+      led.freq = Cfg.get(brd + 'freq');
       led.state = false;
       normDuty(ledName);
       switchLed(ledName, false);
@@ -134,33 +114,19 @@ let turnOffLed = function(ledName) {
  * @param {string} ledName The led name from the board object.
  */
 let normDuty = function(ledName) {
+  print('[iOLED-FIRMWARE][normDuty]', ledName);
+
   let led = board[ledName];
   if (led.duty >= 1) {
-    led.duty = led.onhi ? 0.0 : 1.0;
+    led.duty = led.onhi ? 1.0 : 0.0;
+    print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
     return;
   }
   if (led.duty <= 0) {
-    led.duty = led.onhi ? 1.0 : 1.0;
+    led.duty = led.onhi ? 0.0 : 1.0;
+    print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
     return;
   }
   led.duty = led.onhi ? led.duty : 1.0 - led.duty;
-};
-
-/**
- * Set the device button function.
- * @see https://github.com/mongoose-os-libs/mjs/blob/master/fs/api_gpio.js
- */
-let setButton = function() {
-  GPIO.set_button_handler(
-    board.btn1.pin,
-    GPIO.PULL_UP,
-    GPIO.INT_EDGE_NEG,
-    10,
-    function() {
-      switchLed(board[board.btn1.ctrl], true);
-      print("freq : ", board[board.btn1.ctrl].freq);
-      print("duty : ", board[board.btn1.ctrl].duty);
-    },
-    null
-  );
+  print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
 };
