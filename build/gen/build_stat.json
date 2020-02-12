@@ -2,5 +2,5 @@
   "arch": "esp32",
   "platform": "esp32",
   "app_name": "ioled_firmware",
-  "build_time_ms": 22644
+  "build_time_ms": 21722
 }
