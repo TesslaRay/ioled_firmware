@@ -1,4 +1,4 @@
-arch: esp32
+arch: esp8266
 mos author: Cristian Valdivia
 description: iOLED Firmware
 version: 1.0.4
@@ -11,13 +11,13 @@ config_schema:
   # Integrated led config
   - ['board.led1.active_high', 'b', true, {title: 'True if LED is on when output is high (1)'}]
   - ['board.led1.duty', 'd', 1.0, {title: 'Integrated Led duty cycle'}]
-  - ['board.led1.freq', 'i', 500, {title: 'Integrated Led frequency'}]
-  - ['board.led1.pin', 13]
+  - ['board.led1.freq', 'i', 100, {title: 'Integrated Led frequency'}]
+  - ['board.led1.pin', 5]
   - ['board.led1.state', 'b', true, {title: 'Integrated Led current state'}]
 
   # Neopixel config
   - ['board.neopixel.state', 'b', true, {title: 'Led current state'}]
-  - ['board.neopixel.pin', 'i', 19, {title: 'Neopixel pin'}]
+  - ['board.neopixel.pin', 'i', 15, {title: 'Neopixel pin'}]
   - ['board.neopixel.pixels', 'i', 3, {title: 'Neopixel number of pixels'}]
 
   # OTA URL
@@ -36,8 +36,8 @@ config_schema:
   - ['i2c.enable', 'b', true, {title: 'Enable I2C'}]
   - ['i2c.freq', 'i', 100000, {title: 'I2C bus speed'}]
   - ['i2c.unit_no', 'i', 0, {title: 'Which hardware unit ot use, 0 or 1'}]
-  - ['i2c.sda_gpio', 'i', 18, {title: 'GPIO to use for SDA'}]
-  - ['i2c.scl_gpio', 'i', 5, {title: 'GPIO to use for SCL'}]
+  - ['i2c.sda_gpio', 'i', 0, {title: 'GPIO to use for SDA'}]
+  - ['i2c.scl_gpio', 'i', 4, {title: 'GPIO to use for SCL'}]
 
   # Config for mDash
   - ['dash.enable', 'b', false, {'title': 'Enable'}]
@@ -91,5 +91,3 @@ libs:
   - origin: https://github.com/mongoose-os-libs/core
   - origin: https://github.com/mongoose-os-libs/rpc-ws
   - origin: https://github.com/mongoose-os-libs/shadow
-
-sources:

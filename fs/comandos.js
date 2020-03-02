@@ -6,6 +6,7 @@ mos license-save-key 6a76944ccefe949eae1fce12cd81ab28
 
 
 mos dash.token=rq2pR90hiIccfYdlobzfMwQ --port /dev/cu.SLAB_USBtoUART
+
 mos --port /dev/cu.SLAB_USBtoUART  console
 
 mos --port /dev/cu.usbserial-1430 call OTA.Update '{"url":"https://github.com/TesslaRay/ioled_firmware/raw/master/build/fw.zip"}'
@@ -44,6 +45,10 @@ mos --port /dev/cu.usbserial-1430 wifi POCOPHONE 23581321
 mos --port /dev/cu.usbserial-1430 wifi zapalloconhielo 98765432
 
 mos --port /dev/cu.usbserial-1430 wifi AndroidAP25E7 123456789
+
+mos wifi FamiliaGonzalez Familiagonzalez1234
+
+mos wifi FabNet cjj6y6wf
 
 mos wifi 'Valentina Munoz' vale3006
 

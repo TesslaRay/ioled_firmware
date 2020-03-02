@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_250344971/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /mongoose-os/platforms/esp32/src/esp32_sys_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp32/build_contexts/build_ctx_250344971/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_348045525/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_348045525/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -28,12 +28,12 @@ struct mgos_config_debug {
 };
 
 struct mgos_config_i2c {
-  int unit_no;
   int enable;
   int freq;
   int debug;
   int sda_gpio;
   int scl_gpio;
+  int unit_no;
 };
 
 struct mgos_config_sys_atca {
@@ -200,8 +200,6 @@ struct mgos_config_wifi_ap {
   int disable_after;
   const char * hostname;
   int keep_enabled;
-  int bandwidth_20mhz;
-  const char * protocol;
 };
 
 struct mgos_config_wifi_sta {
@@ -218,7 +216,6 @@ struct mgos_config_wifi_sta {
   const char * gw;
   const char * nameserver;
   const char * dhcp_hostname;
-  const char * protocol;
 };
 
 struct mgos_config_wifi {
@@ -228,8 +225,6 @@ struct mgos_config_wifi {
   struct mgos_config_wifi_sta sta2;
   int sta_cfg_idx;
   int sta_connect_timeout;
-  int sta_ps_mode;
-  int sta_all_chan_scan;
 };
 
 struct mgos_config_board_led1 {
@@ -420,14 +415,6 @@ static inline void mgos_sys_config_set_debug_stderr_topic(const char * v) { mgos
 const struct mgos_config_i2c * mgos_config_get_i2c(struct mgos_config *cfg);
 static inline const struct mgos_config_i2c * mgos_sys_config_get_i2c(void) { return mgos_config_get_i2c(&mgos_sys_config); }
 
-/* i2c.unit_no */
-#define MGOS_CONFIG_HAVE_I2C_UNIT_NO
-#define MGOS_SYS_CONFIG_HAVE_I2C_UNIT_NO
-int mgos_config_get_i2c_unit_no(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_i2c_unit_no(void) { return mgos_config_get_i2c_unit_no(&mgos_sys_config); }
-void mgos_config_set_i2c_unit_no(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_i2c_unit_no(int v) { mgos_config_set_i2c_unit_no(&mgos_sys_config, v); }
-
 /* i2c.enable */
 #define MGOS_CONFIG_HAVE_I2C_ENABLE
 #define MGOS_SYS_CONFIG_HAVE_I2C_ENABLE
@@ -468,19 +455,19 @@ static inline int mgos_sys_config_get_i2c_scl_gpio(void) { return mgos_config_ge
 void mgos_config_set_i2c_scl_gpio(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_i2c_scl_gpio(int v) { mgos_config_set_i2c_scl_gpio(&mgos_sys_config, v); }
 
+/* i2c.unit_no */
+#define MGOS_CONFIG_HAVE_I2C_UNIT_NO
+#define MGOS_SYS_CONFIG_HAVE_I2C_UNIT_NO
+int mgos_config_get_i2c_unit_no(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c_unit_no(void) { return mgos_config_get_i2c_unit_no(&mgos_sys_config); }
+void mgos_config_set_i2c_unit_no(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c_unit_no(int v) { mgos_config_set_i2c_unit_no(&mgos_sys_config, v); }
+
 /* i2c1 */
 #define MGOS_CONFIG_HAVE_I2C1
 #define MGOS_SYS_CONFIG_HAVE_I2C1
 const struct mgos_config_i2c * mgos_config_get_i2c1(struct mgos_config *cfg);
 static inline const struct mgos_config_i2c * mgos_sys_config_get_i2c1(void) { return mgos_config_get_i2c1(&mgos_sys_config); }
-
-/* i2c1.unit_no */
-#define MGOS_CONFIG_HAVE_I2C1_UNIT_NO
-#define MGOS_SYS_CONFIG_HAVE_I2C1_UNIT_NO
-int mgos_config_get_i2c1_unit_no(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_i2c1_unit_no(void) { return mgos_config_get_i2c1_unit_no(&mgos_sys_config); }
-void mgos_config_set_i2c1_unit_no(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_i2c1_unit_no(int v) { mgos_config_set_i2c1_unit_no(&mgos_sys_config, v); }
 
 /* i2c1.enable */
 #define MGOS_CONFIG_HAVE_I2C1_ENABLE
@@ -521,6 +508,14 @@ int mgos_config_get_i2c1_scl_gpio(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_i2c1_scl_gpio(void) { return mgos_config_get_i2c1_scl_gpio(&mgos_sys_config); }
 void mgos_config_set_i2c1_scl_gpio(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_i2c1_scl_gpio(int v) { mgos_config_set_i2c1_scl_gpio(&mgos_sys_config, v); }
+
+/* i2c1.unit_no */
+#define MGOS_CONFIG_HAVE_I2C1_UNIT_NO
+#define MGOS_SYS_CONFIG_HAVE_I2C1_UNIT_NO
+int mgos_config_get_i2c1_unit_no(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_i2c1_unit_no(void) { return mgos_config_get_i2c1_unit_no(&mgos_sys_config); }
+void mgos_config_set_i2c1_unit_no(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_i2c1_unit_no(int v) { mgos_config_set_i2c1_unit_no(&mgos_sys_config, v); }
 
 /* sys */
 #define MGOS_CONFIG_HAVE_SYS
@@ -1726,22 +1721,6 @@ static inline int mgos_sys_config_get_wifi_ap_keep_enabled(void) { return mgos_c
 void mgos_config_set_wifi_ap_keep_enabled(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_wifi_ap_keep_enabled(int v) { mgos_config_set_wifi_ap_keep_enabled(&mgos_sys_config, v); }
 
-/* wifi.ap.bandwidth_20mhz */
-#define MGOS_CONFIG_HAVE_WIFI_AP_BANDWIDTH_20MHZ
-#define MGOS_SYS_CONFIG_HAVE_WIFI_AP_BANDWIDTH_20MHZ
-int mgos_config_get_wifi_ap_bandwidth_20mhz(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_wifi_ap_bandwidth_20mhz(void) { return mgos_config_get_wifi_ap_bandwidth_20mhz(&mgos_sys_config); }
-void mgos_config_set_wifi_ap_bandwidth_20mhz(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_wifi_ap_bandwidth_20mhz(int v) { mgos_config_set_wifi_ap_bandwidth_20mhz(&mgos_sys_config, v); }
-
-/* wifi.ap.protocol */
-#define MGOS_CONFIG_HAVE_WIFI_AP_PROTOCOL
-#define MGOS_SYS_CONFIG_HAVE_WIFI_AP_PROTOCOL
-const char * mgos_config_get_wifi_ap_protocol(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_wifi_ap_protocol(void) { return mgos_config_get_wifi_ap_protocol(&mgos_sys_config); }
-void mgos_config_set_wifi_ap_protocol(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_wifi_ap_protocol(const char * v) { mgos_config_set_wifi_ap_protocol(&mgos_sys_config, v); }
-
 /* wifi.sta */
 #define MGOS_CONFIG_HAVE_WIFI_STA
 #define MGOS_SYS_CONFIG_HAVE_WIFI_STA
@@ -1851,14 +1830,6 @@ const char * mgos_config_get_wifi_sta_dhcp_hostname(struct mgos_config *cfg);
 static inline const char * mgos_sys_config_get_wifi_sta_dhcp_hostname(void) { return mgos_config_get_wifi_sta_dhcp_hostname(&mgos_sys_config); }
 void mgos_config_set_wifi_sta_dhcp_hostname(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_wifi_sta_dhcp_hostname(const char * v) { mgos_config_set_wifi_sta_dhcp_hostname(&mgos_sys_config, v); }
-
-/* wifi.sta.protocol */
-#define MGOS_CONFIG_HAVE_WIFI_STA_PROTOCOL
-#define MGOS_SYS_CONFIG_HAVE_WIFI_STA_PROTOCOL
-const char * mgos_config_get_wifi_sta_protocol(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_wifi_sta_protocol(void) { return mgos_config_get_wifi_sta_protocol(&mgos_sys_config); }
-void mgos_config_set_wifi_sta_protocol(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_wifi_sta_protocol(const char * v) { mgos_config_set_wifi_sta_protocol(&mgos_sys_config, v); }
 
 /* wifi.sta1 */
 #define MGOS_CONFIG_HAVE_WIFI_STA1
@@ -1970,14 +1941,6 @@ static inline const char * mgos_sys_config_get_wifi_sta1_dhcp_hostname(void) { r
 void mgos_config_set_wifi_sta1_dhcp_hostname(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_wifi_sta1_dhcp_hostname(const char * v) { mgos_config_set_wifi_sta1_dhcp_hostname(&mgos_sys_config, v); }
 
-/* wifi.sta1.protocol */
-#define MGOS_CONFIG_HAVE_WIFI_STA1_PROTOCOL
-#define MGOS_SYS_CONFIG_HAVE_WIFI_STA1_PROTOCOL
-const char * mgos_config_get_wifi_sta1_protocol(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_wifi_sta1_protocol(void) { return mgos_config_get_wifi_sta1_protocol(&mgos_sys_config); }
-void mgos_config_set_wifi_sta1_protocol(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_wifi_sta1_protocol(const char * v) { mgos_config_set_wifi_sta1_protocol(&mgos_sys_config, v); }
-
 /* wifi.sta2 */
 #define MGOS_CONFIG_HAVE_WIFI_STA2
 #define MGOS_SYS_CONFIG_HAVE_WIFI_STA2
@@ -2088,14 +2051,6 @@ static inline const char * mgos_sys_config_get_wifi_sta2_dhcp_hostname(void) { r
 void mgos_config_set_wifi_sta2_dhcp_hostname(struct mgos_config *cfg, const char * v);
 static inline void mgos_sys_config_set_wifi_sta2_dhcp_hostname(const char * v) { mgos_config_set_wifi_sta2_dhcp_hostname(&mgos_sys_config, v); }
 
-/* wifi.sta2.protocol */
-#define MGOS_CONFIG_HAVE_WIFI_STA2_PROTOCOL
-#define MGOS_SYS_CONFIG_HAVE_WIFI_STA2_PROTOCOL
-const char * mgos_config_get_wifi_sta2_protocol(struct mgos_config *cfg);
-static inline const char * mgos_sys_config_get_wifi_sta2_protocol(void) { return mgos_config_get_wifi_sta2_protocol(&mgos_sys_config); }
-void mgos_config_set_wifi_sta2_protocol(struct mgos_config *cfg, const char * v);
-static inline void mgos_sys_config_set_wifi_sta2_protocol(const char * v) { mgos_config_set_wifi_sta2_protocol(&mgos_sys_config, v); }
-
 /* wifi.sta_cfg_idx */
 #define MGOS_CONFIG_HAVE_WIFI_STA_CFG_IDX
 #define MGOS_SYS_CONFIG_HAVE_WIFI_STA_CFG_IDX
@@ -2111,22 +2066,6 @@ int mgos_config_get_wifi_sta_connect_timeout(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_wifi_sta_connect_timeout(void) { return mgos_config_get_wifi_sta_connect_timeout(&mgos_sys_config); }
 void mgos_config_set_wifi_sta_connect_timeout(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_wifi_sta_connect_timeout(int v) { mgos_config_set_wifi_sta_connect_timeout(&mgos_sys_config, v); }
-
-/* wifi.sta_ps_mode */
-#define MGOS_CONFIG_HAVE_WIFI_STA_PS_MODE
-#define MGOS_SYS_CONFIG_HAVE_WIFI_STA_PS_MODE
-int mgos_config_get_wifi_sta_ps_mode(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_wifi_sta_ps_mode(void) { return mgos_config_get_wifi_sta_ps_mode(&mgos_sys_config); }
-void mgos_config_set_wifi_sta_ps_mode(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_wifi_sta_ps_mode(int v) { mgos_config_set_wifi_sta_ps_mode(&mgos_sys_config, v); }
-
-/* wifi.sta_all_chan_scan */
-#define MGOS_CONFIG_HAVE_WIFI_STA_ALL_CHAN_SCAN
-#define MGOS_SYS_CONFIG_HAVE_WIFI_STA_ALL_CHAN_SCAN
-int mgos_config_get_wifi_sta_all_chan_scan(struct mgos_config *cfg);
-static inline int mgos_sys_config_get_wifi_sta_all_chan_scan(void) { return mgos_config_get_wifi_sta_all_chan_scan(&mgos_sys_config); }
-void mgos_config_set_wifi_sta_all_chan_scan(struct mgos_config *cfg, int v);
-static inline void mgos_sys_config_set_wifi_sta_all_chan_scan(int v) { mgos_config_set_wifi_sta_all_chan_scan(&mgos_sys_config, v); }
 
 /* board */
 #define MGOS_CONFIG_HAVE_BOARD

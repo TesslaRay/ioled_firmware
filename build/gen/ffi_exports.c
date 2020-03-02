@@ -11,8 +11,7 @@
 /* NOTE: signatures are fake */
 double  ceil(double);
 double  cos(double);
-void  esp32_uart_config_set_fifo(int, void *, int, int, int, int);
-void  esp32_uart_config_set_pins(int, void *, int, int, int, int);
+void  esp_uart_config_set_params(void *, int, int, int, int, bool);
 double  exp(double);
 double  fabs(double);
 void  fclose(void *);
@@ -24,7 +23,6 @@ int  fread(char *, int, int, void *);
 void  free(void *);
 void  free(void *);
 int  fwrite(char *, int, int, void *);
-int  hall_sens_read(void);
 double  log(double);
 void * malloc(int);
 void  mbuf_remove(void *, int);
@@ -54,7 +52,6 @@ void  mgos_dash_notify(char *, char *);
 int  mgos_debug_event_get_len(void *);
 void * mgos_debug_event_get_ptr(void *);
 void  mgos_disconnect(void *);
-void  mgos_esp_deep_sleep_d(double);
 bool  mgos_event_add_group_handler(int, void(*)(int, void *, void *), void *);
 bool  mgos_event_add_handler(int, void(*)(int, void *, void *), void *);
 bool  mgos_event_register_base(int, char *);
@@ -117,6 +114,7 @@ char * mgos_shadow_event_name(int);
 bool  mgos_shadow_get(void);
 bool  mgos_shadow_update(double, char *);
 int  mgos_strftime(char *, int, char *, int);
+int  mgos_system_deep_sleep_d(double);
 void  mgos_system_restart_after(int);
 void * mgos_uart_config_get_default(int);
 void  mgos_uart_config_set_basic_params(void *, int, int, int, int);
@@ -150,13 +148,11 @@ double  round(double);
 double  sin(double);
 double  sqrt(double);
 void * strdup(char *);
-int  temprature_sens_read(void);
 
 const struct mgos_ffi_export ffi_exports[] = {
   {"ceil", ceil},
   {"cos", cos},
-  {"esp32_uart_config_set_fifo", esp32_uart_config_set_fifo},
-  {"esp32_uart_config_set_pins", esp32_uart_config_set_pins},
+  {"esp_uart_config_set_params", esp_uart_config_set_params},
   {"exp", exp},
   {"fabs", fabs},
   {"fclose", fclose},
@@ -168,7 +164,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"free", free},
   {"free", free},
   {"fwrite", fwrite},
-  {"hall_sens_read", hall_sens_read},
   {"log", log},
   {"malloc", malloc},
   {"mbuf_remove", mbuf_remove},
@@ -198,7 +193,6 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mgos_debug_event_get_len", mgos_debug_event_get_len},
   {"mgos_debug_event_get_ptr", mgos_debug_event_get_ptr},
   {"mgos_disconnect", mgos_disconnect},
-  {"mgos_esp_deep_sleep_d", mgos_esp_deep_sleep_d},
   {"mgos_event_add_group_handler", mgos_event_add_group_handler},
   {"mgos_event_add_handler", mgos_event_add_handler},
   {"mgos_event_register_base", mgos_event_register_base},
@@ -261,6 +255,7 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"mgos_shadow_get", mgos_shadow_get},
   {"mgos_shadow_update", mgos_shadow_update},
   {"mgos_strftime", mgos_strftime},
+  {"mgos_system_deep_sleep_d", mgos_system_deep_sleep_d},
   {"mgos_system_restart_after", mgos_system_restart_after},
   {"mgos_uart_config_get_default", mgos_uart_config_get_default},
   {"mgos_uart_config_set_basic_params", mgos_uart_config_set_basic_params},
@@ -294,6 +289,5 @@ const struct mgos_ffi_export ffi_exports[] = {
   {"sin", sin},
   {"sqrt", sqrt},
   {"strdup", strdup},
-  {"temprature_sens_read", temprature_sens_read},
 };
-const int ffi_exports_cnt = 142;
+const int ffi_exports_cnt = 139;

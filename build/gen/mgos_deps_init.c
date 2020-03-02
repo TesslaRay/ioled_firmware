@@ -8,11 +8,10 @@
 #include "mgos_app.h"
 
 
-extern bool mgos_freertos_init(void);
 extern bool mgos_mongoose_init(void);
 extern bool mgos_ota_common_init(void);
 extern bool mgos_vfs_common_init(void);
-extern bool mgos_vfs_fs_lfs_init(void);
+extern bool mgos_vfs_dev_part_init(void);
 extern bool mgos_vfs_fs_spiffs_init(void);
 extern bool mgos_core_init(void);
 extern bool mgos_i2c_init(void);
@@ -46,9 +45,6 @@ static const struct lib_descr {
   bool (*init)(void);
 } descrs[] = {
 
-    // "freertos". deps: [ ]
-    {.title = "freertos", .init = mgos_freertos_init},
-
     // "mongoose". deps: [ ]
     {.title = "mongoose", .init = mgos_mongoose_init},
 
@@ -58,13 +54,13 @@ static const struct lib_descr {
     // "vfs-common". deps: [ ]
     {.title = "vfs-common", .init = mgos_vfs_common_init},
 
-    // "vfs-fs-lfs". deps: [ "vfs-common" ]
-    {.title = "vfs-fs-lfs", .init = mgos_vfs_fs_lfs_init},
+    // "vfs-dev-part". deps: [ "vfs-common" ]
+    {.title = "vfs-dev-part", .init = mgos_vfs_dev_part_init},
 
     // "vfs-fs-spiffs". deps: [ "vfs-common" ]
     {.title = "vfs-fs-spiffs", .init = mgos_vfs_fs_spiffs_init},
 
-    // "core". deps: [ "freertos" "mongoose" "ota-common" "vfs-common" "vfs-fs-lfs" "vfs-fs-spiffs" ]
+    // "core". deps: [ "mongoose" "ota-common" "vfs-common" "vfs-dev-part" "vfs-fs-spiffs" ]
     {.title = "core", .init = mgos_core_init},
 
     // "i2c". deps: [ "core" ]

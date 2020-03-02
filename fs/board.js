@@ -43,7 +43,7 @@ let switchLed = function(ledName) {
   print('[iOLED-FIRMWARE][switchLED]', ledName, ':', led.duty);
 
   print(ledName, 'state:', led.state ? 'true' : 'false');
-  print(ledName, 'intensity: ', led.duty);
+  print(ledName, 'intensity: ', 1 - led.duty);
 };
 
 /**
@@ -113,20 +113,25 @@ let turnOffLed = function(ledName) {
  * Normalize the value of the duty cycle between 0 - 1.
  * @param {string} ledName The led name from the board object.
  */
+GPIO.set_mode(12, GPIO.MODE_OUTPUT);
+
 let normDuty = function(ledName) {
   print('[iOLED-FIRMWARE][normDuty]', ledName);
 
   let led = board[ledName];
   if (led.duty >= 1) {
-    led.duty = led.onhi ? 1.0 : 0.0;
+    led.duty = 0;
+    GPIO.write(12, 1);
     print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
     return;
   }
   if (led.duty <= 0) {
-    led.duty = led.onhi ? 0.0 : 1.0;
+    led.duty = 1;
+    GPIO.write(12, 0);
     print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
     return;
   }
-  led.duty = led.onhi ? led.duty : 1.0 - led.duty;
+  GPIO.write(12, 1);
+  led.duty = 1 - led.duty;
   print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
 };

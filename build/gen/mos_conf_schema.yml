@@ -1,10 +1,6 @@
 - - i2c
   - o
   - title: I2C settings
-- - i2c.unit_no
-  - i
-  - 0
-  - title: Which hardware unit to use, 0 or 1
 - - i2c.enable
   - b
   - false
@@ -19,23 +15,23 @@
   - title: Debug I2C bus activity
 - - i2c.sda_gpio
   - i
-  - 32
+  - 12
   - title: GPIO to use for SDA
 - - i2c.scl_gpio
   - i
-  - 33
+  - 14
   - title: GPIO to use for SCL
 - - i2c1
   - i2c
   - title: I2C settings
-- - i2c1.unit_no
-  - 1
 - - i2c1.enable
   - false
+- - i2c1.freq
+  - 100000
 - - i2c1.sda_gpio
-  - 22
+  - 4
 - - i2c1.scl_gpio
-  - 23
+  - 5
 - - sys.atca
   - o
   - title: CryptoAuthLib configuration
@@ -121,6 +117,8 @@
   - s
   - '*'
   - title: Conf ACL
+- - device.id
+  - esp8266_??????
 - - device.location
   - o
   - title: Device location
@@ -631,28 +629,6 @@
   - b
   - true
   - title: Keep AP enabled when station is on
-- - wifi.ap.bandwidth_20mhz
-  - b
-  - false
-  - title: enable 20MHz bandwidth AP operation
-- - wifi.ap.protocol
-  - s
-  - BGN
-  - title: 802.11 Wi-Fi Protocol for AP Mode, defaults to BGN, can be any combination
-      of BGNLR. Note LR only works between 2 ESP32 devices.
-- - wifi.sta_ps_mode
-  - i
-  - 0
-  - title: 'Power save mode for station: 0 - none, 1 - min, 2 - max.'
-- - wifi.sta_all_chan_scan
-  - b
-  - false
-  - title: true to scan all channels or false to perform fast scan
-- - wifi.sta.protocol
-  - s
-  - BGN
-  - title: 802.11 Wi-Fi Protocol for STA Mode, defaults to BGN, can be any combination
-      of BGNLR. Note LR only works between 2 ESP32 devices.
 - - board
   - o
   - title: Board layout configuration
@@ -705,7 +681,9 @@
   - false
   - title: True if button is pulled up when inactive
 - - board.led1.pin
-  - 13
+  - 2
+- - board.led1.active_high
+  - false
 - - board.btn1.pin
   - 0
 - - board.btn1.pull_up
@@ -714,6 +692,10 @@
   - 0
 - - provision.btn.pull_up
   - true
+- - provision.led.pin
+  - 2
+- - provision.led.active_high
+  - false
 - - board.led1.active_high
   - b
   - true
@@ -724,10 +706,10 @@
   - title: Integrated Led duty cycle
 - - board.led1.freq
   - i
-  - 500
+  - 100
   - title: Integrated Led frequency
 - - board.led1.pin
-  - 13
+  - 5
 - - board.led1.state
   - b
   - true
@@ -738,7 +720,7 @@
   - title: Led current state
 - - board.neopixel.pin
   - i
-  - 19
+  - 15
   - title: Neopixel pin
 - - board.neopixel.pixels
   - i
@@ -781,11 +763,11 @@
   - title: Which hardware unit ot use, 0 or 1
 - - i2c.sda_gpio
   - i
-  - 18
+  - 0
   - title: GPIO to use for SDA
 - - i2c.scl_gpio
   - i
-  - 5
+  - 4
   - title: GPIO to use for SCL
 - - dash.enable
   - b
