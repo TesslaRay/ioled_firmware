@@ -11,6 +11,13 @@ let board = {
     pin: Cfg.get('board.led1.pin'),
     state: Cfg.get('board.led1.state'),
   },
+  led2: {
+    onhi: Cfg.get('board.led2.active_high'),
+    duty: Cfg.get('board.led2.duty'),
+    freq: Cfg.get('board.led2.freq'),
+    pin: Cfg.get('board.led2.pin'),
+    state: Cfg.get('board.led2.state'),
+  },
   timer: {
     timerOn: Cfg.get('board.timer.timerOn'),
     timerOff: Cfg.get('board.timer.timerOff'),
@@ -24,8 +31,13 @@ let board = {
 let initBoard = function() {
   print('[iOLED-FIRMWARE][initBoard]');
   print('Initializing board ...');
+
   GPIO.set_mode(board.led1.pin, GPIO.MODE_OUTPUT);
+  GPIO.set_mode(board.led2.pin, GPIO.MODE_OUTPUT);
+
   print('led1 pin:', board.led1.pin);
+  print('led2 pin:', board.led2.pin);
+
   applyBoardConfig();
 };
 
@@ -43,7 +55,7 @@ let switchLed = function(ledName) {
   print('[iOLED-FIRMWARE][switchLED]', ledName, ':', led.duty);
 
   print(ledName, 'state:', led.state ? 'true' : 'false');
-  print(ledName, 'intensity: ', 1 - led.duty);
+  print(ledName, 'intensity: ', led.duty);
 };
 
 /**
@@ -113,25 +125,26 @@ let turnOffLed = function(ledName) {
  * Normalize the value of the duty cycle between 0 - 1.
  * @param {string} ledName The led name from the board object.
  */
-GPIO.set_mode(12, GPIO.MODE_OUTPUT);
+
+GPIO.set_mode(0, GPIO.MODE_OUTPUT);
 
 let normDuty = function(ledName) {
   print('[iOLED-FIRMWARE][normDuty]', ledName);
 
   let led = board[ledName];
   if (led.duty >= 1) {
-    led.duty = 0;
-    GPIO.write(12, 1);
+    led.duty = 1;
+    GPIO.write(0, 1);
     print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
     return;
   }
   if (led.duty <= 0) {
-    led.duty = 1;
-    GPIO.write(12, 0);
+    led.duty = 0;
+    GPIO.write(0, 0);
     print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
     return;
   }
-  GPIO.write(12, 1);
-  led.duty = 1 - led.duty;
+  led.duty = led.duty;
+  GPIO.write(0, 1);
   print('[iOLED-FIRMWARE][normDuty]', ledName, ':', led.duty);
 };

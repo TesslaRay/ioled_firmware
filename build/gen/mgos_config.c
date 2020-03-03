@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_348045525/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_348045525/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_811448916/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_811448916/build/gen/mos_conf_schema.yml
  */
 
 #include "mgos_config.h"
@@ -10,8 +10,8 @@
 
 #include "mgos_config_util.h"
 
-const struct mgos_conf_entry mgos_config_schema_[258] = {
-  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 257},
+const struct mgos_conf_entry mgos_config_schema_[261] = {
+  {.type = CONF_TYPE_OBJECT, .key = "", .offset = 0, .num_desc = 260},
   {.type = CONF_TYPE_OBJECT, .key = "debug", .offset = offsetof(struct mgos_config, debug), .num_desc = 11},
   {.type = CONF_TYPE_STRING, .key = "udp_log_addr", .offset = offsetof(struct mgos_config, debug.udp_log_addr)},
   {.type = CONF_TYPE_INT, .key = "udp_log_level", .offset = offsetof(struct mgos_config, debug.udp_log_level)},
@@ -237,16 +237,19 @@ const struct mgos_conf_entry mgos_config_schema_[258] = {
   {.type = CONF_TYPE_STRING, .key = "dhcp_hostname", .offset = offsetof(struct mgos_config, wifi.sta2.dhcp_hostname)},
   {.type = CONF_TYPE_INT, .key = "sta_cfg_idx", .offset = offsetof(struct mgos_config, wifi.sta_cfg_idx)},
   {.type = CONF_TYPE_INT, .key = "sta_connect_timeout", .offset = offsetof(struct mgos_config, wifi.sta_connect_timeout)},
-  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 29},
+  {.type = CONF_TYPE_OBJECT, .key = "board", .offset = offsetof(struct mgos_config, board), .num_desc = 32},
   {.type = CONF_TYPE_OBJECT, .key = "led1", .offset = offsetof(struct mgos_config, board.led1), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led1.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led1.active_high)},
   {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led1.duty)},
   {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led1.freq)},
   {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led1.state)},
-  {.type = CONF_TYPE_OBJECT, .key = "led2", .offset = offsetof(struct mgos_config, board.led2), .num_desc = 2},
+  {.type = CONF_TYPE_OBJECT, .key = "led2", .offset = offsetof(struct mgos_config, board.led2), .num_desc = 5},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led2.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led2.active_high)},
+  {.type = CONF_TYPE_DOUBLE, .key = "duty", .offset = offsetof(struct mgos_config, board.led2.duty)},
+  {.type = CONF_TYPE_INT, .key = "freq", .offset = offsetof(struct mgos_config, board.led2.freq)},
+  {.type = CONF_TYPE_BOOL, .key = "state", .offset = offsetof(struct mgos_config, board.led2.state)},
   {.type = CONF_TYPE_OBJECT, .key = "led3", .offset = offsetof(struct mgos_config, board.led3), .num_desc = 2},
   {.type = CONF_TYPE_INT, .key = "pin", .offset = offsetof(struct mgos_config, board.led3.pin)},
   {.type = CONF_TYPE_BOOL, .key = "active_high", .offset = offsetof(struct mgos_config, board.led3.active_high)},
@@ -292,7 +295,7 @@ const struct mgos_config mgos_config_defaults = {
   .i2c.enable = 1,
   .i2c.freq = 100000,
   .i2c.debug = 0,
-  .i2c.sda_gpio = 0,
+  .i2c.sda_gpio = 5,
   .i2c.scl_gpio = 4,
   .i2c.unit_no = 0,
   .i2c1.enable = 0,
@@ -479,13 +482,16 @@ const struct mgos_config mgos_config_defaults = {
   .wifi.sta2.dhcp_hostname = NULL,
   .wifi.sta_cfg_idx = 0,
   .wifi.sta_connect_timeout = 30,
-  .board.led1.pin = 5,
+  .board.led1.pin = 14,
   .board.led1.active_high = 0,
   .board.led1.duty = 1.0,
   .board.led1.freq = 100,
   .board.led1.state = 1,
-  .board.led2.pin = -1,
+  .board.led2.pin = 12,
   .board.led2.active_high = 1,
+  .board.led2.duty = 1.0,
+  .board.led2.freq = 100,
+  .board.led2.state = 1,
   .board.led3.pin = -1,
   .board.led3.active_high = 1,
   .board.btn1.pin = 0,
@@ -2770,6 +2776,36 @@ int mgos_config_get_board_led2_active_high(struct mgos_config *cfg) {
 }
 void mgos_config_set_board_led2_active_high(struct mgos_config *cfg, int v) {
   cfg->board.led2.active_high = v;
+}
+
+/* board.led2.duty */
+#define MGOS_CONFIG_HAVE_BOARD_LED2_DUTY
+#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_DUTY
+double mgos_config_get_board_led2_duty(struct mgos_config *cfg) {
+  return cfg->board.led2.duty;
+}
+void mgos_config_set_board_led2_duty(struct mgos_config *cfg, double v) {
+  cfg->board.led2.duty = v;
+}
+
+/* board.led2.freq */
+#define MGOS_CONFIG_HAVE_BOARD_LED2_FREQ
+#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_FREQ
+int mgos_config_get_board_led2_freq(struct mgos_config *cfg) {
+  return cfg->board.led2.freq;
+}
+void mgos_config_set_board_led2_freq(struct mgos_config *cfg, int v) {
+  cfg->board.led2.freq = v;
+}
+
+/* board.led2.state */
+#define MGOS_CONFIG_HAVE_BOARD_LED2_STATE
+#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_STATE
+int mgos_config_get_board_led2_state(struct mgos_config *cfg) {
+  return cfg->board.led2.state;
+}
+void mgos_config_set_board_led2_state(struct mgos_config *cfg, int v) {
+  cfg->board.led2.state = v;
 }
 
 /* board.led3 */

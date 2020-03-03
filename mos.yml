@@ -8,12 +8,19 @@ modules_version: ${mos.version}
 mongoose_os_version: ${mos.version}
 
 config_schema:
-  # Integrated led config
+  # led1 config
   - ['board.led1.active_high', 'b', true, {title: 'True if LED is on when output is high (1)'}]
   - ['board.led1.duty', 'd', 1.0, {title: 'Integrated Led duty cycle'}]
   - ['board.led1.freq', 'i', 100, {title: 'Integrated Led frequency'}]
-  - ['board.led1.pin', 5]
+  - ['board.led1.pin', 14]
   - ['board.led1.state', 'b', true, {title: 'Integrated Led current state'}]
+
+  # led2 config
+  - ['board.led2.active_high', 'b', true, {title: 'True if LED is on when output is high (1)'}]
+  - ['board.led2.duty', 'd', 1.0, {title: 'Integrated Led duty cycle'}]
+  - ['board.led2.freq', 'i', 100, {title: 'Integrated Led frequency'}]
+  - ['board.led2.pin', 'i', 12, {title: 'Led pin for PWM'}]
+  - ['board.led2.state', 'b', true, {title: 'Integrated Led current state'}]
 
   # Neopixel config
   - ['board.neopixel.state', 'b', true, {title: 'Led current state'}]
@@ -36,7 +43,7 @@ config_schema:
   - ['i2c.enable', 'b', true, {title: 'Enable I2C'}]
   - ['i2c.freq', 'i', 100000, {title: 'I2C bus speed'}]
   - ['i2c.unit_no', 'i', 0, {title: 'Which hardware unit ot use, 0 or 1'}]
-  - ['i2c.sda_gpio', 'i', 0, {title: 'GPIO to use for SDA'}]
+  - ['i2c.sda_gpio', 'i', 5, {title: 'GPIO to use for SDA'}]
   - ['i2c.scl_gpio', 'i', 4, {title: 'GPIO to use for SCL'}]
 
   # Config for mDash

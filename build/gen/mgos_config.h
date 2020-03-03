@@ -1,7 +1,7 @@
 /* clang-format off */
 /*
  * Generated file - do not edit.
- * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_348045525/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_348045525/build/gen/mos_conf_schema.yml
+ * Command: /mongoose-os/tools/mgos_gen_config.py --c_name=mgos_config --c_global_name=mgos_sys_config --dest_dir=/data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_811448916/build/gen/ /mongoose-os/src/mgos_debug_udp_config.yaml /data/fwbuild-volumes/2.16.0/apps/ioled_firmware/esp8266/build_contexts/build_ctx_811448916/build/gen/mos_conf_schema.yml
  */
 
 #pragma once
@@ -238,6 +238,9 @@ struct mgos_config_board_led1 {
 struct mgos_config_board_led2 {
   int pin;
   int active_high;
+  double duty;
+  int freq;
+  int state;
 };
 
 struct mgos_config_board_led3 {
@@ -2140,6 +2143,30 @@ int mgos_config_get_board_led2_active_high(struct mgos_config *cfg);
 static inline int mgos_sys_config_get_board_led2_active_high(void) { return mgos_config_get_board_led2_active_high(&mgos_sys_config); }
 void mgos_config_set_board_led2_active_high(struct mgos_config *cfg, int v);
 static inline void mgos_sys_config_set_board_led2_active_high(int v) { mgos_config_set_board_led2_active_high(&mgos_sys_config, v); }
+
+/* board.led2.duty */
+#define MGOS_CONFIG_HAVE_BOARD_LED2_DUTY
+#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_DUTY
+double mgos_config_get_board_led2_duty(struct mgos_config *cfg);
+static inline double mgos_sys_config_get_board_led2_duty(void) { return mgos_config_get_board_led2_duty(&mgos_sys_config); }
+void mgos_config_set_board_led2_duty(struct mgos_config *cfg, double v);
+static inline void mgos_sys_config_set_board_led2_duty(double v) { mgos_config_set_board_led2_duty(&mgos_sys_config, v); }
+
+/* board.led2.freq */
+#define MGOS_CONFIG_HAVE_BOARD_LED2_FREQ
+#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_FREQ
+int mgos_config_get_board_led2_freq(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_led2_freq(void) { return mgos_config_get_board_led2_freq(&mgos_sys_config); }
+void mgos_config_set_board_led2_freq(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_led2_freq(int v) { mgos_config_set_board_led2_freq(&mgos_sys_config, v); }
+
+/* board.led2.state */
+#define MGOS_CONFIG_HAVE_BOARD_LED2_STATE
+#define MGOS_SYS_CONFIG_HAVE_BOARD_LED2_STATE
+int mgos_config_get_board_led2_state(struct mgos_config *cfg);
+static inline int mgos_sys_config_get_board_led2_state(void) { return mgos_config_get_board_led2_state(&mgos_sys_config); }
+void mgos_config_set_board_led2_state(struct mgos_config *cfg, int v);
+static inline void mgos_sys_config_set_board_led2_state(int v) { mgos_config_set_board_led2_state(&mgos_sys_config, v); }
 
 /* board.led3 */
 #define MGOS_CONFIG_HAVE_BOARD_LED3
