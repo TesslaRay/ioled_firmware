@@ -32,7 +32,7 @@ mos --port /dev/cu.usbserial-1430 mdash-setup device17 iAIe7HlWs91A5UHEGb6nc0A
 
 
 // Wifi Oficina iOLED
-mos --port /dev/cu.usbserial-1430 wifi VTR-4224955 km8Jnhbyc5qp
+mos wifi VTR-4224955 km8Jnhbyc5qp
 
 mos --port /dev/cu.usbserial-1430 wifi VTR-3465258 6dfvcjCCgcdf
 

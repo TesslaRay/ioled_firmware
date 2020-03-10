@@ -24,22 +24,30 @@ let pixel = 0;
  * @description Pixel blinks on network discover. Stop blinking when connected.
  * @see https://github.com/mongoose-os-libs/mjs/blob/master/fs/api_events.js
  */
+
 let netSearch = function() {
-	timerId = Timer.set(500, Timer.REPEAT,
-		function() {
-			let online = MQTT.isConnected();
-			//print(online);
-			
-			if (online === false){
-				pixel = (pixel + 1) % numPixels;
-				setOnePixel(pixel, orange);
-			} 
-			else {
-				setAllPixels(green);			
-			}	
-		},
-		null
-	);	
+  timerId = Timer.set(
+    500,
+    Timer.REPEAT,
+    function() {
+      let online = MQTT.isConnected();
+      //print(online);
+
+      if (online === false) {
+        GPIO.set_mode(2, GPIO.MODE_OUTPUT);
+        GPIO.toggle(2);
+
+        pixel = (pixel + 1) % numPixels;
+        setOnePixel(pixel, orange);
+      } else {
+        GPIO.set_mode(2, GPIO.MODE_OUTPUT);
+        GPIO.write(2, 0);
+
+        setAllPixels(green);
+      }
+    },
+    null,
+  );
 };
 
 /**
@@ -48,9 +56,9 @@ let netSearch = function() {
  * @param {{r: number, g: number, b: number}} color RGB color object.
  */
 let setOnePixel = function(index, color) {
-	strip.clear();
-	strip.setPixel(index, color.r, color.g, color.b);
-	strip.show();
+  strip.clear();
+  strip.setPixel(index, color.r, color.g, color.b);
+  strip.show();
 };
 
 /**
@@ -58,9 +66,9 @@ let setOnePixel = function(index, color) {
  * @param {{r: number, g: number, b: number}} color RGB color object.
  */
 let setAllPixels = function(color) {
-	strip.clear();
-	for (let i = 0; i < numPixels; i++) {
-		strip.setPixel(i, color.r, color.g, color.b);
-	}
-	strip.show();
+  strip.clear();
+  for (let i = 0; i < numPixels; i++) {
+    strip.setPixel(i, color.r, color.g, color.b);
+  }
+  strip.show();
 };
